@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Via Simbólica · com Guilherme Santana</title>
+<meta name="description" content="Consultas de astrologia tradicional, cursos e atendimento terapêutico com Guilherme Santana.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+<!--
+  COMO EDITAR ESTA PAGINA (direto no GitHub, sem programa nenhum)
+
+  1. LINKS DOS CARDS: procure href="#" e troque o # pelo endereco de destino
+     (pagina de vendas, WhatsApp, checkout, o que for).
+  2. PINTURAS: cada card tem style="--img:url('...')". Troque a URL entre aspas
+     para mudar a imagem de fundo daquele card.
+  3. TEXTOS: edite direto o texto dentro de cada card (eyebrow, titulo, descricao).
+  4. REDES: os tres botoes finais (YouTube, Instagram, Substack) tambem usam href="#".
+-->
+
+<style>
+  :root {
+    --marfim: #F2ECDF;
+    --noite: #0D1321;
+    --ouro: #C9A24B;
+    --ouro-escuro: #8A6D2F;
+    --neblina: #8B93A7;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--marfim);
+    color: var(--noite);
+    font-family: 'Baskervville', Georgia, serif;
+    padding: 52px 20px 40px;
+  }
+
+  .coluna {
+    max-width: 620px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  /* ===== Cabecalho ===== */
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
+    margin-bottom: 44px;
+  }
+
+  .selo { width: 84px; height: 84px; }
+
+  h1 {
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(40px, 9vw, 54px);
+    letter-spacing: 0.02em;
+    line-height: 1;
+  }
+
+  .tagline {
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.38em;
+    text-indent: 0.38em;
+    text-transform: uppercase;
+    color: var(--ouro-escuro);
+  }
+
+  /* ===== Divisores de secao ===== */
+  .secao {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 44px 4px 20px;
+  }
+
+  .secao:first-of-type { margin-top: 0; }
+
+  .secao .filete {
+    flex: 1;
+    height: 1px;
+    background: rgba(13, 19, 33, 0.18);
+  }
+
+  .secao .rotulo {
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ouro-escuro);
+    white-space: nowrap;
+  }
+
+  /* ===== Cards ===== */
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 14px;
+    min-height: 420px;
+    padding: 48px 30px;
+    margin-bottom: 18px;
+    border-radius: 22px;
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--marfim);
+    background-color: var(--noite);
+    background-image: linear-gradient(rgba(13,19,33,0.5), rgba(13,19,33,0.78)), var(--img);
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 34px rgba(13, 19, 33, 0.28);
+  }
+
+  .card:focus-visible,
+  .rede:focus-visible {
+    outline: 3px solid var(--ouro);
+    outline-offset: 3px;
+  }
+
+  .eyebrow {
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.35em;
+    text-indent: 0.35em;
+    text-transform: uppercase;
+    color: var(--ouro);
+  }
+
+  .titulo {
+    font-size: clamp(27px, 6vw, 34px);
+    line-height: 1.15;
+    text-shadow: 0 2px 14px rgba(13, 19, 33, 0.55);
+    max-width: 420px;
+  }
+
+  .sub {
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.55;
+    max-width: 330px;
+    opacity: 0.92;
+    text-shadow: 0 1px 8px rgba(13, 19, 33, 0.5);
+  }
+
+  .btn {
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-indent: 0.22em;
+    text-transform: uppercase;
+    color: #2A2008;
+    background: var(--ouro);
+    padding: 15px 38px;
+    border-radius: 999px;
+    margin-top: 10px;
+    transition: background 0.25s ease;
+  }
+
+  .card:hover .btn { background: #DBB666; }
+
+  /* ===== Redes ===== */
+  .redes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  .rede {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-height: 96px;
+    border-radius: 18px;
+    text-decoration: none;
+    color: var(--marfim);
+    transition: transform 0.25s ease;
+  }
+
+  .rede:hover { transform: translateY(-3px); }
+
+  .rede-acao {
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-indent: 0.3em;
+    text-transform: uppercase;
+    opacity: 0.75;
+  }
+
+  .rede-nome {
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .yt { background: #A62639; }
+  .ig { background: #2E6E5E; }
+  .sb { background: #1E3A2F; }
+
+  /* ===== Fechamento ===== */
+  .divisor-final {
+    height: 1px;
+    background: rgba(13, 19, 33, 0.18);
+    margin: 44px 4px 32px;
+  }
+
+  .assinatura {
+    font-style: italic;
+    font-size: clamp(20px, 5vw, 24px);
+    text-align: center;
+    line-height: 1.4;
+    max-width: 440px;
+    margin: 0 auto;
+  }
+
+  footer {
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-align: center;
+    color: rgba(13, 19, 33, 0.55);
+    margin-top: 36px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .card, .rede, .btn { transition: none; }
+    .card:hover, .rede:hover { transform: none; }
+  }
+</style>
+</head>
+<body>
+<div class="coluna">
+
+  <header>
+    <svg class="selo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="100" cy="100" r="96" fill="none" stroke="#8A6D2F" stroke-width="1.5"/>
+      <circle cx="100" cy="100" r="88" fill="none" stroke="#8A6D2F" stroke-width="7"
+              stroke-dasharray="1.5 13" opacity="0.55"/>
+      <circle cx="100" cy="100" r="76" fill="none" stroke="#8A6D2F" stroke-width="0.75" opacity="0.6"/>
+      <path d="M100,40 L107,100 L100,160 L93,100 Z" fill="#8A6D2F"/>
+      <path d="M40,100 L100,93 L160,100 L100,107 Z" fill="#8A6D2F"/>
+      <path d="M100,66 L105,100 L100,134 L95,100 Z" fill="#8A6D2F" opacity="0.75" transform="rotate(45 100 100)"/>
+      <path d="M100,66 L105,100 L100,134 L95,100 Z" fill="#8A6D2F" opacity="0.75" transform="rotate(135 100 100)"/>
+      <circle cx="100" cy="100" r="4" fill="#F2ECDF" stroke="#8A6D2F" stroke-width="1.5"/>
+    </svg>
+    <h1>via simb&oacute;lica</h1>
+    <span class="tagline">Com Guilherme Santana</span>
+  </header>
+
+  <!-- ============ SECAO I ============ -->
+  <div class="secao">
+    <span class="filete"></span>
+    <span class="rotulo">I &middot; Servi&ccedil;os de Astrologia</span>
+    <span class="filete"></span>
+  </div>
+
+  <a class="card" href="#" style="--img:url('https://commons.wikimedia.org/wiki/Special:FilePath/Starry_Night_Over_the_Rhone.jpg?width=1100')">
+    <span class="eyebrow">Consulta</span>
+    <span class="titulo">Consulta Natal</span>
+    <span class="sub">A leitura completa do seu mapa: temperamento, motiva&ccedil;&atilde;o prim&aacute;ria e cada &aacute;rea da sua vida, casa por casa.</span>
+    <span class="btn">Saiba mais</span>
+  </a>
+
+  <a class="card" href="#" style="--img:url('https://commons.wikimedia.org/wiki/Special:FilePath/Jean-Fran%C3%A7ois_Millet_-_The_Sower_-_Google_Art_Project.jpg?width=1100')">
+    <span class="eyebrow">Consulta</span>
+    <span class="titulo">An&aacute;lise Vocacional</span>
+    <span class="sub">Um estudo dedicado &agrave; sua voca&ccedil;&atilde;o: os talentos, as inclina&ccedil;&otilde;es e o caminho de trabalho indicados no seu mapa.</span>
+    <span class="btn">Saiba mais</span>
+  </a>
+
+  <a class="card" href="#" style="--img:url('https://commons.wikimedia.org/wiki/Special:FilePath/Pieter_Bruegel_the_Elder-_The_Harvesters_-_Google_Art_Project.jpg?width=1100')">
+    <span class="eyebrow">Consulta</span>
+    <span class="titulo">Retorno Solar</span>
+    <span class="sub">O mapa do seu novo ano de vida: o que o c&eacute;u do seu anivers&aacute;rio indica para o ciclo que come&ccedil;a.</span>
+    <span class="btn">Saiba mais</span>
+  </a>
+
+  <a class="card" href="#" style="--img:url('https://commons.wikimedia.org/wiki/Special:FilePath/Friedrich_-_Two_Men_Contemplating_the_Moon.jpg?width=1100')">
+    <span class="eyebrow">Consultas</span>
+    <span class="titulo">Mapas por &Aacute;rea da Vida</span>
+    <span class="sub">Leituras dedicadas a uma &aacute;rea espec&iacute;fica: finan&ccedil;as, fam&iacute;lia, relacionamentos ou vida intelectual e religiosa.</span>
+    <span class="btn">Saiba mais</span>
+  </a>
+
+  <!-- ============ SECAO II ============ -->
+  <div class="secao">
+    <span class="filete"></span>
+    <span class="rotulo">II &middot; Cursos</span>
+    <span class="filete"></span>
+  </div>
+
+  <a class="card" href="#" style="--img:url('https://commons.wikimedia.org/wiki/Special:FilePath/Anatomical_Man.jpg?width=1100')">
+    <span class="eyebrow">Curso</span>
+    <span class="titulo">A Psicologia das 12 Casas</span>
+    <span class="sub">As doze &aacute;reas da vida humana, unindo a cosmologia tradicional e a psicologia moderna.</span>
+    <span class="btn">Saiba mais</span>
+  </a>
+
+  <a class="card" href="#" style="--img:url('https://commons.wikimedia.org/wiki/Special:FilePath/D%C3%BCrer_Melancholia_I.jpg?width=1100')">
+    <span class="eyebrow">Curso</span>
+    <span class="titulo">Os Quatro Temperamentos</span>
+    <span class="sub">Melanc&oacute;lico, fleum&aacute;tico, sangu&iacute;neo e col&eacute;rico: a constitui&ccedil;&atilde;o que est&aacute; na base de quem voc&ecirc; &eacute;.</span>
+    <span class="btn">Saiba mais</span>
+  </a>
+
+  <a class="card" href="#" style="--img:url('https://commons.wikimedia.org/wiki/Special:FilePath/Wright_of_Derby,_The_Orrery.jpg?width=1100')">
+    <span class="eyebrow">Curso</span>
+    <span class="titulo">Manual Pr&aacute;tico de Astrologia</span>
+    <span class="sub">A forma&ccedil;&atilde;o para aprender a ler mapas do zero, na linha tradicional da astrologia.</span>
+    <span class="btn">Saiba mais</span>
+  </a>
+
+  <a class="card" href="#" style="--img:url('https://commons.wikimedia.org/wiki/Special:FilePath/Fragonard,_The_Reader.jpg?width=1100')">
+    <span class="eyebrow">Comunidade</span>
+    <span class="titulo">LiterAstro</span>
+    <span class="sub">A comunidade que une literatura e astrologia, com leituras e encontros ao longo do ano.</span>
+    <span class="btn">Saiba mais</span>
+  </a>
+
+  <!-- ============ SECAO III ============ -->
+  <div class="secao">
+    <span class="filete"></span>
+    <span class="rotulo">III &middot; Consulta Terap&ecirc;utica</span>
+    <span class="filete"></span>
+  </div>
+
+  <a class="card" href="#" style="--img:url('https://commons.wikimedia.org/wiki/Special:FilePath/Rembrandt_-_The_Philosopher_in_Meditation_(cleaned).jpg?width=1100')">
+    <span class="eyebrow">Atendimento</span>
+    <span class="titulo">Consulta Terap&ecirc;utica</span>
+    <span class="sub">Encontros individuais de escuta e orienta&ccedil;&atilde;o.</span>
+    <span class="btn">Saiba mais</span>
+  </a>
+
+  <!-- ============ REDES ============ -->
+  <div class="redes">
+    <a class="rede yt" href="#">
+      <span class="rede-acao">Assista</span>
+      <span class="rede-nome">YouTube</span>
+    </a>
+    <a class="rede ig" href="#">
+      <span class="rede-acao">Siga</span>
+      <span class="rede-nome">Instagram</span>
+    </a>
+    <a class="rede sb" href="#">
+      <span class="rede-acao">Leia</span>
+      <span class="rede-nome">Substack</span>
+    </a>
+  </div>
+
+  <div class="divisor-final"></div>
+
+  <p class="assinatura">A astrologia tradicional &eacute; a gram&aacute;tica do real.</p>
+
+  <footer>Via Simb&oacute;lica &middot; 2026</footer>
+
+</div>
+</body>
+</html>
