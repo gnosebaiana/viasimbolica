@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Via Simb&oacute;lica</title>
+<meta name="description" content="Cursos, consultas de astrologia tradicional e acompanhamento terap&ecirc;utico com Guilherme Santana.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=DM+Sans:wght@400;500;700&family=Baskervville:ital@1&display=swap" rel="stylesheet">
+
+<!--
+  VIA SIMBOLICA - PAGINA PRINCIPAL
+  1. CARDS: cada card aponta para a pasta da futura pagina interna do produto
+     (ex.: /espelho-de-venus). Enquanto a pasta nao existir no repositorio, o
+     clique mostra a pagina de "nao encontrado" do Vercel. Vamos criar uma a uma.
+  2. OBRAS: a pintura de cada card esta no style="--img:url('...')". Para trocar,
+     basta substituir a URL. O ajuste de enquadramento fino e o --pos (opcional).
+  3. REDES: os tres botoes finais ja estao com os links reais.
+-->
+
+<style>
+  :root {
+    --marfim: #F2EFE9;
+    --tinta: #2E2A26;
+    --ouro: #D2AC4C;
+    --escuro: #1E1B16;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--marfim);
+    font-family: 'DM Sans', Arial, sans-serif;
+    color: var(--tinta);
+  }
+
+  .coluna {
+    max-width: 830px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* ===== Assinatura ===== */
+  header {
+    text-align: center;
+    padding: 58px 0 42px;
+  }
+
+  .estrela { width: 46px; height: 36px; display: block; margin: 0 auto; }
+
+  .logotipo {
+    font-family: 'Great Vibes', cursive;
+    font-weight: 400;
+    font-size: clamp(44px, 8vw, 58px);
+    line-height: 1.1;
+    margin-top: 8px;
+    color: var(--tinta);
+  }
+
+  /* ===== Cards ===== */
+  .card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 384px;
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 26px;
+    text-decoration: none;
+    background-color: var(--escuro);
+    background-image: linear-gradient(rgba(22, 18, 13, 0.42), rgba(22, 18, 13, 0.62)), var(--img);
+    background-size: cover;
+    background-position: var(--pos, center);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 38px rgba(30, 27, 22, 0.28);
+  }
+
+  .card:focus-visible, .rede:focus-visible {
+    outline: 3px solid var(--ouro);
+    outline-offset: 3px;
+  }
+
+  .conteudo {
+    width: 56%;
+    margin-left: auto;
+    padding: 0 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 11px;
+  }
+
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.34em;
+    text-indent: 0.34em;
+    text-transform: uppercase;
+    color: #E3C05C;
+  }
+
+  .card h2 {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: #FFFFFF;
+    max-width: 340px;
+  }
+
+  .card p {
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.92);
+    max-width: 300px;
+  }
+
+  .btn {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-indent: 0.2em;
+    text-transform: uppercase;
+    color: #2A2208;
+    background: var(--ouro);
+    border-radius: 999px;
+    padding: 15px 48px;
+    margin-top: 9px;
+    transition: background 0.25s ease;
+  }
+
+  .card:hover .btn { background: #E2BE60; }
+
+  /* ===== Redes ===== */
+  .redes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 36px;
+  }
+
+  .rede {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border-radius: 14px;
+    padding: 24px 10px;
+    text-decoration: none;
+    transition: transform 0.25s ease;
+  }
+
+  .rede:hover { transform: translateY(-3px); }
+
+  .rede .acao {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-indent: 0.3em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .rede .nome {
+    font-size: 17px;
+    font-weight: 700;
+    color: #FFFFFF;
+  }
+
+  .yt { background: #C22743; }
+  .ig { background: #2F7261; }
+  .sb { background: #1F3D33; }
+
+  /* ===== Fechamento ===== */
+  .divisor {
+    border: none;
+    height: 1px;
+    background: rgba(46, 42, 38, 0.16);
+    margin: 46px 0 36px;
+  }
+
+  .assinatura-final {
+    font-family: 'Baskervville', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(21px, 4vw, 26px);
+    text-align: center;
+    padding-bottom: 56px;
+  }
+
+  /* ===== Celular ===== */
+  @media (max-width: 640px) {
+    .conteudo {
+      width: 100%;
+      padding: 0 26px;
+    }
+    .card h2 { font-size: 27px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .card, .rede, .btn { transition: none; }
+    .card:hover, .rede:hover { transform: none; }
+  }
+</style>
+</head>
+<body>
+<div class="coluna">
+
+  <header>
+    <svg class="estrela" viewBox="0 0 64 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M18 33 C30 27, 44 18, 60 8" fill="none" stroke="#2E2A26" stroke-width="1.7" stroke-linecap="round" opacity="0.6"/>
+      <path d="M20 40 C33 34, 47 25, 62 15" fill="none" stroke="#2E2A26" stroke-width="1.4" stroke-linecap="round" opacity="0.35"/>
+      <path d="M11 22 L13.3 31 L11 40 L8.7 31 Z" fill="#2E2A26"/>
+      <path d="M2 31 L11 28.9 L20 31 L11 33.1 Z" fill="#2E2A26"/>
+    </svg>
+    <h1 class="logotipo">via simb&oacute;lica</h1>
+  </header>
+
+  <main>
+
+    <a class="card" href="/espelho-de-venus" style="--img:url('https://commons.wikimedia.org/wiki/Special:FilePath/Diego_Vel%C3%A1zquez_-_Rokeby_Venus.jpg?width=1600'); --pos: 50% 38%">
+      <div class="conteudo">
+        <span class="eyebrow">Curso</span>
+        <h2>Espelho de V&ecirc;nus</h2>
+        <p>Descubra o que em voc&ecirc; atrai, encanta e fascina pelo olhar da astrologia.</p>
+        <span class="btn">Saiba mais</span>
+      </div>
+    </a>
+
+    <a class="card" href="/astrologia-em-4-atos" style="--img:url('https://commons.wikimedia.org/wiki/Special:FilePath/Antoine_Watteau_-_The_Italian_Comedians_-_Google_Art_Project.jpg?width=1600')">
+      <div class="conteudo">
+        <span class="eyebrow">Curso</span>
+        <h2>Astrologia em 4 Atos</h2>
+        <p>Comece a estudar astrologia entrando num teatro: os planetas s&atilde;o os atores, e o c&eacute;u, o palco.</p>
+        <span class="btn">Saiba mais</span>
+      </div>
+    </a>
+
+    <a class="card" href="/manual-pratico" style="--img:url('https://commons.wikimedia.org/wiki/Special:FilePath/Wright_of_Derby,_The_Orrery.jpg?width=1600')">
+      <div class="conteudo">
+        <span class="eyebrow">Forma&ccedil;&atilde;o</span>
+        <h2>Manual Pr&aacute;tico de Astrologia</h2>
+        <p>A forma&ccedil;&atilde;o completa para interpretar mapas natais, do princ&iacute;pio &agrave; pr&aacute;tica.</p>
+        <span class="btn">Saiba mais</span>
+      </div>
+    </a>
+
+    <a class="card" href="/literastro" style="--img:url('https://commons.wikimedia.org/wiki/Special:FilePath/Wilhelm_Bendz,_Kunstnere_i_Fincks_Kaffehus_i_M%C3%BCnchen,_1832,_B197,_Thorvaldsens_Museum.jpg?width=1600')">
+      <div class="conteudo">
+        <span class="eyebrow">Comunidade</span>
+        <h2>Comunidade LiterAstro</h2>
+        <p>A comunidade que une literatura e astrologia num s&oacute; lugar de estudo e amizade.</p>
+        <span class="btn">Saiba mais</span>
+      </div>
+    </a>
+
+    <a class="card" href="/mapa-natal" style="--img:url('https://commons.wikimedia.org/wiki/Special:FilePath/Vincent_van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg?width=1600'); --pos: 50% 30%">
+      <div class="conteudo">
+        <span class="eyebrow">Servi&ccedil;o</span>
+        <h2>Mapa Natal</h2>
+        <p>A leitura completa do seu c&eacute;u de nascimento: temperamento, motiva&ccedil;&atilde;o prim&aacute;ria e as &aacute;reas da sua vida.</p>
+        <span class="btn">Saiba mais</span>
+      </div>
+    </a>
+
+    <a class="card" href="/sinastria" style="--img:url('https://commons.wikimedia.org/wiki/Special:FilePath/Caspar_David_Friedrich_-_Auf_dem_Segler.jpg?width=1600'); --pos: 50% 55%">
+      <div class="conteudo">
+        <span class="eyebrow">Servi&ccedil;o</span>
+        <h2>Sinastria</h2>
+        <p>Dois mapas sobrepostos para entender o que cada um d&aacute;, pede e desperta no outro.</p>
+        <span class="btn">Saiba mais</span>
+      </div>
+    </a>
+
+    <a class="card" href="/pergunta-horaria" style="--img:url('https://commons.wikimedia.org/wiki/Special:FilePath/Michelangelo_-_Delphic_Sibyl.jpg?width=1600'); --pos: 50% 24%">
+      <div class="conteudo">
+        <span class="eyebrow">Servi&ccedil;o</span>
+        <h2>Pergunta Hor&aacute;ria</h2>
+        <p>Uma pergunta objetiva respondida pelo c&eacute;u do momento em que ela &eacute; feita.</p>
+        <span class="btn">Saiba mais</span>
+      </div>
+    </a>
+
+    <a class="card" href="/mini-mapas" style="--img:url('https://commons.wikimedia.org/wiki/Special:FilePath/Jan_Brueghel_I_%26_Peter_Paul_Rubens_-_Sight_(Museo_del_Prado).jpg?width=1600')">
+      <div class="conteudo">
+        <span class="eyebrow">Servi&ccedil;o</span>
+        <h2>Mini Mapas</h2>
+        <p>Leituras dedicadas a uma &aacute;rea da vida: dinheiro, fam&iacute;lia, amor, estudo ou voca&ccedil;&atilde;o.</p>
+        <span class="btn">Saiba mais</span>
+      </div>
+    </a>
+
+    <a class="card" href="/terapia" style="--img:url('https://commons.wikimedia.org/wiki/Special:FilePath/Advice_to_a_Young_Artist_by_Honor%C3%A9_Daumier_c1865-68.jpg?width=1600')">
+      <div class="conteudo">
+        <span class="eyebrow">Acompanhamento</span>
+        <h2>Terapia</h2>
+        <p>Encontros individuais e semanais para caminhar acompanhado na leitura da pr&oacute;pria vida.</p>
+        <span class="btn">Saiba mais</span>
+      </div>
+    </a>
+
+    <div class="redes">
+      <a class="rede yt" href="https://www.youtube.com/@aviasimbolica" target="_blank" rel="noopener">
+        <span class="acao">Assista</span>
+        <span class="nome">YouTube</span>
+      </a>
+      <a class="rede ig" href="https://www.instagram.com/viasimbolica/" target="_blank" rel="noopener">
+        <span class="acao">Siga</span>
+        <span class="nome">Instagram</span>
+      </a>
+      <a class="rede sb" href="https://substack.com/@viasimbolica" target="_blank" rel="noopener">
+        <span class="acao">Leia</span>
+        <span class="nome">Substack</span>
+      </a>
+    </div>
+
+    <hr class="divisor">
+
+    <p class="assinatura-final">A astrologia tradicional &eacute; a gram&aacute;tica do real.</p>
+
+  </main>
+
+</div>
+</body>
+</html>
