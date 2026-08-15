@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Espelho de Vênus · Via Simbólica</title>
+<meta name="description" content="Descubra o que em você encanta e atrai: 14 aulas sobre a sua Vênus, o ponto do mapa que mostra o seu charme.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=DM+Sans:wght@400;500;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<!--
+  ESPELHO DE VENUS - PAGINA DE VENDAS
+  1. CHECKOUT: o botao da oferta e o botao do meio da pagina; o primeiro rola ate
+     a secao #oferta e o da oferta dispara para a Kiwify.
+  2. OBRAS: Venus de Rokeby (Velazquez) no topo e Venus ao Espelho (Ticiano) na
+     terceira lamina, carregadas do Wikimedia Commons.
+  3. DEPOIMENTOS: transcritos dos prints, primeiro nome apenas, sem foto.
+-->
+
+<style>
+  :root {
+    --fundo: #F7F1EA;
+    --fundo2: #F2E7DC;
+    --tinta: #2E2A26;
+    --texto: #55483E;
+    --ouro: #C9A24B;
+    --ouro-escuro: #8A6D2F;
+    --rose: #B96A5B;
+    --linha: rgba(138, 109, 47, 0.25);
+    --branco: #FFFDFA;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--fundo);
+    color: var(--texto);
+    font-family: 'DM Sans', Arial, sans-serif;
+    line-height: 1.65;
+  }
+
+  .coluna { max-width: 1010px; margin: 0 auto; padding: 0 24px; }
+  .estreita { max-width: 660px; margin: 0 auto; }
+
+  h1, h2, h3 { font-family: 'Baskervville', Georgia, serif; font-weight: 400; color: var(--tinta); }
+
+  em { font-style: italic; color: var(--ouro-escuro); }
+
+  .eyebrow {
+    display: block;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.34em;
+    text-indent: 0.34em;
+    text-transform: uppercase;
+    color: var(--ouro-escuro);
+    margin-bottom: 18px;
+  }
+
+  h2 { font-size: clamp(28px, 4.5vw, 40px); margin-bottom: 22px; line-height: 1.2; }
+
+  .btn {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-indent: 0.2em;
+    text-transform: uppercase;
+    color: #2A2208;
+    background: var(--ouro);
+    border-radius: 999px;
+    padding: 17px 44px;
+    text-decoration: none;
+    transition: background 0.25s ease, transform 0.25s ease;
+  }
+
+  .btn:hover { background: #D8B45E; transform: translateY(-2px); }
+
+  .btn:focus-visible, a:focus-visible, summary:focus-visible {
+    outline: 3px solid var(--ouro-escuro);
+    outline-offset: 3px;
+  }
+
+  section { padding: 88px 0; }
+
+  .alt { background: var(--fundo2); }
+
+  .moldura {
+    border: 1px solid var(--linha);
+    border-radius: 14px;
+    padding: 10px;
+    background: var(--branco);
+    box-shadow: 0 16px 40px rgba(84, 62, 34, 0.12);
+  }
+
+  .moldura img { width: 100%; display: block; border-radius: 8px; }
+
+  /* ===== Lamina 1: hero ===== */
+  .hero {
+    min-height: 94vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 70px 24px 40px;
+    position: relative;
+    background:
+      radial-gradient(circle at 12% 10%, rgba(185, 106, 91, 0.10), transparent 40%),
+      radial-gradient(circle at 90% 26%, rgba(201, 162, 75, 0.14), transparent 42%),
+      var(--fundo);
+  }
+
+  .venus-selo {
+    font-family: 'Baskervville', Georgia, serif;
+    font-size: 30px;
+    color: var(--rose);
+    line-height: 1;
+  }
+
+  .hero .lockup { margin: 14px 0 34px; }
+
+  .hero .lockup .alto {
+    display: block;
+    font-size: clamp(15px, 3vw, 21px);
+    font-weight: 500;
+    letter-spacing: 0.5em;
+    text-indent: 0.5em;
+    text-transform: uppercase;
+    color: var(--tinta);
+  }
+
+  .hero .lockup .venus {
+    display: block;
+    font-family: 'Baskervville', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(58px, 12vw, 96px);
+    line-height: 1;
+    color: var(--tinta);
+    margin-top: 2px;
+  }
+
+  .hero .quadro { max-width: 760px; width: 100%; }
+
+  .hero .frase {
+    font-family: 'Baskervville', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(19px, 3.4vw, 25px);
+    color: var(--tinta);
+    margin-top: 30px;
+  }
+
+  .seta {
+    display: inline-block;
+    margin-top: 34px;
+    color: var(--ouro-escuro);
+    animation: descer 2.2s ease-in-out infinite;
+  }
+
+  .seta svg { display: block; }
+
+  @keyframes descer {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(9px); }
+  }
+
+  /* ===== Lamina 2: a dor ===== */
+  .quotes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+    margin: 38px 0;
+  }
+
+  .quote-card {
+    background: var(--branco);
+    border: 1px solid var(--linha);
+    border-radius: 14px;
+    padding: 28px 26px 24px;
+  }
+
+  .quote-card .aspas {
+    display: block;
+    font-family: 'Baskervville', Georgia, serif;
+    font-size: 44px;
+    line-height: 0.4;
+    color: var(--rose);
+    margin-bottom: 14px;
+  }
+
+  .quote-card p {
+    font-family: 'Baskervville', Georgia, serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--tinta);
+  }
+
+  .dor p.corrido { font-size: 16.5px; margin-bottom: 16px; }
+
+  /* ===== Lamina 3: a promessa ===== */
+  .duas-colunas {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 56px;
+    align-items: center;
+  }
+
+  .promessa p { font-size: 16.5px; margin-bottom: 16px; }
+
+  .promessa .fecho {
+    font-family: 'Baskervville', Georgia, serif;
+    font-style: italic;
+    font-size: 21px;
+    color: var(--tinta);
+  }
+
+  /* ===== Lamina 4: passos ===== */
+  .passos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+    margin-top: 40px;
+  }
+
+  .passo {
+    background: var(--branco);
+    border: 1px solid var(--linha);
+    border-radius: 14px;
+    padding: 30px 26px;
+  }
+
+  .passo .n {
+    display: block;
+    font-family: 'Baskervville', Georgia, serif;
+    font-size: 40px;
+    line-height: 1;
+    color: var(--ouro);
+    margin-bottom: 14px;
+  }
+
+  .passo h3 { font-size: 22px; margin-bottom: 10px; }
+
+  .passo p { font-size: 14.5px; }
+
+  /* ===== Lamina 5: o que tem dentro ===== */
+  .anatomia { list-style: none; margin: 30px 0 46px; max-width: 640px; }
+
+  .anatomia li {
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+    border-bottom: 1px solid var(--linha);
+    padding: 15px 4px;
+    font-size: 16.5px;
+    color: var(--tinta);
+  }
+
+  .anatomia .num {
+    font-family: 'Baskervville', Georgia, serif;
+    font-size: 19px;
+    color: var(--rose);
+    flex: 0 0 34px;
+  }
+
+  .aulas-abre {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-bottom: 26px;
+  }
+
+  .aula-card {
+    background: var(--branco);
+    border: 1px solid var(--linha);
+    border-radius: 14px;
+    padding: 26px;
+  }
+
+  .aula-card .rot {
+    display: block;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--ouro-escuro);
+    margin-bottom: 10px;
+  }
+
+  .aula-card h3 { font-size: 21px; margin-bottom: 8px; }
+
+  .aula-card p { font-size: 14.5px; }
+
+  .signos-rot {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-indent: 0.3em;
+    text-transform: uppercase;
+    color: var(--ouro-escuro);
+    text-align: center;
+    display: block;
+    margin: 26px 0 16px;
+  }
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .chip {
+    font-family: 'Baskervville', Georgia, serif;
+    font-size: 16px;
+    color: var(--tinta);
+    border: 1px solid var(--linha);
+    background: var(--branco);
+    border-radius: 999px;
+    padding: 9px 20px;
+  }
+
+  .cta-meio { text-align: center; margin-top: 46px; }
+
+  /* ===== Lamina 6: para quem ===== */
+  .para-quem {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-top: 38px;
+  }
+
+  .pq-card {
+    background: var(--branco);
+    border: 1px solid var(--linha);
+    border-radius: 14px;
+    padding: 32px 28px;
+  }
+
+  .pq-card h3 { font-size: 23px; margin-bottom: 10px; }
+
+  .pq-card p { font-size: 15px; }
+
+  .amarra {
+    text-align: center;
+    font-family: 'Baskervville', Georgia, serif;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--tinta);
+    margin-top: 34px;
+  }
+
+  /* ===== Lamina 7: alunas ===== */
+  .carrossel-wrap { margin: 34px -24px 0; }
+
+  .carrossel {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 6px 24px 16px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .carrossel::-webkit-scrollbar { display: none; }
+
+  .depo {
+    flex: 0 0 84%;
+    max-width: 400px;
+    scroll-snap-align: center;
+    background: var(--branco);
+    border: 1px solid var(--linha);
+    border-radius: 14px;
+    padding: 30px 28px 24px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .depo .aspas {
+    display: block;
+    font-family: 'Baskervville', Georgia, serif;
+    font-size: 46px;
+    line-height: 0.4;
+    color: var(--rose);
+    margin-bottom: 16px;
+  }
+
+  .depo p { font-size: 15px; color: var(--tinta); }
+
+  .depo .quem {
+    display: block;
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--linha);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ouro-escuro);
+  }
+
+  .dica {
+    text-align: center;
+    font-size: 11.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ouro-escuro);
+    opacity: 0.8;
+  }
+
+  /* ===== Lamina 8: oferta ===== */
+  .card-oferta {
+    max-width: 560px;
+    margin: 40px auto 0;
+    background: var(--branco);
+    border: 1px solid var(--ouro);
+    border-radius: 18px;
+    padding: 46px 40px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(84, 62, 34, 0.14);
+  }
+
+  .card-oferta .tag {
+    display: inline-block;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: #2A2208;
+    background: var(--ouro);
+    border-radius: 999px;
+    padding: 7px 18px;
+    margin-bottom: 22px;
+  }
+
+  .lista-check { list-style: none; text-align: left; margin-bottom: 28px; }
+
+  .lista-check li {
+    position: relative;
+    padding: 0 0 0 40px;
+    margin-bottom: 14px;
+    font-size: 15px;
+    color: var(--tinta);
+  }
+
+  .lista-check li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    width: 25px;
+    height: 25px;
+    border: 1px solid var(--ouro-escuro);
+    border-radius: 50%;
+    color: var(--ouro-escuro);
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .preco-num {
+    font-family: 'Baskervville', Georgia, serif;
+    font-size: 52px;
+    line-height: 1;
+    color: var(--tinta);
+  }
+
+  .preco-nota { font-size: 15px; margin: 8px 0 26px; }
+
+  .garantia {
+    font-size: 13px;
+    margin-top: 20px;
+    color: var(--texto);
+  }
+
+  /* ===== Lamina 9: FAQ ===== */
+  details { border-bottom: 1px solid var(--linha); padding: 20px 4px; }
+
+  summary {
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    font-size: 16.5px;
+    font-weight: 500;
+    color: var(--tinta);
+  }
+
+  summary::-webkit-details-marker { display: none; }
+
+  summary::after {
+    content: "+";
+    font-family: 'Baskervville', Georgia, serif;
+    font-size: 24px;
+    color: var(--ouro-escuro);
+    flex: 0 0 auto;
+  }
+
+  details[open] summary::after { content: "−"; }
+
+  details p { padding: 14px 4px 4px; font-size: 15px; max-width: 660px; }
+
+  /* ===== Rodape ===== */
+  footer {
+    text-align: center;
+    padding: 66px 24px 58px;
+    border-top: 1px solid var(--linha);
+  }
+
+  footer .estrela { width: 42px; height: 32px; display: block; margin: 0 auto 6px; }
+
+  footer .logotipo {
+    font-family: 'Great Vibes', cursive;
+    font-size: 34px;
+    color: var(--tinta);
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  footer .mini {
+    display: block;
+    margin-top: 14px;
+    font-size: 11.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(46, 42, 38, 0.5);
+  }
+
+  /* ===== Celular ===== */
+  @media (max-width: 860px) {
+    section { padding: 66px 0; }
+    .duas-colunas, .aulas-abre, .para-quem { grid-template-columns: 1fr; gap: 32px; }
+    .hero .quadro img { height: 320px; object-fit: cover; object-position: 42% 32%; }
+    .promessa-moldura { max-width: 360px; margin: 0 auto; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .btn { transition: none; }
+    .btn:hover { transform: none; }
+    .seta { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== LAMINA 1: HERO ===== -->
+<header class="hero">
+  <span class="venus-selo">♀</span>
+  <div class="lockup">
+    <span class="alto">Espelho de</span>
+    <span class="venus">Vênus</span>
+  </div>
+  <div class="quadro moldura">
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Diego_Vel%C3%A1zquez_-_Rokeby_Venus.jpg?width=1600" alt="A Vênus ao Espelho, de Velázquez: Vênus deitada contempla o próprio rosto no espelho">
+  </div>
+  <p class="frase">Descubra o que em você encanta e atrai.</p>
+  <a class="seta" href="#dor" aria-label="Descer para conhecer o curso">
+    <svg width="26" height="30" viewBox="0 0 26 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M13 2 V26 M4 18 L13 27 L22 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </a>
+</header>
+
+<!-- ===== LAMINA 2: A DOR ===== -->
+<section class="dor alt" id="dor">
+  <div class="coluna estreita">
+    <span class="eyebrow">Você se reconhece?</span>
+    <h2>Toda comparação nasce de um espelho <em>embaçado</em></h2>
+    <div class="quotes">
+      <div class="quote-card">
+        <span class="aspas">&ldquo;</span>
+        <p>Me vejo como alguém sem sal, sem algo que atraia o outro.</p>
+      </div>
+      <div class="quote-card">
+        <span class="aspas">&ldquo;</span>
+        <p>Não tem nada em mim que eu ache especial... eu me sinto normal, mesmo.</p>
+      </div>
+      <div class="quote-card">
+        <span class="aspas">&ldquo;</span>
+        <p>Não entendo por que algumas amigas chamam tanta atenção e eu não.</p>
+      </div>
+    </div>
+    <p class="corrido">A mulher que se sente assim passa a viver de comparação: repara na conversa de uma, no cabelo da outra, no jeito como os homens olham para a amiga. E vai tentando, uma a uma, as receitas que funcionaram para elas, vestindo brilhos que nasceram para outra mulher.</p>
+    <p class="corrido">O seu charme existe, está vivo e mora com você desde o dia em que você nasceu. Você só precisa aprender a enxergar o que ninguém te ensinou a ver.</p>
+  </div>
+</section>
+
+<!-- ===== LAMINA 3: A PROMESSA ===== -->
+<section class="promessa">
+  <div class="coluna">
+    <div class="duas-colunas">
+      <div>
+        <span class="eyebrow">O espelho limpo</span>
+        <h2>Cada mulher encanta de um <em>jeito</em></h2>
+        <p>Há mulheres que atraem pela conversa que prende. Outras, pelo cuidado que acolhe. Há as que encantam pela intensidade do olhar, as que seduzem pela elegância discreta, as que fascinam pela alegria que ilumina a sala.</p>
+        <p>A astrologia chama esse jeito de Vênus. Toda mulher nasce com Vênus em um dos doze signos, e é ela que mostra como você ama e o que em você atrai.</p>
+        <p class="fecho">Você tem o seu jeito. Ele está marcado no seu mapa desde que você nasceu. Falta descobrir qual é.</p>
+      </div>
+      <div class="moldura promessa-moldura">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Titian_-_Venus_with_a_Mirror_-_Google_Art_Project.jpg?width=1100" alt="Vênus ao Espelho, de Ticiano: Vênus se contempla no espelho sustentado pelo Cupido">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LAMINA 4: COMO FUNCIONA ===== -->
+<section class="alt">
+  <div class="coluna">
+    <div class="estreita">
+      <span class="eyebrow">Como funciona</span>
+      <h2>Três passos até o seu <em>espelho</em></h2>
+    </div>
+    <div class="passos">
+      <div class="passo">
+        <span class="n">1</span>
+        <h3>Encontre a sua Vênus</h3>
+        <p>Você só precisa do dia, do mês e do ano em que nasceu. Sem hora e sem local: a aula II mostra onde procurar, em dois minutos.</p>
+      </div>
+      <div class="passo">
+        <span class="n">2</span>
+        <h3>Assista à aula do seu signo</h3>
+        <p>Cerca de vinte minutos sobre a sua Vênus: o arquétipo, o charme, os erros e as dicas.</p>
+      </div>
+      <div class="passo">
+        <span class="n">3</span>
+        <h3>Saiba o que fazer</h3>
+        <p>Você sai da aula sabendo o que em você atrai e o que valorizar na prática, do seu jeito de ser.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LAMINA 5: O QUE TEM DENTRO ===== -->
+<section>
+  <div class="coluna">
+    <div class="estreita">
+      <span class="eyebrow">O que tem dentro</span>
+      <h2>Catorze aulas, e uma delas é <em>sobre você</em></h2>
+      <p>Cada aula de signo segue o mesmo caminho:</p>
+      <ul class="anatomia">
+        <li><span class="num">01</span> O arquétipo do signo</li>
+        <li><span class="num">02</span> A sua Vênus nele</li>
+        <li><span class="num">03</span> Onde está o seu charme</li>
+        <li><span class="num">04</span> Os erros que essa Vênus comete sem perceber</li>
+        <li><span class="num">05</span> As dicas práticas</li>
+      </ul>
+    </div>
+    <div class="aulas-abre">
+      <div class="aula-card">
+        <span class="rot">Aula I</span>
+        <h3>Espelho de Vênus</h3>
+        <p>O que Vênus é, o seu simbolismo e o que ela significa no mapa de uma mulher.</p>
+      </div>
+      <div class="aula-card">
+        <span class="rot">Aula II</span>
+        <h3>Onde está a sua Vênus?</h3>
+        <p>Como encontrar a sua, só com a data de nascimento, em dois minutos.</p>
+      </div>
+    </div>
+    <span class="signos-rot">Aulas III a XIV · A sua Vênus em cada signo</span>
+    <div class="chips">
+      <span class="chip">Áries</span>
+      <span class="chip">Touro</span>
+      <span class="chip">Gêmeos</span>
+      <span class="chip">Câncer</span>
+      <span class="chip">Leão</span>
+      <span class="chip">Virgem</span>
+      <span class="chip">Libra</span>
+      <span class="chip">Escorpião</span>
+      <span class="chip">Sagitário</span>
+      <span class="chip">Capricórnio</span>
+      <span class="chip">Aquário</span>
+      <span class="chip">Peixes</span>
+    </div>
+    <div class="cta-meio">
+      <a class="btn" href="#oferta">Quero descobrir a minha Vênus</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LAMINA 6: PARA QUEM ===== -->
+<section class="alt">
+  <div class="coluna estreita">
+    <span class="eyebrow">Para quem é</span>
+    <h2>Para a solteira e para a <em>casada</em></h2>
+    <div class="para-quem">
+      <div class="pq-card">
+        <h3>Para a solteira</h3>
+        <p>Saber o que valorizar em si para atrair um bom homem, sem imitar ninguém.</p>
+      </div>
+      <div class="pq-card">
+        <h3>Para a casada</h3>
+        <p>Entender por que ele se apaixonou por você, e o que faz ele se apaixonar de novo todos os dias.</p>
+      </div>
+    </div>
+    <p class="amarra">O espelho é o mesmo, porque a natureza é a mesma: a sua.</p>
+  </div>
+</section>
+
+<!-- ===== LAMINA 7: ALUNAS ===== -->
+<section>
+  <div class="coluna">
+    <div class="estreita">
+      <span class="eyebrow">Alunas</span>
+      <h2>Mais de 200 mulheres já se <em>viram</em></h2>
+    </div>
+    <div class="carrossel-wrap">
+      <div class="carrossel">
+        <div class="depo">
+          <span class="aspas">&ldquo;</span>
+          <p>Eu sempre tive muitas dúvidas em relação a como atrair e agradar meu marido, como me sentir atraente, e acabava tentando copiar outras mulheres, ouvindo conselhos genéricos. Agora isso está resolvido: saber a minha natureza tirou esse peso.</p>
+          <span class="quem">Aluna do Espelho de Vênus</span>
+        </div>
+        <div class="depo">
+          <span class="aspas">&ldquo;</span>
+          <p>Na aula sobre Vênus em Câncer, você comentou sobre conchas. Sempre gostei de catar conchas na areia e ouvir o som do mar através delas. Eu selecionava as mais bonitas, com cores diferentes, para levar para casa.</p>
+          <span class="quem">Bárbara · Vênus em Câncer</span>
+        </div>
+        <div class="depo">
+          <span class="aspas">&ldquo;</span>
+          <p>Gostei muito da aula de Vênus em Peixes. Sou assim demais: nunca quero desistir de um amor.</p>
+          <span class="quem">Heloisa · Vênus em Peixes</span>
+        </div>
+        <div class="depo">
+          <span class="aspas">&ldquo;</span>
+          <p>Estou fascinada com a aula de Vênus em Escorpião.</p>
+          <span class="quem">Fernanda · Vênus em Escorpião</span>
+        </div>
+      </div>
+    </div>
+    <p class="dica">Arraste para o lado</p>
+  </div>
+</section>
+
+<!-- ===== LAMINA 8: OFERTA ===== -->
+<section class="alt" id="oferta">
+  <div class="coluna">
+    <div class="estreita" style="text-align: center;">
+      <span class="eyebrow">A oferta</span>
+      <h2>Veja-se no Espelho de <em>Vênus</em></h2>
+    </div>
+    <div class="card-oferta">
+      <span class="tag">Espelho de Vênus</span>
+      <ul class="lista-check">
+        <li>14 aulas gravadas, de cerca de 20 minutos cada.</li>
+        <li>A aula da sua Vênus, e a de cada um dos doze signos.</li>
+        <li>Acesso imediato e vitalício: as aulas ficam suas para sempre.</li>
+        <li>Garantia incondicional de 7 dias.</li>
+      </ul>
+      <p class="preco-num">R$ 37</p>
+      <p class="preco-nota">ou 8x de R$ 5,38</p>
+      <a class="btn" href="https://pay.kiwify.com.br/jNcaNLd">Quero me ver no Espelho de Vênus</a>
+      <p class="garantia">Se em até 7 dias você sentir que o curso não é para você, devolvemos todo o seu dinheiro. Basta pedir.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LAMINA 9: FAQ ===== -->
+<section>
+  <div class="coluna estreita">
+    <span class="eyebrow">Dúvidas frequentes</span>
+    <h2>Perguntas e respostas</h2>
+    <details>
+      <summary>Preciso saber astrologia para fazer o curso?</summary>
+      <p>Você pode chegar do zero. As aulas explicam tudo o que você precisa no caminho, começando pelo que Vênus é.</p>
+    </details>
+    <details>
+      <summary>Não sei minha hora de nascimento. Posso fazer?</summary>
+      <p>Pode. Para encontrar a sua Vênus bastam o dia, o mês e o ano do nascimento. A aula II mostra como, em dois minutos.</p>
+    </details>
+    <details>
+      <summary>Sou casada. O curso serve para mim?</summary>
+      <p>Serve. Muitas alunas são casadas e usam o curso para entender o que faz o marido se apaixonar por elas todos os dias.</p>
+    </details>
+    <details>
+      <summary>Quando recebo o acesso?</summary>
+      <p>Na hora. Depois da compra, o acesso chega no seu e-mail e as aulas ficam suas para sempre: o acesso é vitalício.</p>
+    </details>
+    <details>
+      <summary>E se eu não gostar?</summary>
+      <p>Você tem 7 dias de garantia incondicional. Basta pedir e devolvemos o valor.</p>
+    </details>
+  </div>
+</section>
+
+<!-- ===== RODAPE ===== -->
+<footer>
+  <svg class="estrela" viewBox="0 0 64 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M18 33 C30 27, 44 18, 60 8" fill="none" stroke="#8A6D2F" stroke-width="1.7" stroke-linecap="round" opacity="0.6"/>
+    <path d="M20 40 C33 34, 47 25, 62 15" fill="none" stroke="#8A6D2F" stroke-width="1.4" stroke-linecap="round" opacity="0.35"/>
+    <path d="M11 22 L13.3 31 L11 40 L8.7 31 Z" fill="#8A6D2F"/>
+    <path d="M2 31 L11 28.9 L20 31 L11 33.1 Z" fill="#8A6D2F"/>
+  </svg>
+  <a class="logotipo" href="/">via simbólica</a>
+  <span class="mini">Espelho de Vênus · Via Simbólica · 2026</span>
+</footer>
+
+</body>
+</html>
