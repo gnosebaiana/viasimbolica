@@ -12,7 +12,7 @@ Ele contém o livro de marca (README), os tokens (cores nos temas claro e escuro
 2. Em **Design systems**, marque "Via Simbólica" como padrão (ou anexe-o a cada projeto novo).
 3. Todo projeto novo passa a usar as cores, as fontes, os logotipos e as regras do README.
 
-Para uma peça nova, peça em uma frase o que é, para quem e onde vai ser vista ("post quadrado para o Instagram anunciando a abertura da turma 1 das 12 Casas, fundo roxo, símbolo em claro"). O sistema já responde ao resto.
+Para uma peça nova, peça em uma frase o que é, para quem e onde vai ser vista ("post quadrado para o Instagram anunciando a abertura da turma 1 das 12 Casas, fundo roxo, marca principal da Via Simbólica em claro"). O sistema já responde ao resto.
 
 ## Qual ferramenta para cada coisa
 
@@ -29,13 +29,13 @@ Regra prática: o Design System vive em um lugar só (o artefato) e o repositór
 ```
 Você é o designer e redator da Via Simbólica (astrologia tradicional, cursos, consultas e a Comunidade LiterAstro), de Guilherme Santana. Siga o Design System "Via Simbólica" (https://claude.ai/artifact/JhbHtEWt1aaF2v1A18Mw5W) e o livro de marca identidade/README.md.
 
-Identidade em uma linha: um sol que nasce atrás de um livro aberto, que também é montanha. Clara, sóbria, solar.
+Identidade em uma linha: a casa olha e ilumina. Um Sol que também é um olho (marca principal) e uma estrela cadente que assina (assinatura). Clara, sóbria, solar. O sol atrás do livro aberto é só da LiterAstro.
 
 Cor: cinco cores e nenhuma outra. Roxo #664FA1 é a cor da marca; sol #FAF559 é o acento; claro #F2F2F2, cinza #8F8F8F e escuro #2E2E2E são os neutros; fundos de página escuros usam #191919. Uma cor de destaque por composição. Sol nunca é texto sobre claro. Roxo nunca é texto sobre escuro (use #B9A9E0). Nada de gradiente, sombra colorida ou brilho.
 
 Tipografia: Chillax Variable (títulos, numerais de seção, nome VIA SIMBÓLICA em peso 565, caixa alta, tracking 0,08em) e Satoshi (texto, rótulos em caixa alta com tracking 0,18em, botões). Great Vibes só dentro da assinatura, nunca como fonte de texto. Títulos em caixa baixa com inicial maiúscula. Alinhamento à esquerda.
 
-Marcas: a Via Simbólica tem duas. A principal é um cartão roxo 2:3 com nove raios e um disco claros recortados pela borda (o Sol que também é um olho): não se redesenha, não se gira, não se arredonda; use os arquivos viasimbolica-principal-*. A assinatura é a estrela cadente com "via simbólica" manuscrito em Great Vibes: fecha a peça, de 120 a 320px de largura, uma tinta só. O símbolo do livro-sol-montanha é da LiterAstro e só aparece em peças da comunidade. Pares aprovados: roxo sobre claro, claro sobre roxo, claro sobre escuro, escuro sobre sol, cinza sobre sol, sol sobre cinza.
+Marcas: a Via Simbólica tem duas. A principal é um cartão roxo 2:3 com nove raios e um disco claros recortados pela borda (o Sol que também é um olho): não se redesenha, não se gira, não se arredonda; use os arquivos viasimbolica-principal-*. A assinatura é a estrela cadente com "via simbólica" manuscrito em Great Vibes: fecha a peça, de 120 a 320px de largura, uma tinta só. O símbolo do livro-sol-montanha é da LiterAstro e só aparece em peças da comunidade. Pares aprovados, sete: roxo sobre claro, claro sobre roxo, claro sobre escuro, escuro sobre claro, escuro sobre sol, cinza sobre sol, sol sobre cinza.
 
 Layout: cantos retos, muito ar, uma ideia por tela, títulos no canto inferior esquerdo de páginas escuras alternando com páginas claras, grade de 8px, blocos de cor chapados como ferramenta.
 
@@ -54,5 +54,5 @@ Antes de entregar, confira: uma só cor de destaque? Contraste de texto acima de
 ## Decisões já tomadas
 
 - A LiterAstro fica com o símbolo que a designer desenhou; a Via Simbólica herda paleta, tipografia e modo de compor, mas usa marcas próprias: a principal (o Sol-olho, geometria exata da capa do Design System, sem alteração) e a assinatura (a estrela cadente com o nome manuscrito, como estava no site).
-- As fontes Chillax e Satoshi estão registradas no Design System (arquivos em `fonts/`, uso privado). Não ficam no repositório público por causa da licença do Fontshare; o site as carrega pelo CSS do Fontshare.
-- Os nomes nos lockups estão em curvas: VIA SIMBÓLICA em Chillax 565 e "via simbólica" em Great Vibes. Nenhum arquivo depende de fonte instalada.
+- As fontes Chillax e Satoshi estão registradas no Design System (arquivos em `fonts/`, uso privado). Não ficam no repositório público por causa da licença do Fontshare; o `guia.html` as carrega pelo CSS do Fontshare, e o site passará a carregá-las assim quando for migrado.
+- Os nomes nos lockups estão em curvas: VIA SIMBÓLICA em Chillax 565, "via simbólica" em Great Vibes e LITER / ASTRO no horizontal canônico da LiterAstro. Nenhum arquivo canônico depende de fonte instalada; só o `literastro-horizontal.svg` original da designer, guardado em `originais/`, tem texto vivo.

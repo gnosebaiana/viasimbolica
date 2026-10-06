@@ -12,7 +12,7 @@
 | `fontes/README.md` | onde baixar as fontes, licença, como carregar |
 | `logos/svg/viasimbolica/` | as duas marcas da Via Simbólica: principal (cartão, pares, marcas soltas, avatar, lockups) e assinatura, nomes em curvas |
 | `logos/svg/literastro/` | o símbolo da LiterAstro em uma tinta (canônico), `pares-aprovados/` e `originais/` (arquivos da designer, intactos) |
-| `logos/png/viasimbolica/`, `logos/png/literastro/` | PNG de 4000px de cada marca |
+| `logos/png/viasimbolica/`, `logos/png/literastro/` | PNG de 4000px de cada marca, exportados dos SVG canônicos; `logos/png/literastro/originais/` guarda os PNG da designer (cores arredondadas, dois com 4001px) |
 | `referencia/` | o deck original da identidade |
 
 ---
@@ -21,7 +21,7 @@ Via Simbólica é a casa de Guilherme Santana: cursos, consultas de astrologia t
 
 ## Como usar este sistema
 
-Comece pela paleta e pela tipografia; o resto decorre delas. Os tokens de cor têm dois temas, `claro` (principal) e `escuro`; cada nota de uso diz sobre quais fundos a cor é legível. As marcas estão em `assets/Marcas-Via-Simbolica` (as da casa) e em `assets/LiterAstro` (as da comunidade), como SVG de uma tinta só, com uma variante por cor, porque `<img>` não herda cor de CSS. Os pares de tinta e fundo aprovados pela designer estão em `assets/Pares-aprovados`. O deck original está em `assets/Referencia`. As fontes estão em `fonts/`.
+Comece pela paleta e pela tipografia; o resto decorre delas. Os tokens de cor têm dois temas, `claro` (principal) e `escuro`; cada nota de uso diz sobre quais fundos a cor é legível. As marcas estão em `assets/Marcas-Via-Simbolica` (as da casa) e em `assets/LiterAstro` (as da comunidade), como SVG de cores fixas (uma tinta só, ou tinta e cartão nos pares da principal), com uma variante por cor ou par, porque `<img>` não herda cor de CSS. Os pares de tinta e fundo aprovados pela designer estão em `assets/Pares-aprovados`. O deck original está em `assets/Referencia`. As fontes estão em `fonts/`.
 
 ## Essência
 
@@ -43,16 +43,16 @@ Três palavras guiam qualquer decisão: **clara** (nada que precise de legenda),
 
 ## Cor
 
-A paleta tem cinco cores e nenhuma outra: `sol` #FAF559, `roxo` #664FA1, o claro #F2F2F2 (`fundo` no tema claro), `cinza` #8F8F8F e o escuro #2E2E2E (`tinta` no tema claro). Os arquivos SVG exportados pela designer trazem valores arredondados (#F9F458, #674FA0, #8F908E, #2D2D2D); os valores do deck são os canônicos.
+A paleta da designer tem cinco cores: `sol` #FAF559, `roxo` #664FA1, o claro #F2F2F2 (`fundo` no tema claro), `cinza` #8F8F8F e o escuro #2E2E2E (`tinta` no tema claro). O sistema acrescenta só neutros derivados para fundo, papel, filete e texto secundário (`fundo` escuro #191919 e `papel` claro #FFFFFF, que são os fundos do deck; `linha`; `tinta-suave`; `veu`) e `roxo-claro` #B9A9E0 para o roxo legível no escuro; nenhuma outra cor. Os arquivos SVG exportados pela designer trazem valores arredondados (#F9F458, #674FA0, #8F908E, #2D2D2D); os valores do deck são os canônicos.
 
 - Fundo de página é `fundo`; cartões, placas e caixas são `papel`. Texto principal é `tinta`; secundário é `tinta-suave`.
 - Uma cor de destaque por composição. `roxo` é a cor da marca e vem primeiro; `sol` é o acento e aparece em área pequena ou como um bloco inteiro (uma faixa, um marcador de livro, uma capa), nunca os dois disputando o mesmo peso. O deck inteiro é preto, branco e cinza: as cores entram pelo logotipo e pelos mockups. Siga essa proporção: muito neutro, uma cor.
-- `roxo` como texto só sobre `fundo` claro, `papel` claro e `sol`. Sobre fundo escuro, roxo some (2,1:1): use `roxo-claro`. Para texto, link, rótulo de categoria e marca que precisam ser roxos nos dois temas, use `roxo-texto`, que é roxo no claro e roxo-claro no escuro.
+- `roxo` como texto só sobre `fundo` claro, `papel` claro e `sol`. Sobre `fundo` e `papel` escuros, roxo some (2,7:1 e 2,1:1): use `roxo-claro`. Para texto, link, rótulo de categoria e marca que precisam ser roxos nos dois temas, use `roxo-texto`, que é roxo no claro e roxo-claro no escuro.
 - `sol` nunca é texto sobre claro. Sobre `sol`, escreva em `sobre-sol`. Sobre `roxo`, escreva em `sobre-roxo`.
 - `cinza` é cor de filete, divisor, rótulo de cabeçalho e marca. Como texto, só a partir de 24px. Para texto pequeno em segundo plano, `tinta-suave`.
 - Fotografia e obra de arte atrás de texto claro levam o `veu`.
 - Nada de gradiente, nada de sombra colorida, nada de roxo-azulado degradê. Superfícies são chapadas.
-- Pares aprovados para qualquer marca (vêm dos arquivos da designer): roxo sobre claro; claro sobre roxo; claro sobre escuro; escuro sobre claro; cinza sobre sol; sol sobre cinza; escuro sobre sol. Os pares com cinza são pares de marca em tamanho grande; não os use para texto.
+- Pares aprovados para qualquer marca, sete ao todo: roxo sobre claro; claro sobre roxo; claro sobre escuro; escuro sobre claro; cinza sobre sol; sol sobre cinza; escuro sobre sol. Os seis primeiros vêm dos arquivos da designer; escuro sobre sol vem do marcador de livro do deck. Os pares com cinza são pares de marca em tamanho grande; não os use para texto.
 
 ## Tipografia
 
@@ -71,7 +71,7 @@ A casa tem duas marcas; a comunidade tem a sua. Nunca junte duas delas no mesmo 
 
 ### Marca principal: o Sol que também é um olho
 
-Um cartão vertical na proporção 2:3 (192×288) em `roxo`. Dentro, em `fundo` claro, um disco de raio 32 assentado perto da base (centro a 56 da borda inferior) e nove raios da mesma espessura (8) saindo dele, a 0, 22,5, 45, 67,5 e 90 graus para cada lado, entre os raios 64 e 176 do centro. Os raios laterais são cortados pela borda do cartão: esse corte faz parte do desenho. O disco é a pupila e é o sol; os raios são pálpebras e luz. O cartão não é fundo, é a marca: tem a cor dela e termina onde os raios terminam.
+Um cartão vertical na proporção 2:3 (192×288) em `roxo`. Dentro, no claro da paleta (#F2F2F2, o `sobre-roxo`, igual nos dois temas), um disco de raio 32 assentado perto da base (centro a 56 da borda inferior) e nove raios da mesma espessura (8) saindo dele, a 0, 22,5, 45, 67,5 e 90 graus para cada lado, entre os raios 64 e 176 do centro. Os raios laterais são cortados pela borda do cartão: esse corte faz parte do desenho. O disco é a pupila e é o sol; os raios são pálpebras e luz. O cartão não é fundo, é a marca: tem a cor dela e termina onde os raios terminam.
 
 Versões, em `assets/Marcas-Via-Simbolica`:
 - `viasimbolica-principal` — a versão mestre: cartão roxo, marcas claras. Use esta sempre que puder.
@@ -111,7 +111,7 @@ A comunidade mantém o símbolo que a designer desenhou: **livro / montanha** (a
 - Cantos retos por padrão (`raio-0`). Cartões e molduras de imagem usam `raio-2`; botões e discos usam `raio-arco`. Não arredonde placas de cor nem o cartão da marca.
 - Coluna de leitura de até 680px para texto; de até 1040px para grades. Grade de duas colunas (1,15fr e 1fr) para imagem e texto lado a lado.
 - Blocos de cor chapados são uma ferramenta de layout: uma faixa `sol` cruzando uma caixa, uma placa `roxo` com a marca em `sobre-roxo`. Um bloco por composição. A própria marca principal é um bloco: pode ancorar uma capa inteira.
-- Bordas finas em `linha`, nunca sombras projetadas para separar superfícies. Hover é um deslocamento de 3px para cima em 250ms, não um brilho.
+- Bordas finas em `linha`, nunca sombras projetadas para separar superfícies. Hover é um deslocamento para cima em 250ms (3px em cartões, 2px em botões), não um brilho.
 
 ## Imagens
 
@@ -134,7 +134,7 @@ A identidade não define um conjunto de ícones. Quando precisar de ícones de i
 
 ## Acessibilidade
 
-- Todo texto corrido com 4,5:1 sobre o seu fundo nos dois temas; as notas dos tokens dizem os pares. Texto grande (24px ou mais; 19px em Bold) pode usar `cinza` só sobre fundo escuro (4,2:1); sobre claro ele não passa nem para texto grande (2,9:1).
+- Todo texto corrido com 4,5:1 sobre o seu fundo nos dois temas; as notas dos tokens dizem os pares. Texto grande (24px ou mais; 19px em Bold) pode usar `cinza` sobre `fundo` escuro (5,4:1) e `papel` escuro (4,2:1); sobre `fundo` claro ele não passa nem para texto grande (2,9:1) e sobre `papel` claro passa por pouco (3,2:1), só em texto grande.
 - Foco de teclado sempre visível: anel de 2px em `foco`, afastado 2px do controle.
 - Cor nunca é a única informação: um estado leva palavra ou ícone junto.
 - Alvos de toque de 44px.

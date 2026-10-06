@@ -32,4 +32,4 @@ Os arquivos variáveis `Chillax-Variable.woff2`, `Satoshi-Variable.woff2` e `Sat
 
 ## No Figma, Illustrator, Canva, InDesign
 
-Instale as famílias localmente a partir do download do Fontshare. Todos os lockups em `logos/svg/viasimbolica/` já estão com o nome em curvas e não dependem de fonte instalada. O único arquivo com texto vivo é o `literastro-horizontal.svg` da designer, que pede a Chillax instalada.
+Instale as famílias localmente a partir do download do Fontshare. Todos os lockups canônicos em `logos/svg/viasimbolica/` e `logos/svg/literastro/` estão com o nome em curvas e não dependem de fonte instalada. O único arquivo com texto vivo é o `literastro-horizontal.svg` original da designer, em `logos/svg/literastro/originais/`, que pede a Chillax instalada.

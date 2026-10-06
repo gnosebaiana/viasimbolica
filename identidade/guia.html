@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Guia da marca · Via Simbólica</title>
-<meta name="description" content="Guia visual da identidade da Via Simbólica: cores, tipografia, símbolo, componentes e regras de uso.">
+<meta name="description" content="Guia visual da identidade da Via Simbólica: cores, tipografia, marcas, componentes e regras de uso.">
 <link rel="preconnect" href="https://api.fontshare.com">
 <link href="https://api.fontshare.com/v2/css?f[]=chillax@200,300,400,500,600,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700&family=DM+Sans:wght@400;500;700&family=Great+Vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="tokens.css">
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
@@ -45,7 +45,8 @@
   .titulo-secao .numeral{font-size:clamp(40px,6vw,64px);font-weight:700}
   .titulo-secao .exibicao{font-size:clamp(40px,6vw,64px);font-weight:500;letter-spacing:-.01em}
   .escura{background:var(--tinta);color:var(--fundo)}
-  .escura .rotulo{color:var(--cinza)}
+  .escura .rotulo{color:#b8b8b8}
+  [data-theme="escuro"] .escura .rotulo{color:#5e5e5e}
   .escura .titulo-secao{min-height:40vh;align-items:flex-end;margin:0}
   /* cores */
   .paleta{display:grid;grid-template-columns:repeat(2,1fr);gap:0;margin:var(--espaco-6) 0}
@@ -87,7 +88,10 @@
   .principal-grande{width:192px;height:288px;display:block}
   .assinatura-lockup{display:inline-flex;flex-direction:column;align-items:center;gap:4px;color:var(--tinta)}
   .assinatura-lockup .estrela{width:46px;height:36px;display:block}
-  .assinatura-lockup .assinatura{font-family:var(--font-assinatura,'Great Vibes',cursive);font-size:58px;line-height:1.1;font-weight:400}
+  .assinatura-lockup img{width:200px;display:block}
+  .assinatura-lockup .so-escuro{display:none}
+  [data-theme="escuro"] .assinatura-lockup .so-claro{display:none}
+  [data-theme="escuro"] .assinatura-lockup .so-escuro{display:block}
   .card .imagem img{width:120px;display:block}
   .faixa img{width:72px;display:block;flex:none}
   .simbolos figcaption{font-size:13px;color:var(--tinta-suave)}
@@ -245,7 +249,8 @@
     <figure><div class="campo f-claro"><img src="logos/svg/viasimbolica/viasimbolica-assinatura.svg" alt="assinatura em tinta"></div><figcaption>assinatura · tinta</figcaption></figure>
     <figure><div class="campo f-roxo"><img src="logos/svg/viasimbolica/viasimbolica-assinatura-claro.svg" alt="assinatura clara sobre roxo"></div><figcaption>claro sobre roxo</figcaption></figure>
     <figure><div class="campo f-sol"><img src="logos/svg/viasimbolica/viasimbolica-assinatura.svg" alt="assinatura escura sobre sol"></div><figcaption>escuro sobre sol</figcaption></figure>
-    <figure><div class="campo f-escuro"><img src="logos/svg/viasimbolica/viasimbolica-assinatura-sol.svg" alt="assinatura sol sobre escuro"></div><figcaption>sol sobre escuro</figcaption></figure>
+    <figure><div class="campo f-escuro"><img src="logos/svg/viasimbolica/viasimbolica-assinatura-claro.svg" alt="assinatura clara sobre escuro"></div><figcaption>claro sobre escuro</figcaption></figure>
+    <figure><div class="campo f-cinza"><img src="logos/svg/viasimbolica/viasimbolica-assinatura-sol.svg" alt="assinatura sol sobre cinza"></div><figcaption>sol sobre cinza</figcaption></figure>
   </div>
 
   <h3>LiterAstro</h3>
@@ -262,18 +267,20 @@
   <div class="simbolos">
     <figure><div class="campo f-claro"><img src="logos/svg/literastro/simbolo.svg" alt="Símbolo"></div><figcaption>simbolo</figcaption></figure>
     <figure><div class="campo f-claro"><img src="logos/svg/literastro/literastro-vertical.svg" alt="LiterAstro vertical"></div><figcaption>literastro-vertical</figcaption></figure>
-    <figure><div class="campo f-claro"><img src="logos/png/literastro/literastro-horizontal-escuro-transparente.png" alt="LiterAstro horizontal"></div><figcaption>literastro-horizontal</figcaption></figure>
+    <figure><div class="campo f-claro"><img src="logos/svg/literastro/literastro-horizontal.svg" alt="LiterAstro horizontal"></div><figcaption>literastro-horizontal</figcaption></figure>
     <figure><div class="campo f-claro"><img src="logos/svg/literastro/literastro-selo.svg" alt="LiterAstro selo"></div><figcaption>literastro-selo</figcaption></figure>
   </div>
 
   <h3>Pares aprovados</h3>
-  <p>As combinações entregues pela designer; valem para qualquer marca do sistema. Os dois pares com cinza valem para marca em tamanho grande, nunca para texto.</p>
+  <p>Sete pares para qualquer marca do sistema: roxo sobre claro, claro sobre roxo, claro sobre escuro, escuro sobre claro, cinza sobre sol, sol sobre cinza e escuro sobre sol. Os seis primeiros vêm dos arquivos da designer; escuro sobre sol vem do marcador de livro do deck. Os pares com cinza valem para marca em tamanho grande, nunca para texto.</p>
   <div class="pares">
     <figure><img src="logos/svg/literastro/pares-aprovados/simbolo-roxo-sobre-claro.svg" alt="roxo sobre claro"><figcaption>roxo sobre claro</figcaption></figure>
     <figure><img src="logos/svg/literastro/pares-aprovados/simbolo-claro-sobre-roxo.svg" alt="claro sobre roxo"><figcaption>claro sobre roxo</figcaption></figure>
     <figure><img src="logos/svg/literastro/pares-aprovados/simbolo-claro-sobre-escuro.svg" alt="claro sobre escuro"><figcaption>claro sobre escuro</figcaption></figure>
     <figure><img src="logos/svg/literastro/pares-aprovados/simbolo-cinza-sobre-amarelo.svg" alt="cinza sobre sol"><figcaption>cinza sobre sol</figcaption></figure>
     <figure><img src="logos/svg/literastro/pares-aprovados/simbolo-amarelo-sobre-cinza.svg" alt="sol sobre cinza"><figcaption>sol sobre cinza</figcaption></figure>
+    <figure><div class="campo f-claro" style="aspect-ratio:1;display:flex;align-items:center;justify-content:center;border:1px solid var(--linha)"><img src="logos/svg/literastro/simbolo.svg" alt="escuro sobre claro" style="width:78%;border:0"></div><figcaption>escuro sobre claro</figcaption></figure>
+    <figure><div class="campo f-sol" style="aspect-ratio:1;display:flex;align-items:center;justify-content:center"><img src="logos/svg/literastro/simbolo.svg" alt="escuro sobre sol" style="width:78%;border:0"></div><figcaption>escuro sobre sol</figcaption></figure>
   </div>
 </section>
 
@@ -327,7 +334,7 @@
 </section>
 
 <footer class="coluna">
-  <div class="assinatura-lockup" style="margin-bottom:var(--espaco-6)"><svg class="estrela" viewBox="0 0 64 44" aria-hidden="true"><path d="M18 33 C30 27, 44 18, 60 8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" opacity="0.6"/><path d="M20 40 C33 34, 47 25, 62 15" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity="0.35"/><path d="M11 22 L13.3 31 L11 40 L8.7 31 Z" fill="currentColor"/><path d="M2 31 L11 28.9 L20 31 L11 33.1 Z" fill="currentColor"/></svg><span class="assinatura">via simbólica</span></div><br>
+  <div class="assinatura-lockup" style="margin-bottom:var(--espaco-6)"><img class="so-claro" src="logos/svg/viasimbolica/viasimbolica-assinatura.svg" alt="via simbólica"><img class="so-escuro" src="logos/svg/viasimbolica/viasimbolica-assinatura-claro.svg" alt="via simbólica"></div><br>
   Encante-se com o mundo pela Via Simbólica. Identidade visual: Samira Souza (Comunidade LiterAstro, 2026); sistema estendido para a casa Via Simbólica, com marcas próprias. Tokens em <code>tokens.css</code>; sistema completo no Claude Design.
 </footer>
 
