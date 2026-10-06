@@ -6,7 +6,7 @@ O Design System do Via Simbólica está publicado no Claude Design, dentro da su
 
 **https://claude.ai/artifact/JhbHtEWt1aaF2v1A18Mw5W**
 
-Ele contém o livro de marca (README), os tokens (cores nos temas claro e escuro, tipografia, espaços, raios), os logotipos e os pares de cor aprovados, o deck original da designer e cinco componentes com pré-visualização (Marca, Botao, Rotulo, TituloSecao, CardProduto). Não existe "agente" a criar no Claude Design: o mecanismo é anexar esse Design System aos projetos. Faça assim:
+Ele contém o livro de marca (README), os tokens (cores nos temas claro e escuro, tipografia com os arquivos reais de Chillax e Satoshi, espaços, raios), as duas marcas da Via Simbólica em todas as versões, o símbolo da LiterAstro, os pares de cor aprovados, o deck original da designer e cinco componentes com pré-visualização (Marca, Botao, Rotulo, TituloSecao, CardProduto). Não existe "agente" a criar no Claude Design: o mecanismo é anexar esse Design System aos projetos. Faça assim:
 
 1. Abra o Claude Design (claude.ai/design).
 2. Em **Design systems**, marque "Via Simbólica" como padrão (ou anexe-o a cada projeto novo).
@@ -33,9 +33,9 @@ Identidade em uma linha: um sol que nasce atrás de um livro aberto, que também
 
 Cor: cinco cores e nenhuma outra. Roxo #664FA1 é a cor da marca; sol #FAF559 é o acento; claro #F2F2F2, cinza #8F8F8F e escuro #2E2E2E são os neutros; fundos de página escuros usam #191919. Uma cor de destaque por composição. Sol nunca é texto sobre claro. Roxo nunca é texto sobre escuro (use #B9A9E0). Nada de gradiente, sombra colorida ou brilho.
 
-Tipografia: Chillax Variable (títulos, numerais de seção, marca em peso 565, caixa alta, tracking 0,08em) e Satoshi (texto, rótulos em caixa alta com tracking 0,18em, botões). Títulos em caixa baixa com inicial maiúscula. Alinhamento à esquerda.
+Tipografia: Chillax Variable (títulos, numerais de seção, nome VIA SIMBÓLICA em peso 565, caixa alta, tracking 0,08em) e Satoshi (texto, rótulos em caixa alta com tracking 0,18em, botões). Great Vibes só dentro da assinatura, nunca como fonte de texto. Títulos em caixa baixa com inicial maiúscula. Alinhamento à esquerda.
 
-Marca: o símbolo é uma tinta só, nunca duas cores, nunca contorno, nunca redesenhado. Respiro de um núcleo em volta. Sobre claro, roxo ou escuro; sobre roxo, claro; sobre sol, escuro ou cinza (só a marca). LiterAstro e qualquer produto usam o mesmo símbolo com o seu nome.
+Marcas: a Via Simbólica tem duas. A principal é um cartão roxo 2:3 com nove raios e um disco claros recortados pela borda (o Sol que também é um olho): não se redesenha, não se gira, não se arredonda; use os arquivos viasimbolica-principal-*. A assinatura é a estrela cadente com "via simbólica" manuscrito em Great Vibes: fecha a peça, de 120 a 320px de largura, uma tinta só. O símbolo do livro-sol-montanha é da LiterAstro e só aparece em peças da comunidade. Pares aprovados: roxo sobre claro, claro sobre roxo, claro sobre escuro, escuro sobre sol, cinza sobre sol, sol sobre cinza.
 
 Layout: cantos retos, muito ar, uma ideia por tela, títulos no canto inferior esquerdo de páginas escuras alternando com páginas claras, grade de 8px, blocos de cor chapados como ferramenta.
 
@@ -48,6 +48,11 @@ Antes de entregar, confira: uma só cor de destaque? Contraste de texto acima de
 
 ## O que falta para fechar (depende de você)
 
-1. **Fontes.** Baixe Chillax e Satoshi no Fontshare (gratuitas) e me mande os arquivos `.woff2`/`.ttf`, ou arraste-os para a página do Design System. Com eles eu (a) registro as fontes no sistema para as pré-visualizações ficarem fiéis e (b) converto em curvas os lockups "Via Simbólica", que hoje estão em texto vivo. Veja `fontes/README.md`.
-2. **Decisão de marca.** Assumi que o símbolo da LiterAstro passa a ser o símbolo da casa inteira, e que cada produto usa o mesmo símbolo com o seu nome. Se preferir um símbolo próprio para a Via Simbólica e a LiterAstro como submarca, eu reorganizo.
-3. **O site.** As quatro páginas atuais (`index.html`, `venus/`, `12casas/`, `literastro/`) ainda estão na identidade antiga (dourado, marfim, Baskervville, Great Vibes). O próximo passo natural é migrá-las para `tokens.css` e para os logotipos novos; peça quando quiser que eu faça.
+1. **O site.** As quatro páginas atuais (`index.html`, `venus/`, `12casas/`, `literastro/`) ainda estão na identidade antiga (dourado, marfim, Baskervville). Por decisão sua, ficam assim até a identidade estar batida. Quando quiser, migro todas para `tokens.css`, para as duas marcas da Via Simbólica e para o símbolo da LiterAstro na página da comunidade.
+2. **Impressão.** Para gráfica, peça a versão em CMYK e com sangria de qualquer peça; os valores da paleta são RGB de tela e precisam de prova.
+
+## Decisões já tomadas
+
+- A LiterAstro fica com o símbolo que a designer desenhou; a Via Simbólica herda paleta, tipografia e modo de compor, mas usa marcas próprias: a principal (o Sol-olho, geometria exata da capa do Design System, sem alteração) e a assinatura (a estrela cadente com o nome manuscrito, como estava no site).
+- As fontes Chillax e Satoshi estão registradas no Design System (arquivos em `fonts/`, uso privado). Não ficam no repositório público por causa da licença do Fontshare; o site as carrega pelo CSS do Fontshare.
+- Os nomes nos lockups estão em curvas: VIA SIMBÓLICA em Chillax 565 e "via simbólica" em Great Vibes. Nenhum arquivo depende de fonte instalada.

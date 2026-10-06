@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://api.fontshare.com">
 <link href="https://api.fontshare.com/v2/css?f[]=chillax@200,300,400,500,600,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700&family=DM+Sans:wght@400;500;700&family=Great+Vibes&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="tokens.css">
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
@@ -37,9 +37,9 @@
   .tema:focus-visible,.botao:focus-visible,a:focus-visible{outline:2px solid var(--foco);outline-offset:2px}
   /* capa */
   .capa{min-height:80vh;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:var(--espaco-16)}
-  .capa .simbolo{width:120px;fill:var(--roxo);margin-bottom:var(--espaco-12)}
+  .capa .principal-capa{width:128px;height:192px;display:block;margin-bottom:var(--espaco-12)}
   .capa h1{font-size:clamp(52px,9vw,112px);line-height:.95;letter-spacing:-.01em}
-  .capa .assinatura{margin-top:var(--espaco-6);color:var(--tinta-suave);font-size:17px}
+  .capa .frase{margin-top:var(--espaco-6);color:var(--tinta-suave);font-size:17px}
   /* seção numerada */
   .titulo-secao{display:flex;align-items:baseline;gap:var(--espaco-4);font-family:var(--font-display);line-height:1;margin-bottom:var(--espaco-8)}
   .titulo-secao .numeral{font-size:clamp(40px,6vw,64px);font-weight:700}
@@ -81,7 +81,15 @@
   .simbolos{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:var(--espaco-4);margin:var(--espaco-6) 0}
   .simbolos figure{display:flex;flex-direction:column;gap:var(--espaco-2)}
   .simbolos .campo{aspect-ratio:1;display:flex;align-items:center;justify-content:center;border:1px solid var(--linha)}
-  .simbolos .campo img,.simbolos .campo svg{width:78%}
+  .simbolos .campo img,.simbolos .campo svg{max-width:78%;max-height:78%;width:auto;height:auto}
+  .simbolos.largos{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+  .simbolos .campo.retrato{aspect-ratio:3/4}
+  .principal-grande{width:192px;height:288px;display:block}
+  .assinatura-lockup{display:inline-flex;flex-direction:column;align-items:center;gap:4px;color:var(--tinta)}
+  .assinatura-lockup .estrela{width:46px;height:36px;display:block}
+  .assinatura-lockup .assinatura{font-family:var(--font-assinatura,'Great Vibes',cursive);font-size:58px;line-height:1.1;font-weight:400}
+  .card .imagem img{width:120px;display:block}
+  .faixa img{width:72px;display:block;flex:none}
   .simbolos figcaption{font-size:13px;color:var(--tinta-suave)}
   .campo.f-claro{background:#F2F2F2}.campo.f-roxo{background:#664FA1}.campo.f-sol{background:#FAF559}.campo.f-escuro{background:#2E2E2E}.campo.f-cinza{background:#8F8F8F}
   .anatomia{display:grid;grid-template-columns:1fr;gap:var(--espaco-8);align-items:center;margin:var(--espaco-6) 0}
@@ -128,14 +136,14 @@
 </header>
 
 <section class="coluna capa">
-  <svg class="simbolo" aria-hidden="true"><use href="#simbolo"/></svg>
+  <img class="principal-capa" src="logos/svg/viasimbolica/viasimbolica-principal.svg" alt="Marca principal da Via Simbólica">
   <h1>Via<br>Simbólica</h1>
-  <p class="assinatura">Encante-se com o mundo pela Via Simbólica.</p>
+  <p class="frase">Encante-se com o mundo pela Via Simbólica.</p>
 </section>
 
 <section class="coluna">
   <span class="rotulo">Essência</span>
-  <p class="corpo-grande">A marca é um sol que nasce atrás de um livro aberto, e o livro também é uma montanha. Tudo o que a Via Simbólica publica deve dizer isso: leitura, amanhecer, altura, e um núcleo em torno do qual as pessoas se reúnem.</p>
+  <p class="corpo-grande">A casa olha e ilumina. A marca principal diz isso de uma vez: um Sol que também é um olho, nove raios abrindo-se a partir de um disco claro, cortados pela borda de um cartão roxo. A assinatura diz o resto: uma estrela cadente e o nome escrito à mão. A LiterAstro tem a sua imagem própria, o sol que nasce atrás de um livro aberto, que também é montanha.</p>
   <p>Três palavras guiam qualquer decisão: <b>clara</b> (nada que precise de legenda), <b>sóbria</b> (uma cor de destaque, nunca três) e <b>solar</b> (o amarelo é luz, não alarme). O tom visual é o de um bom livro impresso: superfícies lisas, cantos retos, uma cor forte por vez, texto com espaço para respirar.</p>
 </section>
 
@@ -175,7 +183,7 @@
 </section>
 
 <section class="coluna">
-  <p>Duas famílias, as duas da Indian Type Foundry e gratuitas no Fontshare. <b>Chillax Variable</b> é a voz da marca: títulos, numerais de seção e o nome tipográfico. <b>Satoshi</b> é o texto: parágrafos, rótulos, botões. A serifa e a manuscrita do site antigo saem.</p>
+  <p>Duas famílias, as duas da Indian Type Foundry e gratuitas no Fontshare. <b>Chillax Variable</b> é a voz da marca: títulos, numerais de seção e o nome tipográfico. <b>Satoshi</b> é o texto: parágrafos, rótulos, botões. A serifa do site antigo sai; a manuscrita Great Vibes fica, mas só dentro da assinatura.</p>
   <div class="alfabeto">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789</div>
   <div class="pesos"><span style="font-weight:200">Extralight</span><span style="font-weight:300">Light</span><span style="font-weight:400">Regular</span><span style="font-weight:500">Medium</span><span style="font-weight:600">Semibold</span><span style="font-weight:700">Bold</span></div>
   <div class="especime">
@@ -197,46 +205,75 @@
 <section class="escura">
   <div class="coluna">
     <div class="rotulos" style="display:flex;gap:var(--espaco-8)"><span class="rotulo">Projeto</span><span class="rotulo">Via Simbólica</span></div>
-    <h2 class="titulo-secao"><span class="numeral">03.</span><span class="exibicao">Símbolo</span></h2>
+    <h2 class="titulo-secao"><span class="numeral">03.</span><span class="exibicao">Marcas</span></h2>
   </div>
 </section>
 
 <section class="coluna">
+  <p>A casa tem duas marcas; a comunidade tem a sua. A principal abre e ancora, a assinatura fecha, e o símbolo da LiterAstro aparece só em peças da LiterAstro. Nunca duas delas no mesmo bloco sem hierarquia.</p>
+
+  <h3>Marca principal: o Sol que também é um olho</h3>
   <div class="anatomia">
-    <svg aria-label="Símbolo"><use href="#simbolo"/></svg>
+    <img class="principal-grande" src="logos/svg/viasimbolica/viasimbolica-principal.svg" alt="Marca principal">
     <div>
-      <p>Três camadas, nas palavras da designer: <b>livro / montanha</b> (a curva de baixo), <b>páginas / sol / multiplicidade</b> (os raios) e <b>núcleo / ponto de foco / reunião</b> (o círculo vazio no centro).</p>
-      <p>Nove raios retos, um vertical e quatro de cada lado; duas linhas curvas que abraçam o núcleo como páginas; embaixo, a curva do livro aberto. Os traços têm a mesma espessura em todo o desenho, cerca de 3,4% da largura do símbolo.</p>
+      <p>Um cartão vertical na proporção 2:3 em roxo. Dentro, em claro, um disco perto da base e nove raios da mesma espessura saindo dele, a 0, 22,5, 45, 67,5 e 90 graus para cada lado. Os raios laterais são cortados pela borda do cartão: o corte faz parte do desenho. O disco é a pupila e é o sol; os raios são pálpebras e luz.</p>
       <ul>
-        <li>Sempre uma tinta só. Nunca contorno, sombra, inclinação, relevo em tela ou duas cores.</li>
-        <li>Não redesenhe os raios, não mude a contagem, não feche o núcleo, não separe o livro do sol.</li>
-        <li>Respiro mínimo em volta: o diâmetro do núcleo. Altura mínima: 24px na tela, 8mm no papel.</li>
-        <li>O símbolo é da casa inteira. LiterAstro e qualquer produto novo usam o mesmo símbolo com o seu nome.</li>
+        <li>O cartão não é fundo, é a marca. Tem a cor dela e termina onde os raios terminam. Não arredonde, não gire.</li>
+        <li>Não altere contagem, ângulos, espessura, raio do disco, posição nem proporção.</li>
+        <li>Uma tinta para as marcas e uma para o cartão, sempre num par aprovado. Sem contorno, sombra ou relevo.</li>
+        <li>Respiro em volta: um terço da largura do cartão. Mínimo: 48px de altura na tela, 12mm no papel.</li>
       </ul>
     </div>
   </div>
-  <div class="respiro" aria-hidden="true"><span style="top:8px">respiro = um núcleo</span><svg><use href="#simbolo"/></svg></div>
-
-  <h3>Versões</h3>
   <div class="simbolos">
-    <figure><div class="campo f-claro"><img src="logos/svg/simbolo.svg" alt="Símbolo"></div><figcaption>simbolo</figcaption></figure>
-    <figure><div class="campo f-claro"><img src="logos/svg/literastro-vertical.svg" alt="LiterAstro vertical"></div><figcaption>literastro-vertical</figcaption></figure>
-    <figure><div class="campo f-claro"><img src="logos/png/literastro-horizontal-escuro-transparente.png" alt="LiterAstro horizontal"></div><figcaption>literastro-horizontal</figcaption></figure>
-    <figure><div class="campo f-claro"><img src="logos/svg/literastro-selo.svg" alt="LiterAstro selo"></div><figcaption>literastro-selo</figcaption></figure>
-    <figure><div class="campo f-claro"><img src="logos/svg/viasimbolica-vertical.svg" alt="Via Simbólica vertical (provisório)"></div><figcaption>viasimbolica-vertical · provisório</figcaption></figure>
-    <figure><div class="campo f-claro"><img src="logos/svg/viasimbolica-horizontal.svg" alt="Via Simbólica horizontal (provisório)"></div><figcaption>viasimbolica-horizontal · provisório</figcaption></figure>
-    <figure><div class="campo f-claro"><img src="logos/svg/viasimbolica-selo.svg" alt="Via Simbólica selo (provisório)"></div><figcaption>viasimbolica-selo · provisório</figcaption></figure>
+    <figure><div class="campo f-claro retrato"><img src="logos/svg/viasimbolica/viasimbolica-principal.svg" alt="mestre"></div><figcaption>principal · mestre</figcaption></figure>
+    <figure><div class="campo f-claro retrato"><img src="logos/svg/viasimbolica/viasimbolica-principal-claro-sobre-escuro.svg" alt="claro sobre escuro"></div><figcaption>claro sobre escuro</figcaption></figure>
+    <figure><div class="campo f-claro retrato"><img src="logos/svg/viasimbolica/viasimbolica-principal-escuro-sobre-sol.svg" alt="escuro sobre sol"></div><figcaption>escuro sobre sol</figcaption></figure>
+    <figure><div class="campo f-claro retrato"><img src="logos/svg/viasimbolica/viasimbolica-principal-roxo-sobre-claro.svg" alt="roxo sobre claro"></div><figcaption>roxo sobre claro</figcaption></figure>
+    <figure><div class="campo f-claro retrato"><img src="logos/svg/viasimbolica/viasimbolica-principal-sol-sobre-cinza.svg" alt="sol sobre cinza"></div><figcaption>sol sobre cinza</figcaption></figure>
+    <figure><div class="campo f-roxo retrato"><img src="logos/svg/viasimbolica/viasimbolica-principal-marcas-claro.svg" alt="marcas soltas sobre campo roxo"></div><figcaption>marcas soltas sobre campo 2:3</figcaption></figure>
   </div>
-  <p class="legenda">Os lockups "Via Simbólica" usam o nome em texto vivo (Chillax 565, tracking 0,08em) e só renderizam certo com a fonte carregada; a versão em curvas depende dos arquivos da fonte.</p>
+  <div class="simbolos largos">
+    <figure><div class="campo f-claro"><img src="logos/svg/viasimbolica/viasimbolica-vertical.svg" alt="lockup vertical"></div><figcaption>vertical · nome em curvas</figcaption></figure>
+    <figure><div class="campo f-claro"><img src="logos/svg/viasimbolica/viasimbolica-horizontal.svg" alt="lockup horizontal"></div><figcaption>horizontal · duas linhas</figcaption></figure>
+    <figure><div class="campo f-claro"><img src="logos/svg/viasimbolica/viasimbolica-avatar.svg" alt="avatar"></div><figcaption>avatar</figcaption></figure>
+  </div>
+
+  <h3>Assinatura: a estrela cadente</h3>
+  <p>A marca secundária é a que o site já usava: uma estrela de quatro pontas com duas trilhas finas e, embaixo, "via simbólica" escrito à mão em Great Vibes, em caixa baixa. É uma assinatura: fecha, não abre. Rodapé, fecho de vídeo, assinatura de e-mail, verso de impresso. Largura entre 120px e 320px; uma tinta só; as transparências das trilhas fazem parte do desenho.</p>
+  <div class="simbolos">
+    <figure><div class="campo f-claro"><img src="logos/svg/viasimbolica/viasimbolica-assinatura.svg" alt="assinatura em tinta"></div><figcaption>assinatura · tinta</figcaption></figure>
+    <figure><div class="campo f-roxo"><img src="logos/svg/viasimbolica/viasimbolica-assinatura-claro.svg" alt="assinatura clara sobre roxo"></div><figcaption>claro sobre roxo</figcaption></figure>
+    <figure><div class="campo f-sol"><img src="logos/svg/viasimbolica/viasimbolica-assinatura.svg" alt="assinatura escura sobre sol"></div><figcaption>escuro sobre sol</figcaption></figure>
+    <figure><div class="campo f-escuro"><img src="logos/svg/viasimbolica/viasimbolica-assinatura-sol.svg" alt="assinatura sol sobre escuro"></div><figcaption>sol sobre escuro</figcaption></figure>
+  </div>
+
+  <h3>LiterAstro</h3>
+  <div class="anatomia">
+    <svg aria-label="Símbolo LiterAstro"><use href="#simbolo"/></svg>
+    <div>
+      <p>A comunidade mantém o símbolo que a designer desenhou. Três camadas, nas palavras dela: <b>livro / montanha</b> (a curva de baixo), <b>páginas / sol / multiplicidade</b> (os raios) e <b>núcleo / ponto de foco / reunião</b> (o círculo vazio no centro). Nove raios retos, duas linhas curvas que abraçam o núcleo como páginas e, embaixo, a curva do livro aberto; traços de espessura única.</p>
+      <ul>
+        <li>Só em peças da LiterAstro. Em peça da LiterAstro, a casa aparece pela assinatura, pequena, no rodapé.</li>
+        <li>Sempre uma tinta só; respiro de um núcleo; 24px de altura no mínimo; não redesenhar.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="simbolos">
+    <figure><div class="campo f-claro"><img src="logos/svg/literastro/simbolo.svg" alt="Símbolo"></div><figcaption>simbolo</figcaption></figure>
+    <figure><div class="campo f-claro"><img src="logos/svg/literastro/literastro-vertical.svg" alt="LiterAstro vertical"></div><figcaption>literastro-vertical</figcaption></figure>
+    <figure><div class="campo f-claro"><img src="logos/png/literastro/literastro-horizontal-escuro-transparente.png" alt="LiterAstro horizontal"></div><figcaption>literastro-horizontal</figcaption></figure>
+    <figure><div class="campo f-claro"><img src="logos/svg/literastro/literastro-selo.svg" alt="LiterAstro selo"></div><figcaption>literastro-selo</figcaption></figure>
+  </div>
 
   <h3>Pares aprovados</h3>
-  <p>As combinações entregues pela designer. Os dois pares com cinza e sol valem para a marca em tamanho grande, nunca para texto.</p>
+  <p>As combinações entregues pela designer; valem para qualquer marca do sistema. Os dois pares com cinza valem para marca em tamanho grande, nunca para texto.</p>
   <div class="pares">
-    <figure><img src="logos/svg/pares-aprovados/simbolo-roxo-sobre-claro.svg" alt="roxo sobre claro"><figcaption>roxo sobre claro</figcaption></figure>
-    <figure><img src="logos/svg/pares-aprovados/simbolo-claro-sobre-roxo.svg" alt="claro sobre roxo"><figcaption>claro sobre roxo</figcaption></figure>
-    <figure><img src="logos/svg/pares-aprovados/simbolo-claro-sobre-escuro.svg" alt="claro sobre escuro"><figcaption>claro sobre escuro</figcaption></figure>
-    <figure><img src="logos/svg/pares-aprovados/simbolo-cinza-sobre-amarelo.svg" alt="cinza sobre sol"><figcaption>cinza sobre sol</figcaption></figure>
-    <figure><img src="logos/svg/pares-aprovados/simbolo-amarelo-sobre-cinza.svg" alt="sol sobre cinza"><figcaption>sol sobre cinza</figcaption></figure>
+    <figure><img src="logos/svg/literastro/pares-aprovados/simbolo-roxo-sobre-claro.svg" alt="roxo sobre claro"><figcaption>roxo sobre claro</figcaption></figure>
+    <figure><img src="logos/svg/literastro/pares-aprovados/simbolo-claro-sobre-roxo.svg" alt="claro sobre roxo"><figcaption>claro sobre roxo</figcaption></figure>
+    <figure><img src="logos/svg/literastro/pares-aprovados/simbolo-claro-sobre-escuro.svg" alt="claro sobre escuro"><figcaption>claro sobre escuro</figcaption></figure>
+    <figure><img src="logos/svg/literastro/pares-aprovados/simbolo-cinza-sobre-amarelo.svg" alt="cinza sobre sol"><figcaption>cinza sobre sol</figcaption></figure>
+    <figure><img src="logos/svg/literastro/pares-aprovados/simbolo-amarelo-sobre-cinza.svg" alt="sol sobre cinza"><figcaption>sol sobre cinza</figcaption></figure>
   </div>
 </section>
 
@@ -264,9 +301,9 @@
   </div>
 
   <h3>Card de produto</h3>
-  <p>Imagem à esquerda (obra ou material, atrás do véu quando há texto por cima), conteúdo centralizado à direita. Sem imagem, a área da esquerda é um bloco roxo com o símbolo em claro.</p>
+  <p>Imagem à esquerda (obra ou material, atrás do véu quando há texto por cima), conteúdo centralizado à direita. Sem imagem, a área da esquerda é um bloco roxo com a marca principal.</p>
   <a class="card" href="#">
-    <div class="imagem"><svg aria-hidden="true"><use href="#simbolo"/></svg></div>
+    <div class="imagem"><img src="logos/svg/viasimbolica/viasimbolica-principal.svg" alt=""></div>
     <div class="conteudo">
       <span class="rotulo categoria">Comunidade</span>
       <div class="subtitulo">Comunidade LiterAstro</div>
@@ -277,7 +314,7 @@
 
   <h3>Faixa de destaque</h3>
   <p>Um bloco chapado em sol com texto em escuro: para avisos de abertura de turma, marcadores e capas. Um bloco por composição.</p>
-  <div class="faixa"><svg aria-hidden="true"><use href="#simbolo"/></svg><p>Turma 1 das 12 Casas: carrinho aberto até 12 de outubro.</p></div>
+  <div class="faixa"><img src="logos/svg/viasimbolica/viasimbolica-principal-escuro-sobre-sol.svg" alt=""><p>Turma 1 das 12 Casas: carrinho aberto até 12 de outubro.</p></div>
 
   <h3>Layout</h3>
   <ul>
@@ -290,8 +327,8 @@
 </section>
 
 <footer class="coluna">
-  <span class="marca">Via Simbólica</span>
-  Identidade visual: Samira Souza (Comunidade LiterAstro, 2026). Sistema estendido para a casa Via Simbólica. Tokens em <code>tokens.css</code>; sistema completo no Claude Design.
+  <div class="assinatura-lockup" style="margin-bottom:var(--espaco-6)"><svg class="estrela" viewBox="0 0 64 44" aria-hidden="true"><path d="M18 33 C30 27, 44 18, 60 8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" opacity="0.6"/><path d="M20 40 C33 34, 47 25, 62 15" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity="0.35"/><path d="M11 22 L13.3 31 L11 40 L8.7 31 Z" fill="currentColor"/><path d="M2 31 L11 28.9 L20 31 L11 33.1 Z" fill="currentColor"/></svg><span class="assinatura">via simbólica</span></div><br>
+  Encante-se com o mundo pela Via Simbólica. Identidade visual: Samira Souza (Comunidade LiterAstro, 2026); sistema estendido para a casa Via Simbólica, com marcas próprias. Tokens em <code>tokens.css</code>; sistema completo no Claude Design.
 </footer>
 
 <script>
