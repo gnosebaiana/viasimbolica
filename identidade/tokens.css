@@ -1,0 +1,62 @@
+/* Via Simbólica — tokens compilados de tokens.json. Temas: claro, escuro (o primeiro é o padrão). */
+:root, [data-theme="claro"] {
+  --fundo: #f2f2f2;
+  --papel: #ffffff;
+  --tinta: #2e2e2e;
+  --tinta-suave: #5e5e5e;
+  --cinza: #8f8f8f;
+  --linha: #d9d9d9;
+  --roxo: #664fa1;
+  --sobre-roxo: #f2f2f2;
+  --roxo-claro: #b9a9e0;
+  --roxo-texto: var(--roxo);
+  --sol: #faf559;
+  --sobre-sol: #2e2e2e;
+  --foco: #664fa1;
+  --veu: #19191999;
+}
+[data-theme="escuro"] {
+  --fundo: #191919;
+  --papel: #2e2e2e;
+  --tinta: #f2f2f2;
+  --tinta-suave: #b8b8b8;
+  --cinza: #8f8f8f;
+  --linha: #3a3a3a;
+  --roxo: #664fa1;
+  --sobre-roxo: #f2f2f2;
+  --roxo-claro: #b9a9e0;
+  --roxo-texto: var(--roxo-claro);
+  --sol: #faf559;
+  --sobre-sol: #2e2e2e;
+  --foco: #faf559;
+  --veu: #19191999;
+}
+:root {
+  --espaco-1: 4px;
+  --espaco-2: 8px;
+  --espaco-3: 12px;
+  --espaco-4: 16px;
+  --espaco-6: 24px;
+  --espaco-8: 32px;
+  --espaco-12: 48px;
+  --espaco-16: 64px;
+  --espaco-24: 96px;
+  --espaco-32: 128px;
+  --raio-0: 0px;
+  --raio-1: 4px;
+  --raio-2: 8px;
+  --raio-arco: 9999px;
+  --font-display: "Chillax Variable", Chillax, Outfit, ui-sans-serif, system-ui, sans-serif;
+  --font-texto: Satoshi, "DM Sans", ui-sans-serif, system-ui, sans-serif;
+}
+.exibicao { font-family: var(--font-display); font-size: 64px; line-height: 1.05; font-weight: 500; letter-spacing: -0.01em; }
+.titulo { font-family: var(--font-display); font-size: 40px; line-height: 1.15; font-weight: 500; letter-spacing: -0.005em; }
+.subtitulo { font-family: var(--font-display); font-size: 26px; line-height: 1.3; font-weight: 500; }
+.numeral { font-family: var(--font-display); font-size: 64px; line-height: 1; font-weight: 700; }
+.marca { font-family: var(--font-display); font-size: 18px; line-height: 1; font-weight: 565; letter-spacing: 0.08em; }
+.corpo-grande { font-family: var(--font-texto); font-size: 19px; line-height: 1.6; font-weight: 400; }
+.corpo { font-family: var(--font-texto); font-size: 17px; line-height: 1.6; font-weight: 400; }
+.corpo-pequeno { font-family: var(--font-texto); font-size: 15px; line-height: 1.55; font-weight: 400; }
+.legenda { font-family: var(--font-texto); font-size: 13px; line-height: 1.5; font-weight: 500; }
+.rotulo { font-family: var(--font-texto); font-size: 12px; line-height: 1.2; font-weight: 500; letter-spacing: 0.18em; }
+.botao { font-family: var(--font-texto); font-size: 13px; line-height: 1; font-weight: 700; letter-spacing: 0.12em; }

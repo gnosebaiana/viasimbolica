@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="claro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guia da marca · Via Simbólica</title>
+<meta name="description" content="Guia visual da identidade da Via Simbólica: cores, tipografia, símbolo, componentes e regras de uso.">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=chillax@200,300,400,500,600,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--fundo);color:var(--tinta);font-family:var(--font-texto);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .coluna{max-width:1040px;margin:0 auto;padding:0 var(--espaco-6)}
+  @media(min-width:900px){.coluna{padding:0 var(--espaco-12)}}
+  section{padding:var(--espaco-16) 0}
+  @media(min-width:900px){section{padding:var(--espaco-24) 0}}
+  h1,h2,h3{font-family:var(--font-display);font-weight:500;line-height:1.15;letter-spacing:-.005em}
+  h2{font-size:clamp(30px,4vw,40px);margin-bottom:var(--espaco-6)}
+  h3{font-size:26px;line-height:1.3;margin:var(--espaco-8) 0 var(--espaco-3)}
+  p{max-width:680px;margin-bottom:var(--espaco-4)}
+  p.corpo-grande{font-size:19px}
+  ul{max-width:680px;padding-left:1.2em;margin-bottom:var(--espaco-4)}
+  li{margin-bottom:var(--espaco-2)}
+  code{font-family:ui-monospace,Menlo,monospace;font-size:.9em;background:var(--papel);border:1px solid var(--linha);padding:1px 5px;border-radius:var(--raio-1)}
+  .rotulo{display:block;font-size:12px;line-height:1.2;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--tinta-suave);margin-bottom:var(--espaco-2)}
+  .rotulo.categoria{color:var(--roxo-texto)}
+  /* cabeçalho */
+  .topo{display:flex;justify-content:space-between;align-items:center;padding:var(--espaco-6) 0;gap:var(--espaco-4);flex-wrap:wrap}
+  .topo .rotulos{display:flex;gap:var(--espaco-8)}
+  .topo .rotulo{margin:0}
+  .tema{display:inline-flex;align-items:center;height:36px;padding:0 var(--espaco-4);border:1.5px solid var(--tinta);border-radius:var(--raio-arco);background:transparent;color:var(--tinta);font:700 12px/1 var(--font-texto);letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
+  .tema:focus-visible,.botao:focus-visible,a:focus-visible{outline:2px solid var(--foco);outline-offset:2px}
+  /* capa */
+  .capa{min-height:80vh;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:var(--espaco-16)}
+  .capa .simbolo{width:120px;fill:var(--roxo);margin-bottom:var(--espaco-12)}
+  .capa h1{font-size:clamp(52px,9vw,112px);line-height:.95;letter-spacing:-.01em}
+  .capa .assinatura{margin-top:var(--espaco-6);color:var(--tinta-suave);font-size:17px}
+  /* seção numerada */
+  .titulo-secao{display:flex;align-items:baseline;gap:var(--espaco-4);font-family:var(--font-display);line-height:1;margin-bottom:var(--espaco-8)}
+  .titulo-secao .numeral{font-size:clamp(40px,6vw,64px);font-weight:700}
+  .titulo-secao .exibicao{font-size:clamp(40px,6vw,64px);font-weight:500;letter-spacing:-.01em}
+  .escura{background:var(--tinta);color:var(--fundo)}
+  .escura .rotulo{color:var(--cinza)}
+  .escura .titulo-secao{min-height:40vh;align-items:flex-end;margin:0}
+  /* cores */
+  .paleta{display:grid;grid-template-columns:repeat(2,1fr);gap:0;margin:var(--espaco-6) 0}
+  @media(min-width:700px){.paleta{grid-template-columns:2fr 2fr 1fr 1fr 1fr}}
+  .cor{height:160px;padding:var(--espaco-4);font-size:13px;font-weight:500;display:flex;flex-direction:column;justify-content:space-between}
+  .cor b{display:block;font-family:var(--font-display);font-size:18px;font-weight:500}
+  .cor.sol{background:#FAF559;color:#2E2E2E;grid-column:span 2;height:260px}
+  .cor.roxo{background:#664FA1;color:#F2F2F2;grid-column:span 2;height:260px}
+  .cor.claro{background:#F2F2F2;color:#2E2E2E;border:1px solid var(--linha)}
+  .cor.cinza{background:#8F8F8F;color:#191919}
+  .cor.escuro{background:#2E2E2E;color:#F2F2F2}
+  @media(max-width:699px){.cor.claro,.cor.cinza,.cor.escuro{grid-column:span 1}.cor.escuro{grid-column:span 2}}
+  .pares{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:var(--espaco-4);margin:var(--espaco-6) 0}
+  .pares figure{display:flex;flex-direction:column;gap:var(--espaco-2)}
+  .pares img{width:100%;display:block;border:1px solid var(--linha)}
+  .pares figcaption{font-size:13px;color:var(--tinta-suave)}
+  table{border-collapse:collapse;width:100%;max-width:680px;font-size:15px;margin-bottom:var(--espaco-6)}
+  th,td{text-align:left;padding:var(--espaco-2) var(--espaco-3);border-bottom:1px solid var(--linha);vertical-align:top}
+  th{font-weight:700}
+  /* tipografia */
+  .especime{display:grid;gap:var(--espaco-6);margin:var(--espaco-6) 0}
+  .especime .amostra{border-top:1px solid var(--linha);padding-top:var(--espaco-4)}
+  .especime .meta{font-size:13px;color:var(--tinta-suave);margin-bottom:var(--espaco-2)}
+  .exibicao{font-family:var(--font-display);font-size:clamp(40px,6vw,64px);line-height:1.05;font-weight:500;letter-spacing:-.01em}
+  .titulo{font-family:var(--font-display);font-size:40px;line-height:1.15;font-weight:500}
+  .subtitulo{font-family:var(--font-display);font-size:26px;line-height:1.3;font-weight:500}
+  .marca{font-family:var(--font-display);font-size:18px;line-height:1;font-weight:565;letter-spacing:.08em;text-transform:uppercase}
+  .corpo{font-size:17px}
+  .legenda{font-size:13px;font-weight:500;color:var(--tinta-suave)}
+  .pesos{display:flex;flex-wrap:wrap;gap:var(--espaco-6);font-family:var(--font-display);font-size:26px}
+  .alfabeto{font-family:var(--font-display);font-size:clamp(22px,3vw,32px);letter-spacing:.06em;word-break:break-all;line-height:1.4;margin:var(--espaco-4) 0}
+  /* símbolo */
+  .simbolos{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:var(--espaco-4);margin:var(--espaco-6) 0}
+  .simbolos figure{display:flex;flex-direction:column;gap:var(--espaco-2)}
+  .simbolos .campo{aspect-ratio:1;display:flex;align-items:center;justify-content:center;border:1px solid var(--linha)}
+  .simbolos .campo img,.simbolos .campo svg{width:78%}
+  .simbolos figcaption{font-size:13px;color:var(--tinta-suave)}
+  .campo.f-claro{background:#F2F2F2}.campo.f-roxo{background:#664FA1}.campo.f-sol{background:#FAF559}.campo.f-escuro{background:#2E2E2E}.campo.f-cinza{background:#8F8F8F}
+  .anatomia{display:grid;grid-template-columns:1fr;gap:var(--espaco-8);align-items:center;margin:var(--espaco-6) 0}
+  @media(min-width:800px){.anatomia{grid-template-columns:1fr 1.15fr}}
+  .anatomia svg{width:100%;max-width:420px;fill:var(--tinta)}
+  .respiro{position:relative;width:260px;height:260px;margin:var(--espaco-6) 0;border:1px dashed var(--cinza);display:flex;align-items:center;justify-content:center}
+  .respiro svg{width:160px;fill:var(--tinta)}
+  .respiro span{position:absolute;font-size:12px;color:var(--tinta-suave);letter-spacing:.12em;text-transform:uppercase}
+  /* componentes */
+  .botao{display:inline-flex;align-items:center;justify-content:center;height:48px;padding:0 var(--espaco-8);border-radius:var(--raio-arco);font-family:var(--font-texto);font-size:13px;font-weight:700;letter-spacing:.12em;text-indent:.12em;text-transform:uppercase;text-decoration:none;border:1.5px solid transparent;cursor:pointer;transition:transform .25s ease;background:transparent;color:inherit}
+  .botao:hover{transform:translateY(-2px)}
+  .botao.primario{background:var(--roxo);color:var(--sobre-roxo)}
+  .botao.secundario{color:var(--tinta);border-color:var(--tinta)}
+  .botao.destaque{background:var(--sol);color:var(--sobre-sol)}
+  .linha-botoes{display:flex;gap:var(--espaco-4);flex-wrap:wrap;margin:var(--espaco-4) 0 var(--espaco-8)}
+  .card{display:grid;grid-template-columns:1fr;background:var(--papel);border:1px solid var(--linha);border-radius:var(--raio-2);overflow:hidden;text-decoration:none;color:inherit;transition:transform .25s ease;max-width:720px;margin:var(--espaco-4) 0 var(--espaco-8)}
+  @media(min-width:640px){.card{grid-template-columns:44% 1fr;height:260px}}
+  .card:hover{transform:translateY(-3px)}
+  .card .imagem{background:var(--roxo);display:flex;align-items:center;justify-content:center;min-height:180px}
+  .card .imagem svg{width:120px;fill:var(--sobre-roxo)}
+  .card .conteudo{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:var(--espaco-2);padding:var(--espaco-6) var(--espaco-8)}
+  .card .conteudo p{font-size:15px;line-height:1.55;color:var(--tinta-suave);max-width:300px;margin:0}
+  .card .botao{margin-top:var(--espaco-2);height:44px}
+  .placa{background:var(--papel);border:1px solid var(--linha);padding:var(--espaco-8);max-width:680px;margin:var(--espaco-4) 0}
+  .faixa{background:var(--sol);color:var(--sobre-sol);padding:var(--espaco-8);max-width:680px;margin:var(--espaco-4) 0;display:flex;align-items:center;gap:var(--espaco-6)}
+  .faixa svg{width:72px;fill:var(--sobre-sol);flex:none}
+  .faixa p{margin:0;font-family:var(--font-display);font-size:22px;line-height:1.3}
+  .nao{color:var(--tinta-suave)}
+  footer{padding:var(--espaco-16) 0;border-top:1px solid var(--linha);font-size:15px;color:var(--tinta-suave)}
+  footer .marca{color:var(--tinta);display:block;margin-bottom:var(--espaco-3)}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="simbolo" viewBox="243 230 514 500">
+    <path d="M584.49,563.06l167.8-85.91-13-34.6-165.55,84.73,127.68-149.19-23.22-27.13-125.78,146.97,72.18-189.71-30.43-15.83-76.4,200.82v-219.66h-33.53v204.96l-62.21-191.74-31.19,13.84,67.24,207.24-134.27-156.89-23.22,27.13,129.17,150.93-168.17-83.9-12.72,34.77,164.89,82.25-168.99-24.14v37.41l128.55,25.28c-36.19,13.85-77.13,21.12-119.4,21.12h-4.9v42.15h4.9c34.29,0,67.66-4.32,99.16-12.82,32.96-8.84,62.38-21.82,87.17-38.1-1.34-5.07-2.13-10.38-2.13-15.87,0-34.18,27.71-61.89,61.89-61.89s61.89,27.71,61.89,61.89c0,7.49-1.4,14.64-3.84,21.29,28.5,16.73,63.57,29.44,104.03,37.29l.5.09c27.94,5.4,56.71,8.13,85.51,8.13h4.9v-42.15h-4.9c-47.11,0-91.48-7.15-129.51-20.76l136.65-21.44v-37.46l-170.75,20.9Z"/>
+    <path d="M516.58,602.67l-4.63-11.02h-30.81l-5.13,9.3c-29.09,52.72-128.98,89.54-231.25,89.54v35.97c104.88,0,206.35-35.16,250.02-89.3,45.64,65.46,169.11,89.3,260.46,89.3v-35.97c-114,0-216.94-36.11-238.66-87.82Z"/>
+  </symbol>
+</svg>
+
+<header class="coluna topo">
+  <div class="rotulos"><span class="rotulo">Guia da marca</span><span class="rotulo">Via Simbólica</span></div>
+  <button class="tema" type="button" id="alternar">Tema escuro</button>
+</header>
+
+<section class="coluna capa">
+  <svg class="simbolo" aria-hidden="true"><use href="#simbolo"/></svg>
+  <h1>Via<br>Simbólica</h1>
+  <p class="assinatura">Encante-se com o mundo pela Via Simbólica.</p>
+</section>
+
+<section class="coluna">
+  <span class="rotulo">Essência</span>
+  <p class="corpo-grande">A marca é um sol que nasce atrás de um livro aberto, e o livro também é uma montanha. Tudo o que a Via Simbólica publica deve dizer isso: leitura, amanhecer, altura, e um núcleo em torno do qual as pessoas se reúnem.</p>
+  <p>Três palavras guiam qualquer decisão: <b>clara</b> (nada que precise de legenda), <b>sóbria</b> (uma cor de destaque, nunca três) e <b>solar</b> (o amarelo é luz, não alarme). O tom visual é o de um bom livro impresso: superfícies lisas, cantos retos, uma cor forte por vez, texto com espaço para respirar.</p>
+</section>
+
+<section class="escura">
+  <div class="coluna">
+    <div class="rotulos" style="display:flex;gap:var(--espaco-8)"><span class="rotulo">Projeto</span><span class="rotulo">Via Simbólica</span></div>
+    <h2 class="titulo-secao"><span class="numeral">01.</span><span class="exibicao">Cores</span></h2>
+  </div>
+</section>
+
+<section class="coluna">
+  <p>Cinco cores e nenhuma outra. Roxo é a cor da marca e vem primeiro; sol é o acento, em área pequena ou como um bloco inteiro; os neutros fazem o resto. O deck da identidade é preto, branco e cinza, e as cores entram pelo logotipo e pelos objetos. Siga essa proporção: muito neutro, uma cor.</p>
+  <div class="paleta">
+    <div class="cor sol"><span>sol · acento</span><b>#FAF559</b></div>
+    <div class="cor roxo"><span>roxo · a cor da marca</span><b>#664FA1</b></div>
+    <div class="cor claro"><span>claro · fundo</span><b>#F2F2F2</b></div>
+    <div class="cor cinza"><span>cinza · filetes, marca</span><b>#8F8F8F</b></div>
+    <div class="cor escuro"><span>escuro · tinta</span><b>#2E2E2E</b></div>
+  </div>
+  <table>
+    <tr><th>Texto</th><th>Sobre</th><th>Contraste</th><th>Regra</th></tr>
+    <tr><td>tinta</td><td>fundo / papel</td><td>12,1 : 1</td><td>Texto principal.</td></tr>
+    <tr><td>tinta-suave</td><td>fundo / papel</td><td>5,8 : 1 · 6,9 : 1</td><td>Texto secundário (derivado; não consta na IDV original).</td></tr>
+    <tr><td>roxo</td><td>fundo claro / papel / sol</td><td>5,9 · 6,6 · 5,7</td><td>Pode ser texto. Sobre escuro não (2,1): use roxo-claro #B9A9E0.</td></tr>
+    <tr><td>sol</td><td>escuro / roxo</td><td>11,8 · 5,7</td><td>Pode ser texto. Nunca sobre claro (1 : 1).</td></tr>
+    <tr><td>cinza</td><td>fundo claro / escuro</td><td>2,9 · 4,2</td><td>Só filetes, rótulos de cabeçalho e marca. Texto só a partir de 24px, sobre escuro.</td></tr>
+    <tr><td>claro</td><td>roxo / escuro</td><td>5,9 · 12,1</td><td>Texto e marca sobre os fundos de cor.</td></tr>
+  </table>
+  <p class="nao">Proibido: gradiente, sombra colorida, brilho, roxo-azulado degradê, duas cores de destaque na mesma peça.</p>
+</section>
+
+<section class="escura">
+  <div class="coluna">
+    <div class="rotulos" style="display:flex;gap:var(--espaco-8)"><span class="rotulo">Projeto</span><span class="rotulo">Via Simbólica</span></div>
+    <h2 class="titulo-secao"><span class="numeral">02.</span><span class="exibicao">Tipografia</span></h2>
+  </div>
+</section>
+
+<section class="coluna">
+  <p>Duas famílias, as duas da Indian Type Foundry e gratuitas no Fontshare. <b>Chillax Variable</b> é a voz da marca: títulos, numerais de seção e o nome tipográfico. <b>Satoshi</b> é o texto: parágrafos, rótulos, botões. A serifa e a manuscrita do site antigo saem.</p>
+  <div class="alfabeto">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789</div>
+  <div class="pesos"><span style="font-weight:200">Extralight</span><span style="font-weight:300">Light</span><span style="font-weight:400">Regular</span><span style="font-weight:500">Medium</span><span style="font-weight:600">Semibold</span><span style="font-weight:700">Bold</span></div>
+  <div class="especime">
+    <div class="amostra"><div class="meta">exibicao · Chillax 500 · 64/1,05 · −0,01em</div><div class="exibicao">Projeto de Identidade Visual</div></div>
+    <div class="amostra"><div class="meta">titulo · Chillax 500 · 40/1,15</div><div class="titulo">Paleta de cores</div></div>
+    <div class="amostra"><div class="meta">subtitulo · Chillax 500 · 26/1,3</div><div class="subtitulo">A Psicologia das 12 Casas</div></div>
+    <div class="amostra"><div class="meta">marca · Chillax 565 · 18 · caixa alta · 0,08em</div><div class="marca">Via Simbólica · LiterAstro</div></div>
+    <div class="amostra"><div class="meta">rotulo · Satoshi 500 · 12 · caixa alta · 0,18em</div><span class="rotulo" style="margin:0">Projeto &nbsp;&nbsp; LiterAstro &nbsp;&nbsp; Samira Souza</span></div>
+    <div class="amostra"><div class="meta">corpo · Satoshi 400 · 17/1,6</div><p class="corpo" style="margin:0">As doze áreas da vida humana desvendadas: quem você é, sua família, seu amor e sua vocação.</p></div>
+    <div class="amostra"><div class="meta">legenda · Satoshi 500 · 13/1,5</div><div class="legenda">Livro / Montanha &nbsp;·&nbsp; Páginas / Sol / Multiplicidade &nbsp;·&nbsp; Núcleo / Ponto de foco / Reunião</div></div>
+  </div>
+  <ul>
+    <li>Títulos em caixa baixa com inicial maiúscula. Caixa alta só em rótulo, botão e marca.</li>
+    <li>Medida de leitura de 60 a 75 caracteres. Alinhamento à esquerda. Nunca justificar na web.</li>
+    <li>Enquanto a Chillax e a Satoshi não carregam, as pilhas caem em Outfit e DM Sans. São substitutos de trabalho, não a marca.</li>
+  </ul>
+</section>
+
+<section class="escura">
+  <div class="coluna">
+    <div class="rotulos" style="display:flex;gap:var(--espaco-8)"><span class="rotulo">Projeto</span><span class="rotulo">Via Simbólica</span></div>
+    <h2 class="titulo-secao"><span class="numeral">03.</span><span class="exibicao">Símbolo</span></h2>
+  </div>
+</section>
+
+<section class="coluna">
+  <div class="anatomia">
+    <svg aria-label="Símbolo"><use href="#simbolo"/></svg>
+    <div>
+      <p>Três camadas, nas palavras da designer: <b>livro / montanha</b> (a curva de baixo), <b>páginas / sol / multiplicidade</b> (os raios) e <b>núcleo / ponto de foco / reunião</b> (o círculo vazio no centro).</p>
+      <p>Nove raios retos, um vertical e quatro de cada lado; duas linhas curvas que abraçam o núcleo como páginas; embaixo, a curva do livro aberto. Os traços têm a mesma espessura em todo o desenho, cerca de 3,4% da largura do símbolo.</p>
+      <ul>
+        <li>Sempre uma tinta só. Nunca contorno, sombra, inclinação, relevo em tela ou duas cores.</li>
+        <li>Não redesenhe os raios, não mude a contagem, não feche o núcleo, não separe o livro do sol.</li>
+        <li>Respiro mínimo em volta: o diâmetro do núcleo. Altura mínima: 24px na tela, 8mm no papel.</li>
+        <li>O símbolo é da casa inteira. LiterAstro e qualquer produto novo usam o mesmo símbolo com o seu nome.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="respiro" aria-hidden="true"><span style="top:8px">respiro = um núcleo</span><svg><use href="#simbolo"/></svg></div>
+
+  <h3>Versões</h3>
+  <div class="simbolos">
+    <figure><div class="campo f-claro"><img src="logos/svg/simbolo.svg" alt="Símbolo"></div><figcaption>simbolo</figcaption></figure>
+    <figure><div class="campo f-claro"><img src="logos/svg/literastro-vertical.svg" alt="LiterAstro vertical"></div><figcaption>literastro-vertical</figcaption></figure>
+    <figure><div class="campo f-claro"><img src="logos/png/literastro-horizontal-escuro-transparente.png" alt="LiterAstro horizontal"></div><figcaption>literastro-horizontal</figcaption></figure>
+    <figure><div class="campo f-claro"><img src="logos/svg/literastro-selo.svg" alt="LiterAstro selo"></div><figcaption>literastro-selo</figcaption></figure>
+    <figure><div class="campo f-claro"><img src="logos/svg/viasimbolica-vertical.svg" alt="Via Simbólica vertical (provisório)"></div><figcaption>viasimbolica-vertical · provisório</figcaption></figure>
+    <figure><div class="campo f-claro"><img src="logos/svg/viasimbolica-horizontal.svg" alt="Via Simbólica horizontal (provisório)"></div><figcaption>viasimbolica-horizontal · provisório</figcaption></figure>
+    <figure><div class="campo f-claro"><img src="logos/svg/viasimbolica-selo.svg" alt="Via Simbólica selo (provisório)"></div><figcaption>viasimbolica-selo · provisório</figcaption></figure>
+  </div>
+  <p class="legenda">Os lockups "Via Simbólica" usam o nome em texto vivo (Chillax 565, tracking 0,08em) e só renderizam certo com a fonte carregada; a versão em curvas depende dos arquivos da fonte.</p>
+
+  <h3>Pares aprovados</h3>
+  <p>As combinações entregues pela designer. Os dois pares com cinza e sol valem para a marca em tamanho grande, nunca para texto.</p>
+  <div class="pares">
+    <figure><img src="logos/svg/pares-aprovados/simbolo-roxo-sobre-claro.svg" alt="roxo sobre claro"><figcaption>roxo sobre claro</figcaption></figure>
+    <figure><img src="logos/svg/pares-aprovados/simbolo-claro-sobre-roxo.svg" alt="claro sobre roxo"><figcaption>claro sobre roxo</figcaption></figure>
+    <figure><img src="logos/svg/pares-aprovados/simbolo-claro-sobre-escuro.svg" alt="claro sobre escuro"><figcaption>claro sobre escuro</figcaption></figure>
+    <figure><img src="logos/svg/pares-aprovados/simbolo-cinza-sobre-amarelo.svg" alt="cinza sobre sol"><figcaption>cinza sobre sol</figcaption></figure>
+    <figure><img src="logos/svg/pares-aprovados/simbolo-amarelo-sobre-cinza.svg" alt="sol sobre cinza"><figcaption>sol sobre cinza</figcaption></figure>
+  </div>
+</section>
+
+<section class="escura">
+  <div class="coluna">
+    <div class="rotulos" style="display:flex;gap:var(--espaco-8)"><span class="rotulo">Projeto</span><span class="rotulo">Via Simbólica</span></div>
+    <h2 class="titulo-secao"><span class="numeral">04.</span><span class="exibicao">Componentes</span></h2>
+  </div>
+</section>
+
+<section class="coluna">
+  <h3 style="margin-top:0">Botão</h3>
+  <p>Pílula, rótulo em caixa alta, 48px de altura. Primário em roxo (um por vista), secundário com borda em tinta, destaque em sol (no máximo um por página). Hover sobe 2px e não muda a cor.</p>
+  <div class="linha-botoes">
+    <a class="botao primario" href="#">Quero participar</a>
+    <a class="botao secundario" href="#">Ver o curso</a>
+    <a class="botao destaque" href="#">Abrir carrinho</a>
+  </div>
+
+  <h3>Rótulo e título</h3>
+  <p>O eyebrow acima do título: caixa alta, tracking largo, em tinta-suave; em roxo quando nomeia a categoria.</p>
+  <div class="placa">
+    <span class="rotulo categoria">Curso ao vivo</span>
+    <div class="titulo">A Psicologia das 12 Casas</div>
+  </div>
+
+  <h3>Card de produto</h3>
+  <p>Imagem à esquerda (obra ou material, atrás do véu quando há texto por cima), conteúdo centralizado à direita. Sem imagem, a área da esquerda é um bloco roxo com o símbolo em claro.</p>
+  <a class="card" href="#">
+    <div class="imagem"><svg aria-hidden="true"><use href="#simbolo"/></svg></div>
+    <div class="conteudo">
+      <span class="rotulo categoria">Comunidade</span>
+      <div class="subtitulo">Comunidade LiterAstro</div>
+      <p>A comunidade que une literatura e astrologia num só lugar de estudo e amizade.</p>
+      <span class="botao primario">Conhecer</span>
+    </div>
+  </a>
+
+  <h3>Faixa de destaque</h3>
+  <p>Um bloco chapado em sol com texto em escuro: para avisos de abertura de turma, marcadores e capas. Um bloco por composição.</p>
+  <div class="faixa"><svg aria-hidden="true"><use href="#simbolo"/></svg><p>Turma 1 das 12 Casas: carrinho aberto até 12 de outubro.</p></div>
+
+  <h3>Layout</h3>
+  <ul>
+    <li>Base de 8px. Margens laterais de 48px em telas largas, 24px no celular.</li>
+    <li>Uma ideia por tela. Página escura com o título no canto inferior esquerdo, página clara com o conteúdo; alterne.</li>
+    <li>Cantos retos por padrão. Cartões e molduras com 8px; botões e discos em pílula.</li>
+    <li>Bordas finas em vez de sombras. Hover é um deslocamento de 3px para cima em 250ms.</li>
+    <li>Imagens: materiais naturais e luz do dia, ou pintura clássica em domínio público atrás de um véu escuro a 60%. Sem 3D, sem stock, sem zodíaco de clip-art, sem emoji.</li>
+  </ul>
+</section>
+
+<footer class="coluna">
+  <span class="marca">Via Simbólica</span>
+  Identidade visual: Samira Souza (Comunidade LiterAstro, 2026). Sistema estendido para a casa Via Simbólica. Tokens em <code>tokens.css</code>; sistema completo no Claude Design.
+</footer>
+
+<script>
+  (function () {
+    var raiz = document.documentElement, botao = document.getElementById('alternar');
+    function aplicar(t) { raiz.setAttribute('data-theme', t); botao.textContent = t === 'claro' ? 'Tema escuro' : 'Tema claro'; }
+    try { var salvo = localStorage.getItem('vs-tema'); if (salvo) aplicar(salvo); } catch (e) {}
+    botao.addEventListener('click', function () {
+      var novo = raiz.getAttribute('data-theme') === 'claro' ? 'escuro' : 'claro';
+      aplicar(novo); try { localStorage.setItem('vs-tema', novo); } catch (e) {}
+    });
+  })();
+</script>
+</body>
+</html>
