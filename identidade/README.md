@@ -10,11 +10,10 @@
 | `guia.html` | guia visual: abra no navegador para ver o sistema aplicado (carrega Chillax e Satoshi do Fontshare) |
 | `claude-design.md` | como usar com o Claude Design, Claude Code e Projetos; instruções de projeto prontas; decisões tomadas |
 | `fontes/README.md` | onde baixar as fontes, licença, como carregar |
-| `logos/svg/viasimbolica/` | as duas marcas da Via Simbólica: principal (cartão, pares, marcas soltas, avatar, lockups) e assinatura, nomes em curvas |
+| `logos/svg/viasimbolica/` | as duas marcas da Via Simbólica: principal (forma completa e seus pares, marcas soltas, miniatura e seus pares, avatar, lockups) e assinatura, nomes em curvas |
 | `logos/svg/literastro/` | o símbolo da LiterAstro em uma tinta (canônico), `pares-aprovados/` e `originais/` (arquivos da designer, intactos) |
 | `logos/png/viasimbolica/`, `logos/png/literastro/` | PNG de 4000px de cada marca, exportados dos SVG canônicos; `logos/png/literastro/originais/` guarda os PNG da designer (cores arredondadas, dois com 4001px) |
 | `referencia/` | o deck original da identidade |
-
 ---
 
 Via Simbólica é a casa de Guilherme Santana: cursos, consultas de astrologia tradicional e acompanhamento. A Comunidade LiterAstro é um dos seus produtos. Este sistema nasceu da identidade visual que Samira Souza desenhou para a LiterAstro em 2026 e passa a valer para toda a casa: a mesma paleta de cinco cores, as mesmas duas famílias tipográficas, o mesmo jeito de compor com muito ar. As marcas, não: a Via Simbólica tem as suas, a **principal** (o Sol que também é um olho) e a **assinatura** (a estrela cadente com o nome manuscrito). O símbolo do sol atrás do livro aberto é da LiterAstro e só aparece em peças da comunidade.
@@ -71,7 +70,7 @@ A casa tem duas marcas; a comunidade tem a sua. Nunca junte duas delas no mesmo 
 
 ### Marca principal: o Sol que também é um olho
 
-A marca tem duas formas com a mesma geometria. Na **completa**, um cartão horizontal de 464×288 em `roxo` com, no claro da paleta (#F2F2F2, o `sobre-roxo`, igual nos dois temas), um disco de raio 32 assentado perto da base (centro a 56 da borda inferior) e nove raios inteiros, da mesma espessura (8) e do mesmo comprimento (112), saindo dele a 0, 22,5, 45, 67,5 e 90 graus para cada lado, entre os raios 64 e 176 do centro; o leque fica a 56 de cada borda. É a forma de todo uso em que a marca aparece inteira: lockups, capas, cabeçalhos, impressos. Na **miniatura**, o mesmo leque num cartão vertical 2:3 (192×288) que recorta os raios laterais pela borda: é a forma do ícone, do favicon, do avatar e de qualquer tamanho pequeno, e o corte faz parte dela. O disco é a pupila e é o sol; os raios são cílios e luz. Nas duas formas o cartão não é fundo, é a marca: tem a cor dela e termina onde o desenho termina.
+A marca tem duas formas com a mesma geometria. Na **completa**, um cartão horizontal de 464×288 em `roxo` com, no claro da paleta (#F2F2F2, o `sobre-roxo`, igual nos dois temas), um disco de raio 32 assentado perto da base (centro a 56 da borda inferior) e nove raios inteiros, da mesma espessura (8) e do mesmo comprimento (112), saindo dele a 0, 22,5, 45, 67,5 e 90 graus para cada lado, entre os raios 64 e 176 do centro; o leque fica a 56 das bordas laterais e da superior, e embaixo o centro do disco fica a 56 da borda. É a forma de todo uso em que a marca aparece inteira: lockups, capas, cabeçalhos, impressos. Na **miniatura**, o mesmo leque num cartão vertical 2:3 (192×288) que recorta os raios laterais pela borda: é a forma do ícone, do favicon, do avatar e de qualquer tamanho pequeno, e o corte faz parte dela. O disco é a pupila e é o sol; os raios são cílios e luz. Nas duas formas o cartão não é fundo, é a marca: tem a cor dela e termina onde o desenho termina.
 
 Versões, em `assets/Marcas-Via-Simbolica`:
 - `viasimbolica-principal` — a versão mestre completa: cartão roxo, marcas claras. Use esta sempre que a marca aparecer inteira.
