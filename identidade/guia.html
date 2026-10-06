@@ -37,7 +37,7 @@
   .tema:focus-visible,.botao:focus-visible,a:focus-visible{outline:2px solid var(--foco);outline-offset:2px}
   /* capa */
   .capa{min-height:80vh;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:var(--espaco-16)}
-  .capa .principal-capa{width:128px;height:192px;display:block;margin-bottom:var(--espaco-12)}
+  .capa .principal-capa{width:232px;height:144px;display:block;margin-bottom:var(--espaco-12)}
   .capa h1{font-size:clamp(52px,9vw,112px);line-height:.95;letter-spacing:-.01em}
   .capa .frase{margin-top:var(--espaco-6);color:var(--tinta-suave);font-size:17px}
   /* seção numerada */
@@ -85,15 +85,15 @@
   .simbolos .campo img,.simbolos .campo svg{max-width:78%;max-height:78%;width:auto;height:auto}
   .simbolos.largos{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
   .simbolos .campo.retrato{aspect-ratio:3/4}
-  .principal-grande{width:192px;height:288px;display:block}
+  .principal-grande{width:100%;max-width:464px;height:auto;display:block}
   .assinatura-lockup{display:inline-flex;flex-direction:column;align-items:center;gap:4px;color:var(--tinta)}
   .assinatura-lockup .estrela{width:46px;height:36px;display:block}
   .assinatura-lockup img{width:200px;display:block}
   .assinatura-lockup .so-escuro{display:none}
   [data-theme="escuro"] .assinatura-lockup .so-claro{display:none}
   [data-theme="escuro"] .assinatura-lockup .so-escuro{display:block}
-  .card .imagem img{width:120px;display:block}
-  .faixa img{width:72px;display:block;flex:none}
+  .card .imagem img{width:85%;display:block}
+  .faixa img{width:116px;display:block;flex:none}
   .simbolos figcaption{font-size:13px;color:var(--tinta-suave)}
   .campo.f-claro{background:#F2F2F2}.campo.f-roxo{background:#664FA1}.campo.f-sol{background:#FAF559}.campo.f-escuro{background:#2E2E2E}.campo.f-cinza{background:#8F8F8F}
   .anatomia{display:grid;grid-template-columns:1fr;gap:var(--espaco-8);align-items:center;margin:var(--espaco-6) 0}
@@ -147,7 +147,7 @@
 
 <section class="coluna">
   <span class="rotulo">Essência</span>
-  <p class="corpo-grande">A casa olha e ilumina. A marca principal diz isso de uma vez: um Sol que também é um olho, nove raios abrindo-se a partir de um disco claro, cortados pela borda de um cartão roxo. A assinatura diz o resto: uma estrela cadente e o nome escrito à mão. A LiterAstro tem a sua imagem própria, o sol que nasce atrás de um livro aberto, que também é montanha.</p>
+  <p class="corpo-grande">A casa olha e ilumina. A marca principal diz isso de uma vez: um Sol que também é um olho, nove raios iguais abrindo-se a partir de um disco claro sobre um cartão roxo; na miniatura, a borda do cartão os recorta. A assinatura diz o resto: uma estrela cadente e o nome escrito à mão. A LiterAstro tem a sua imagem própria, o sol que nasce atrás de um livro aberto, que também é montanha.</p>
   <p>Três palavras guiam qualquer decisão: <b>clara</b> (nada que precise de legenda), <b>sóbria</b> (uma cor de destaque, nunca três) e <b>solar</b> (o amarelo é luz, não alarme). O tom visual é o de um bom livro impresso: superfícies lisas, cantos retos, uma cor forte por vez, texto com espaço para respirar.</p>
 </section>
 
@@ -218,29 +218,34 @@
 
   <h3>Marca principal: o Sol que também é um olho</h3>
   <div class="anatomia">
-    <img class="principal-grande" src="logos/svg/viasimbolica/viasimbolica-principal.svg" alt="Marca principal">
+    <img class="principal-grande" src="logos/svg/viasimbolica/viasimbolica-principal.svg" alt="Marca principal, forma completa">
     <div>
-      <p>Um cartão vertical na proporção 2:3 em roxo. Dentro, em claro, um disco perto da base e nove raios da mesma espessura saindo dele, a 0, 22,5, 45, 67,5 e 90 graus para cada lado. Os raios laterais são cortados pela borda do cartão: o corte faz parte do desenho. O disco é a pupila e é o sol; os raios são pálpebras e luz.</p>
+      <p>Duas formas, uma geometria. Na <b>completa</b>, um cartão horizontal em roxo com um disco claro perto da base e nove raios inteiros, da mesma espessura e do mesmo comprimento, a 0, 22,5, 45, 67,5 e 90 graus para cada lado. É a forma de todo uso em que a marca aparece inteira. Na <b>miniatura</b>, o mesmo leque num cartão vertical 2:3 que recorta os raios laterais pela borda: é a forma do ícone, do favicon e do avatar, e o corte faz parte dela. O disco é a pupila e é o sol; os raios são cílios e luz.</p>
       <ul>
-        <li>O cartão não é fundo, é a marca. Tem a cor dela e termina onde os raios terminam. Não arredonde, não gire.</li>
-        <li>Não altere contagem, ângulos, espessura, raio do disco, posição nem proporção.</li>
-        <li>Uma tinta para as marcas e uma para o cartão, sempre num par aprovado. Sem contorno, sombra ou relevo.</li>
-        <li>Respiro em volta: um terço da largura do cartão. Mínimo: 48px de altura na tela, 12mm no papel.</li>
+        <li>O cartão não é fundo, é a marca. Tem a cor dela e termina onde o desenho termina. Não arredonde, não gire.</li>
+        <li>Não altere contagem, ângulos, espessura, comprimento, raio do disco, posição, proporção dos cartões nem o recorte da miniatura.</li>
+        <li>Não use a miniatura onde a marca aparece inteira, nem a completa como ícone.</li>
+        <li>Uma tinta para as marcas e uma para o cartão, sempre num par aprovado. Respiro em volta: o diâmetro do disco. Mínimo: completa com 160px de largura; miniatura com 24px de altura.</li>
       </ul>
     </div>
   </div>
   <div class="simbolos">
-    <figure><div class="campo f-claro retrato"><img src="logos/svg/viasimbolica/viasimbolica-principal.svg" alt="mestre"></div><figcaption>principal · mestre</figcaption></figure>
-    <figure><div class="campo f-claro retrato"><img src="logos/svg/viasimbolica/viasimbolica-principal-claro-sobre-escuro.svg" alt="claro sobre escuro"></div><figcaption>claro sobre escuro</figcaption></figure>
-    <figure><div class="campo f-claro retrato"><img src="logos/svg/viasimbolica/viasimbolica-principal-escuro-sobre-sol.svg" alt="escuro sobre sol"></div><figcaption>escuro sobre sol</figcaption></figure>
-    <figure><div class="campo f-claro retrato"><img src="logos/svg/viasimbolica/viasimbolica-principal-roxo-sobre-claro.svg" alt="roxo sobre claro"></div><figcaption>roxo sobre claro</figcaption></figure>
-    <figure><div class="campo f-claro retrato"><img src="logos/svg/viasimbolica/viasimbolica-principal-sol-sobre-cinza.svg" alt="sol sobre cinza"></div><figcaption>sol sobre cinza</figcaption></figure>
-    <figure><div class="campo f-roxo retrato"><img src="logos/svg/viasimbolica/viasimbolica-principal-marcas-claro.svg" alt="marcas soltas sobre campo roxo"></div><figcaption>marcas soltas sobre campo 2:3</figcaption></figure>
+    <figure><div class="campo f-claro"><img src="logos/svg/viasimbolica/viasimbolica-principal.svg" alt="completa, mestre"></div><figcaption>completa · mestre</figcaption></figure>
+    <figure><div class="campo f-claro"><img src="logos/svg/viasimbolica/viasimbolica-principal-claro-sobre-escuro.svg" alt="claro sobre escuro"></div><figcaption>claro sobre escuro</figcaption></figure>
+    <figure><div class="campo f-claro"><img src="logos/svg/viasimbolica/viasimbolica-principal-escuro-sobre-sol.svg" alt="escuro sobre sol"></div><figcaption>escuro sobre sol</figcaption></figure>
+    <figure><div class="campo f-claro"><img src="logos/svg/viasimbolica/viasimbolica-principal-roxo-sobre-claro.svg" alt="roxo sobre claro"></div><figcaption>roxo sobre claro</figcaption></figure>
+    <figure><div class="campo f-claro"><img src="logos/svg/viasimbolica/viasimbolica-principal-sol-sobre-cinza.svg" alt="sol sobre cinza"></div><figcaption>sol sobre cinza</figcaption></figure>
+    <figure><div class="campo f-roxo"><img src="logos/svg/viasimbolica/viasimbolica-principal-marcas-claro.svg" alt="marcas soltas sobre campo roxo"></div><figcaption>marcas soltas sobre campo 464:288</figcaption></figure>
+  </div>
+  <div class="simbolos">
+    <figure><div class="campo f-claro retrato"><img src="logos/svg/viasimbolica/viasimbolica-miniatura.svg" alt="miniatura"></div><figcaption>miniatura · ícone, favicon</figcaption></figure>
+    <figure><div class="campo f-claro retrato"><img src="logos/svg/viasimbolica/viasimbolica-miniatura-claro-sobre-escuro.svg" alt="miniatura claro sobre escuro"></div><figcaption>miniatura · claro sobre escuro</figcaption></figure>
+    <figure><div class="campo f-claro retrato"><img src="logos/svg/viasimbolica/viasimbolica-miniatura-escuro-sobre-sol.svg" alt="miniatura escuro sobre sol"></div><figcaption>miniatura · escuro sobre sol</figcaption></figure>
+    <figure><div class="campo f-claro retrato"><img src="logos/svg/viasimbolica/viasimbolica-avatar.svg" alt="avatar"></div><figcaption>avatar · perfis e favicon</figcaption></figure>
   </div>
   <div class="simbolos largos">
     <figure><div class="campo f-claro"><img src="logos/svg/viasimbolica/viasimbolica-vertical.svg" alt="lockup vertical"></div><figcaption>vertical · nome em curvas</figcaption></figure>
     <figure><div class="campo f-claro"><img src="logos/svg/viasimbolica/viasimbolica-horizontal.svg" alt="lockup horizontal"></div><figcaption>horizontal · duas linhas</figcaption></figure>
-    <figure><div class="campo f-claro"><img src="logos/svg/viasimbolica/viasimbolica-avatar.svg" alt="avatar"></div><figcaption>avatar</figcaption></figure>
   </div>
 
   <h3>Assinatura: a estrela cadente</h3>
@@ -308,7 +313,7 @@
   </div>
 
   <h3>Card de produto</h3>
-  <p>Imagem à esquerda (obra ou material, atrás do véu quando há texto por cima), conteúdo centralizado à direita. Sem imagem, a área da esquerda é um bloco roxo com a marca principal.</p>
+  <p>Imagem à esquerda (obra ou material, atrás do véu quando há texto por cima), conteúdo centralizado à direita. Sem imagem, a área da esquerda é um bloco roxo com a marca principal completa.</p>
   <a class="card" href="#">
     <div class="imagem"><img src="logos/svg/viasimbolica/viasimbolica-principal.svg" alt=""></div>
     <div class="conteudo">

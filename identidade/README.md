@@ -25,7 +25,7 @@ Comece pela paleta e pela tipografia; o resto decorre delas. Os tokens de cor t�
 
 ## Essência
 
-A casa olha e ilumina. A marca principal diz isso de uma vez: um Sol que também é um olho, nove raios abrindo-se a partir de um disco claro, cortados pela borda de um cartão roxo. A assinatura diz o resto: uma estrela cadente e o nome escrito à mão, como quem assina uma carta. A LiterAstro tem a sua imagem própria: o sol que nasce atrás de um livro aberto, que também é montanha. Nada místico, nada roxo-esotérico com estrelinhas espalhadas: a Via Simbólica lê os clássicos e o céu com a seriedade de quem estuda. O tom visual é o de um bom livro impresso: superfícies lisas, cantos retos, uma cor forte por vez, texto com espaço para respirar.
+A casa olha e ilumina. A marca principal diz isso de uma vez: um Sol que também é um olho, nove raios iguais abrindo-se a partir de um disco claro sobre um cartão roxo; na miniatura, a borda do cartão os recorta. A assinatura diz o resto: uma estrela cadente e o nome escrito à mão, como quem assina uma carta. A LiterAstro tem a sua imagem própria: o sol que nasce atrás de um livro aberto, que também é montanha. Nada místico, nada roxo-esotérico com estrelinhas espalhadas: a Via Simbólica lê os clássicos e o céu com a seriedade de quem estuda. O tom visual é o de um bom livro impresso: superfícies lisas, cantos retos, uma cor forte por vez, texto com espaço para respirar.
 
 Três palavras guiam qualquer decisão: **clara** (nada que precise de legenda), **sóbria** (uma cor de destaque, nunca três) e **solar** (o amarelo é luz, não alarme).
 
@@ -71,22 +71,23 @@ A casa tem duas marcas; a comunidade tem a sua. Nunca junte duas delas no mesmo 
 
 ### Marca principal: o Sol que também é um olho
 
-Um cartão vertical na proporção 2:3 (192×288) em `roxo`. Dentro, no claro da paleta (#F2F2F2, o `sobre-roxo`, igual nos dois temas), um disco de raio 32 assentado perto da base (centro a 56 da borda inferior) e nove raios da mesma espessura (8) saindo dele, a 0, 22,5, 45, 67,5 e 90 graus para cada lado, entre os raios 64 e 176 do centro. Os raios laterais são cortados pela borda do cartão: esse corte faz parte do desenho. O disco é a pupila e é o sol; os raios são pálpebras e luz. O cartão não é fundo, é a marca: tem a cor dela e termina onde os raios terminam.
+A marca tem duas formas com a mesma geometria. Na **completa**, um cartão horizontal de 464×288 em `roxo` com, no claro da paleta (#F2F2F2, o `sobre-roxo`, igual nos dois temas), um disco de raio 32 assentado perto da base (centro a 56 da borda inferior) e nove raios inteiros, da mesma espessura (8) e do mesmo comprimento (112), saindo dele a 0, 22,5, 45, 67,5 e 90 graus para cada lado, entre os raios 64 e 176 do centro; o leque fica a 56 de cada borda. É a forma de todo uso em que a marca aparece inteira: lockups, capas, cabeçalhos, impressos. Na **miniatura**, o mesmo leque num cartão vertical 2:3 (192×288) que recorta os raios laterais pela borda: é a forma do ícone, do favicon, do avatar e de qualquer tamanho pequeno, e o corte faz parte dela. O disco é a pupila e é o sol; os raios são cílios e luz. Nas duas formas o cartão não é fundo, é a marca: tem a cor dela e termina onde o desenho termina.
 
 Versões, em `assets/Marcas-Via-Simbolica`:
-- `viasimbolica-principal` — a versão mestre: cartão roxo, marcas claras. Use esta sempre que puder.
-- `viasimbolica-principal-claro-sobre-escuro`, `-escuro-sobre-sol`, `-roxo-sobre-claro`, `-sol-sobre-cinza`, `-claro-sobre-fundo-escuro` — o mesmo cartão nos pares aprovados; o nome diz "marcas-sobre-cartão".
-- `viasimbolica-principal-marcas` (e `-claro`, `-roxo`, `-sol`) — só os raios e o disco, já recortados, para pousar sobre um campo chapado da mesma proporção (uma capa inteira em roxo, por exemplo). Nunca sobre fotografia ou campo de outra proporção.
-- `viasimbolica-avatar` (e `-escuro`) — o cartão centrado num quadrado `fundo`, para perfis e favicons.
-- `viasimbolica-vertical` (e `-claro`) — cartão com VIA SIMBÓLICA embaixo, nome em curvas (Chillax 565, tracking 0,08em), com a largura do cartão.
-- `viasimbolica-horizontal` (e `-claro`) — cartão à esquerda, VIA / SIMBÓLICA em duas linhas à direita. Para faixas, cabeçalhos e capas de caderno.
+- `viasimbolica-principal` — a versão mestre completa: cartão roxo, marcas claras. Use esta sempre que a marca aparecer inteira.
+- `viasimbolica-principal-claro-sobre-escuro`, `-escuro-sobre-sol`, `-roxo-sobre-claro`, `-sol-sobre-cinza`, `-claro-sobre-fundo-escuro` — a completa nos pares aprovados; o nome diz "marcas-sobre-cartão".
+- `viasimbolica-principal-marcas` (e `-claro`, `-roxo`, `-sol`) — só os raios e o disco da completa, para pousar sobre um campo chapado na proporção 464:288 (uma capa inteira em roxo, por exemplo). Nunca sobre fotografia ou campo de outra proporção.
+- `viasimbolica-miniatura` (e os mesmos cinco pares) — a forma recortada 2:3, para ícone, favicon, avatar e tamanhos pequenos.
+- `viasimbolica-avatar` (e `-escuro`) — a miniatura centrada num quadrado `fundo`, para perfis e favicon.
+- `viasimbolica-vertical` (e `-claro`) — a completa com VIA SIMBÓLICA embaixo, nome em curvas (Chillax 565, tracking 0,08em), com a largura do cartão.
+- `viasimbolica-horizontal` (e `-claro`) — a completa à esquerda, VIA / SIMBÓLICA em duas linhas à direita. Para faixas, cabeçalhos e capas de caderno.
 
 Regras:
-- Não altere nada da geometria: contagem, ângulos, espessura, raio do disco, posição, proporção do cartão, recorte. Não arredonde os cantos do cartão. Não gire.
+- Não altere nada da geometria: contagem, ângulos, espessura, comprimento, raio do disco, posição, proporção dos cartões, recorte da miniatura. Não arredonde os cantos. Não gire. Não use a miniatura onde a marca aparece inteira, nem a completa como ícone.
 - Uma tinta para as marcas e uma para o cartão, sempre num par aprovado. Sem contorno, sombra, brilho ou relevo em tela.
-- Respiro em volta do cartão: um terço da sua largura (64 em 192), em todos os lados. Nos lockups, o respiro é medido a partir do conjunto.
-- Tamanho mínimo: cartão com 48px de altura na tela, 12mm no papel; lockup vertical com 120px de largura; horizontal com 240px.
-- Sobre fotografia, só com `veu` e só a versão mestre, nunca as marcas soltas.
+- Respiro em volta do cartão: o diâmetro do disco (64 na escala do arquivo), em todos os lados. Nos lockups, o respiro é medido a partir do conjunto.
+- Tamanho mínimo: completa com 160px de largura na tela, 40mm no papel; miniatura com 24px de altura; lockup vertical com 200px de largura; horizontal com 320px.
+- Sobre fotografia, só com `veu` e só as versões com cartão, nunca as marcas soltas.
 
 ### Assinatura: a estrela cadente
 
@@ -130,7 +131,7 @@ A identidade não define um conjunto de ícones. Quando precisar de ícones de i
 - **Botao**: pílula (`raio-arco`), rótulo em `botao` caixa alta, altura de 48px, preenchimento horizontal `espaco-8`. Primário em `roxo` com texto `sobre-roxo`; secundário com borda de 1,5px em `tinta` e fundo transparente; de destaque em `sol` com `sobre-sol`, no máximo um por página. Hover: sobe 2px. Veja `components/Botao`.
 - **Rotulo**: o eyebrow. Estilo `rotulo` em `tinta-suave` (ou `roxo-texto` quando marca uma categoria), `espaco-2` acima do título. Veja `components/Rotulo`.
 - **TituloSecao**: numeral em `numeral` + título em `exibicao` ou `titulo`, canto inferior esquerdo, em `tinta`. Veja `components/TituloSecao`.
-- **CardProduto**: cartão de produto do site. Imagem (obra ou material) atrás do `veu`, `Rotulo` com a categoria, nome em `subtitulo`, uma frase em `corpo-pequeno`, um `Botao`. Sem imagem, a área da esquerda é um bloco `roxo` com as marcas soltas da principal. Veja `components/CardProduto`.
+- **CardProduto**: cartão de produto do site. Imagem (obra ou material) atrás do `veu`, `Rotulo` com a categoria, nome em `subtitulo`, uma frase em `corpo-pequeno`, um `Botao`. Sem imagem, a área da esquerda é um bloco `roxo` com a marca principal completa. Veja `components/CardProduto`.
 
 ## Acessibilidade
 
