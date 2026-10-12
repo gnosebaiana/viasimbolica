@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mapa Natal · Via Simbólica</title>
+<meta name="description" content="O céu do seu nascimento, num livro com o seu nome.">
+<meta property="og:title" content="Mapa Natal · Via Simbólica">
+<meta property="og:description" content="O céu do seu nascimento, num livro com o seu nome.">
+<meta property="og:image" content="https://viasimbolica.com.br/mapa-natal/img/4cae09b5e66b781ab2814cafdaf20caa.jpg">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<link rel="preload" href="/assets/fontes/Chillax-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fontes/Satoshi-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/vs-contato.css">
+<style>
+@font-face{font-family:"Chillax Variable";src:url("/assets/fontes/Chillax-Variable.woff2") format("woff2");font-weight:200 700;font-style:normal;font-display:swap}
+@font-face{font-family:"Satoshi";src:url("/assets/fontes/Satoshi-Variable.woff2") format("woff2");font-weight:300 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Satoshi";src:url("/assets/fontes/Satoshi-VariableItalic.woff2") format("woff2");font-weight:300 900;font-style:italic;font-display:swap}
+body{margin:0;background:#f2f2f2}
+a{color:#664fa1}a:hover{color:#4f3c80}
+.vs-botao{transition:transform .25s ease}
+.vs-botao:hover{transform:translateY(-2px)}
+.vs-botao:focus-visible{outline:2px solid #664fa1;outline-offset:2px}
+.vs-escuro .vs-botao:focus-visible{outline-color:#faf559}
+.vs-estante{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:56px 32px}
+@media (max-width:820px){.vs-estante{grid-template-columns:repeat(3,minmax(0,1fr));gap:40px 20px}}
+.vs-item{perspective:1100px;position:relative;display:flex;flex-direction:column;align-items:center;gap:18px}
+.vs-item:hover{z-index:3}
+.vs-palco{position:relative;width:100%;transform-style:preserve-3d}
+.vs-livro{--t:12px;appearance:none;-webkit-appearance:none;border:0;padding:0;margin:0;background:none;cursor:pointer;display:block;position:relative;width:100%;aspect-ratio:160/230;transform-style:preserve-3d;transform:rotateY(-24deg) rotateX(5deg);transition:transform .6s cubic-bezier(.2,.75,.25,1)}
+.vs-livro__capa,.vs-livro__corte,.vs-livro__lombada{position:absolute;display:block}
+.vs-livro__capa{inset:0;transform:translateZ(calc(var(--t) / 2));background:#f6f0e1;overflow:hidden}
+.vs-livro__capa img{width:100%;height:100%;display:block;object-fit:cover}
+.vs-livro__corte{top:3px;right:0;width:var(--t);height:calc(100% - 6px);background:#efe6d2;transform-origin:right center;transform:translateZ(calc(var(--t) / -2)) rotateY(90deg)}
+.vs-livro__lombada{top:0;left:0;width:var(--t);height:100%;background:#e6ddc7;transform-origin:left center;transform:translateZ(calc(var(--t) / -2)) rotateY(-90deg)}
+.vs-sombra{position:absolute;left:12%;right:4%;bottom:-12px;height:20px;background:rgba(0,0,0,.6);filter:blur(14px);opacity:.5;transition:opacity .6s,transform .6s;pointer-events:none}
+.vs-livro--ativo{transform:rotateY(0deg) rotateX(0deg) translateZ(26px)}
+.vs-item:hover .vs-livro,.vs-livro:focus-visible{transform:rotateY(0deg) rotateX(0deg) translateZ(70px) scale(1.03)}
+.vs-item:hover .vs-sombra{opacity:.28;transform:scale(1.15) translateY(16px)}
+.vs-livro:focus-visible{outline:2px solid #faf559;outline-offset:8px}
+.vs-marcador{width:28px;height:3px;background:#faf559;display:block;opacity:0;transition:opacity .3s}
+.vs-ativo .vs-marcador{opacity:1}
+.vs-pagina{transition:transform .25s ease}
+.vs-pagina:hover{transform:translateY(-3px)}
+.vs-tira{display:flex;gap:24px;overflow-x:auto;padding:8px 2px 24px;scroll-snap-type:x mandatory}
+.vs-tira > *{scroll-snap-align:start}
+.vs-faq summary{cursor:pointer;list-style:none}
+.vs-faq summary::-webkit-details-marker{display:none}
+.vs-faq summary::after{content:"+";float:right;font-weight:400;color:#5e5e5e;margin-left:16px}
+.vs-faq details[open] summary::after{content:"−"}
+@media (prefers-reduced-motion:reduce){.vs-livro,.vs-sombra,.vs-botao,.vs-pagina{transition:none}}
+</style>
+<script src="/assets/vs-dc.js"></script>
+<script src="/assets/vs-contato.js" defer></script>
+</head>
+<body>
+<div style="font-family: Satoshi, 'DM Sans', ui-sans-serif, system-ui, sans-serif; color: #2e2e2e; background: #f2f2f2; -webkit-font-smoothing: antialiased;">
+
+<header style="max-width: 1240px; margin: 0 auto; padding: 20px clamp(24px, 4vw, 48px); display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+<a href="https://viasimbolica.com.br" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: #2e2e2e;">
+<img src="/mapa-natal/img/8ab4bf86487ab72cb1c5c5b63048604b.svg" alt="" style="height: 32px; width: auto; display: block;">
+<span style="font-family: 'Chillax Variable', Chillax, sans-serif; font-weight: 565; font-size: 15px; letter-spacing: 0.08em; line-height: 1;">VIA SIMBÓLICA</span>
+</a>
+<a class="vs-botao" href="https://wa.me/557192469207" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; height: 44px; padding: 0 24px; border-radius: 9999px; border: 1.5px solid #2e2e2e; color: #2e2e2e; text-decoration: none; font-weight: 700; font-size: 13px; letter-spacing: 0.12em;" onclick="return vsContato('Mapa Natal', this)">QUERO O MEU MAPA</a>
+</header>
+
+<section style="padding: 32px clamp(24px, 4vw, 48px) 96px;">
+<div style="max-width: 1240px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: clamp(32px, 5vw, 80px);">
+<div style="flex: 1.15 1 420px; min-width: 0;">
+<img src="/mapa-natal/img/4cae09b5e66b781ab2814cafdaf20caa.jpg" alt="O Mapa Natal da Via Simbólica impresso como livro, sobre uma toalha de linho, na luz de uma janela" style="width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block; border-radius: 8px;">
+</div>
+<div style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 24px;">
+<p style="margin: 0; font-weight: 500; font-size: 12px; line-height: 1.2; letter-spacing: 0.18em; color: #5e5e5e;">MAPA NATAL · ASTROLOGIA TRADICIONAL</p>
+<h1 style="margin: 0; font-family: 'Chillax Variable', Chillax, sans-serif; font-weight: 500; font-size: clamp(40px, 5vw, 64px); line-height: 1.05; letter-spacing: -0.01em;">O céu do seu nascimento, num livro com o seu nome.</h1>
+<p style="margin: 0; font-size: 19px; line-height: 1.6; max-width: 34em;">Guilherme Santana lê o seu mapa natal pela astrologia tradicional e entrega a leitura como livro: o seu temperamento, a sua motivação primária e cada área da sua vida, da família à vocação.</p>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #5e5e5e; max-width: 34em;">Na capa, a iluminura medieval do mês do seu Ascendente.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; padding-top: 8px;">
+<a class="vs-botao" href="https://wa.me/557192469207" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; height: 48px; padding: 0 32px; border-radius: 9999px; background: #664fa1; color: #f2f2f2; text-decoration: none; font-weight: 700; font-size: 13px; letter-spacing: 0.12em;" onclick="return vsContato('Mapa Natal', this)">QUERO O MEU MAPA</a>
+<a class="vs-botao" href="#capas" style="display: inline-flex; align-items: center; height: 48px; padding: 0 32px; border-radius: 9999px; border: 1.5px solid #2e2e2e; color: #2e2e2e; text-decoration: none; font-weight: 700; font-size: 13px; letter-spacing: 0.12em;">VER AS CAPAS</a>
+</div>
+<p style="margin: 0; font-weight: 500; font-size: 13px; line-height: 1.5; color: #5e5e5e;">PDF R$ 497 · Impresso R$ 697, entregue no seu endereço</p>
+</div>
+</div>
+</section>
+
+<template data-dc>
+<section id="capas" class="vs-escuro" style="background: #191919; color: #f2f2f2; padding: 96px clamp(24px, 4vw, 48px) 112px;">
+<div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 64px;">
+<div style="max-width: 680px; display: flex; flex-direction: column; gap: 16px;">
+<p style="margin: 0; font-weight: 500; font-size: 12px; line-height: 1.2; letter-spacing: 0.18em; color: #b8b8b8;">AS DOZE CAPAS</p>
+<h2 style="margin: 0; font-family: 'Chillax Variable', Chillax, sans-serif; font-weight: 500; font-size: clamp(32px, 4vw, 40px); line-height: 1.15;">Qual é a sua capa?</h2>
+<p style="margin: 0; font-size: 19px; line-height: 1.6; color: #b8b8b8;">Cada livro abre com a iluminura do mês do signo do seu Ascendente, tirada do calendário das Très Riches Heures, o livro de horas pintado para o duque de Berry no século XV. Passe o mouse sobre os livros e clique no seu.</p>
+</div>
+<div class="vs-estante">
+<sc-for list="{{livros}}" as="l" hint-placeholder-count="12">
+<div class="{{l.itemClasse}}">
+<div class="vs-palco">
+<span class="vs-sombra"></span>
+<button type="button" class="{{l.classe}}" onClick="{{l.escolher}}" aria-label="{{l.rotulo}}" aria-pressed="{{l.ativo}}">
+<span class="vs-livro__lombada"></span>
+<span class="vs-livro__corte"></span>
+<span class="vs-livro__capa"><img src="{{l.src}}" alt=""></span>
+</button>
+</div>
+<p style="margin: 0; font-weight: 500; font-size: 13px; line-height: 1.5; color: #b8b8b8; text-align: center;">{{l.nome}} · {{l.mes}}</p>
+<span class="vs-marcador"></span>
+</div>
+</sc-for>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: clamp(28px, 4vw, 56px); background: #2e2e2e; border-radius: 8px; padding: clamp(24px, 4vw, 48px);">
+<img src="{{atual.src}}" alt="{{atual.alt}}" style="width: 240px; max-width: 100%; aspect-ratio: 160 / 230; object-fit: cover; display: block; flex: 0 0 auto;">
+<div style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 16px;">
+<p style="margin: 0; font-weight: 500; font-size: 12px; line-height: 1.2; letter-spacing: 0.18em; color: #b8b8b8;">{{atual.rotuloMes}}</p>
+<h3 style="margin: 0; font-family: 'Chillax Variable', Chillax, sans-serif; font-weight: 500; font-size: 26px; line-height: 1.3; color: #f2f2f2;">Ascendente em {{atual.nome}}</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #f2f2f2;">{{atual.cena}}</p>
+<p style="margin: 0; font-size: 15px; line-height: 1.55; color: #b8b8b8; max-width: 36em;">Não sabe o seu Ascendente? Mande no WhatsApp a data, a hora e a cidade do seu nascimento, e a gente descobre com você.</p>
+<div style="padding-top: 8px;">
+<a class="vs-botao" href="https://wa.me/557192469207" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; height: 48px; padding: 0 32px; border-radius: 9999px; background: #664fa1; color: #f2f2f2; text-decoration: none; font-weight: 700; font-size: 13px; letter-spacing: 0.12em;" onclick="return vsContato('Mapa Natal', this)">DESCOBRIR A MINHA CAPA</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+</template>
+
+<section style="padding: 96px clamp(24px, 4vw, 48px);">
+<div style="max-width: 1120px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: clamp(40px, 6vw, 88px);">
+<div style="flex: 1 1 360px; min-width: 0; max-width: 560px; display: flex; flex-direction: column; gap: 20px;">
+<p style="margin: 0; font-weight: 500; font-size: 12px; line-height: 1.2; letter-spacing: 0.18em; color: #5e5e5e;">O CALENDÁRIO MEDIEVAL</p>
+<h2 style="margin: 0; font-family: 'Chillax Variable', Chillax, sans-serif; font-weight: 500; font-size: clamp(32px, 4vw, 40px); line-height: 1.15;">Um calendário para ler o céu</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.6;">Os livros de horas eram os livros de oração dos leigos na Idade Média. Abriam com um calendário: um mês por página, com as festas dos santos e o trabalho do campo daquele tempo do ano.</p>
+<p style="margin: 0; font-size: 17px; line-height: 1.6;">Nas Très Riches Heures, cada página tem no alto uma luneta com os signos do mês. Embaixo, a vida do campo: a lavoura em março, a fenação em junho, a vindima em setembro, a caça de inverno em dezembro.</p>
+<p style="margin: 0; font-size: 17px; line-height: 1.6;">A leitura do seu mapa nasce do mesmo olhar. Cada signo é lido pelo que a natureza faz na sua estação.</p>
+</div>
+<div style="flex: 1.15 1 420px; min-width: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 24px;">
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 10px; align-items: center;">
+<img src="/mapa-natal/img/d3cf1e8c3018c40ea93e0ea41fbb5db7.webp" alt="Iluminura de março das Très Riches Heures: a lavoura diante do castelo de Lusignan" style="width: 100%; max-width: 230px; height: auto; display: block;">
+<figcaption style="font-weight: 500; font-size: 13px; line-height: 1.5; color: #5e5e5e;">Março · a lavoura</figcaption>
+</figure>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 10px; align-items: center;">
+<img src="/mapa-natal/img/47e6732447430031b4a075ed03c82483.webp" alt="Iluminura de junho das Très Riches Heures: a fenação diante do palácio da Cité" style="width: 100%; max-width: 230px; height: auto; display: block;">
+<figcaption style="font-weight: 500; font-size: 13px; line-height: 1.5; color: #5e5e5e;">Junho · a fenação</figcaption>
+</figure>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 10px; align-items: center;">
+<img src="/mapa-natal/img/1a3d01e7454c23a94fc51e56a40875ee.webp" alt="Iluminura de setembro das Très Riches Heures: a vindima ao pé do castelo de Saumur" style="width: 100%; max-width: 230px; height: auto; display: block;">
+<figcaption style="font-weight: 500; font-size: 13px; line-height: 1.5; color: #5e5e5e;">Setembro · a vindima</figcaption>
+</figure>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 10px; align-items: center;">
+<img src="/mapa-natal/img/02f1af49fb1adc7d8b1fcd511526cd1c.webp" alt="Iluminura de dezembro das Très Riches Heures: a caça ao javali no bosque de Vincennes" style="width: 100%; max-width: 230px; height: auto; display: block;">
+<figcaption style="font-weight: 500; font-size: 13px; line-height: 1.5; color: #5e5e5e;">Dezembro · a caça ao javali</figcaption>
+</figure>
+</div>
+</div>
+</section>
+
+<section style="background: #ffffff; padding: 96px clamp(24px, 4vw, 48px);">
+<div style="max-width: 1120px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: clamp(40px, 6vw, 88px);">
+<div style="flex: 1.15 1 420px; min-width: 0;">
+<img src="/mapa-natal/img/905797d3964bc476becefe0cdf908e28.jpg" alt="O livro aberto na roda do mapa natal e no sumário" style="width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block; border-radius: 8px;">
+</div>
+<div style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 28px;">
+<div style="display: flex; flex-direction: column; gap: 16px;">
+<p style="margin: 0; font-weight: 500; font-size: 12px; line-height: 1.2; letter-spacing: 0.18em; color: #5e5e5e;">DENTRO DO LIVRO</p>
+<h2 style="margin: 0; font-family: 'Chillax Variable', Chillax, sans-serif; font-weight: 500; font-size: clamp(32px, 4vw, 40px); line-height: 1.15;">O que vem no seu livro</h2>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px;">
+<h3 style="margin: 0; font-family: 'Chillax Variable', Chillax, sans-serif; font-weight: 500; font-size: 20px; line-height: 1.3;">A roda do seu mapa</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.55; color: #5e5e5e;">Calculada para o dia, a hora e a cidade em que você nasceu.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px;">
+<h3 style="margin: 0; font-family: 'Chillax Variable', Chillax, sans-serif; font-weight: 500; font-size: 20px; line-height: 1.3;">O seu temperamento</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.55; color: #5e5e5e;">Colérico, sanguíneo, melancólico ou fleumático: a mistura de que você é feito.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px;">
+<h3 style="margin: 0; font-family: 'Chillax Variable', Chillax, sans-serif; font-weight: 500; font-size: 20px; line-height: 1.3;">A sua motivação primária</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.55; color: #5e5e5e;">O que move você, lido no seu Ascendente.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px;">
+<h3 style="margin: 0; font-family: 'Chillax Variable', Chillax, sans-serif; font-weight: 500; font-size: 20px; line-height: 1.3;">Cada área da sua vida</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.55; color: #5e5e5e;">Tendências e vitalidade, finanças, comunicação, família, vida criativa e filhos, doenças e o servir, casamento e relacionamentos, estudos e religião, trabalho e carreira, amigos e planos de longo prazo, inimigos e autossabotagem.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px;">
+<h3 style="margin: 0; font-family: 'Chillax Variable', Chillax, sans-serif; font-weight: 500; font-size: 20px; line-height: 1.3;">As suas perguntas</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.55; color: #5e5e5e;">Você manda as perguntas que quer ver respondidas. Cada resposta aparece na área da vida a que pertence.</p>
+</div>
+</div>
+</div>
+</section>
+
+<template data-dc>
+<section class="vs-escuro" style="background: #191919; color: #f2f2f2; padding: 96px clamp(24px, 4vw, 48px);">
+<div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px;">
+<div style="max-width: 680px; display: flex; flex-direction: column; gap: 16px;">
+<p style="margin: 0; font-weight: 500; font-size: 12px; line-height: 1.2; letter-spacing: 0.18em; color: #b8b8b8;">FOLHEIE</p>
+<h2 style="margin: 0; font-family: 'Chillax Variable', Chillax, sans-serif; font-weight: 500; font-size: clamp(32px, 4vw, 40px); line-height: 1.15;">Algumas páginas do livro</h2>
+<p style="margin: 0; font-size: 15px; line-height: 1.55; color: #b8b8b8;">Páginas de um livro de exemplo, feito com um nome fictício.</p>
+</div>
+<div class="vs-tira">
+<sc-for list="{{paginas}}" as="p" hint-placeholder-count="7">
+<figure class="vs-pagina" style="margin: 0; flex: 0 0 auto; width: 220px; display: flex; flex-direction: column; gap: 12px;">
+<img src="{{p.src}}" alt="{{p.alt}}" style="width: 220px; aspect-ratio: 160 / 230; object-fit: cover; display: block;">
+<figcaption style="font-weight: 500; font-size: 13px; line-height: 1.5; color: #b8b8b8;">{{p.legenda}}</figcaption>
+</figure>
+</sc-for>
+</div>
+</div>
+</section>
+</template>
+
+<section style="padding: 96px clamp(24px, 4vw, 48px);">
+<div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 48px;">
+<div style="max-width: 680px; display: flex; flex-direction: column; gap: 16px;">
+<p style="margin: 0; font-weight: 500; font-size: 12px; line-height: 1.2; letter-spacing: 0.18em; color: #5e5e5e;">O MÉTODO</p>
+<h2 style="margin: 0; font-family: 'Chillax Variable', Chillax, sans-serif; font-weight: 500; font-size: clamp(32px, 4vw, 40px); line-height: 1.15;">Como o seu céu é lido</h2>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px;">
+<div style="background: #ffffff; border: 1px solid #d9d9d9; border-radius: 8px; padding: 32px; display: flex; flex-direction: column; gap: 12px;">
+<h3 style="margin: 0; font-family: 'Chillax Variable', Chillax, sans-serif; font-weight: 500; font-size: 22px; line-height: 1.3;">Sete planetas</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.55; color: #5e5e5e;">Sol, Lua, Mercúrio, Vênus, Marte, Júpiter e Saturno: os planetas da astrologia tradicional.</p>
+</div>
+<div style="background: #ffffff; border: 1px solid #d9d9d9; border-radius: 8px; padding: 32px; display: flex; flex-direction: column; gap: 12px;">
+<h3 style="margin: 0; font-family: 'Chillax Variable', Chillax, sans-serif; font-weight: 500; font-size: 22px; line-height: 1.3;">Cinco aspectos</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.55; color: #5e5e5e;">Conjunção, sextil, quadratura, trígono e oposição, contados pelo grau e pelo signo.</p>
+</div>
+<div style="background: #ffffff; border: 1px solid #d9d9d9; border-radius: 8px; padding: 32px; display: flex; flex-direction: column; gap: 12px;">
+<h3 style="margin: 0; font-family: 'Chillax Variable', Chillax, sans-serif; font-weight: 500; font-size: 22px; line-height: 1.3;">As estações</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.55; color: #5e5e5e;">Cada signo lido pelo que a natureza faz no seu tempo do ano, como no calendário das iluminuras.</p>
+</div>
+</div>
+<p style="margin: 0; font-family: 'Chillax Variable', Chillax, sans-serif; font-weight: 500; font-size: 26px; line-height: 1.3; max-width: 30em;">O céu descreve tendências. Quem escreve a biografia é você.</p>
+</div>
+</section>
+
+<section style="padding: 0 clamp(24px, 4vw, 48px) 96px;">
+<div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px;">
+<div style="max-width: 680px; display: flex; flex-direction: column; gap: 16px;">
+<p style="margin: 0; font-weight: 500; font-size: 12px; line-height: 1.2; letter-spacing: 0.18em; color: #5e5e5e;">DUAS VERSÕES</p>
+<h2 style="margin: 0; font-family: 'Chillax Variable', Chillax, sans-serif; font-weight: 500; font-size: clamp(32px, 4vw, 40px); line-height: 1.15;">Escolha a sua versão</h2>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+<div style="background: #ffffff; border: 1px solid #d9d9d9; border-radius: 8px; padding: 40px; display: flex; flex-direction: column; gap: 16px;">
+<p style="margin: 0; font-weight: 500; font-size: 12px; line-height: 1.2; letter-spacing: 0.18em; color: #664fa1;">PDF</p>
+<h3 style="margin: 0; font-family: 'Chillax Variable', Chillax, sans-serif; font-weight: 500; font-size: 26px; line-height: 1.3;">Mapa Natal em PDF</h3>
+<p style="margin: 0; font-family: 'Chillax Variable', Chillax, sans-serif; font-weight: 500; font-size: 40px; line-height: 1.15;">R$ 497</p>
+<p style="margin: 0; font-size: 15px; line-height: 1.55; color: #5e5e5e;">O livro completo, enviado no seu e-mail ou no seu WhatsApp. Para ler na tela ou imprimir.</p>
+<div style="padding-top: 8px; margin-top: auto;">
+<a class="vs-botao" href="https://wa.me/557192469207" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; height: 48px; padding: 0 32px; border-radius: 9999px; border: 1.5px solid #2e2e2e; color: #2e2e2e; text-decoration: none; font-weight: 700; font-size: 13px; letter-spacing: 0.12em;" onclick="return vsContato('Mapa Natal', this)">QUERO EM PDF</a>
+</div>
+</div>
+<div style="background: #ffffff; border: 1px solid #d9d9d9; border-radius: 8px; overflow: hidden; display: flex; flex-direction: column;">
+<p style="margin: 0; background: #faf559; color: #2e2e2e; padding: 12px 40px; font-weight: 500; font-size: 12px; line-height: 1.2; letter-spacing: 0.18em;">PARA GUARDAR OU DAR DE PRESENTE</p>
+<div style="padding: 32px 40px 40px; display: flex; flex-direction: column; gap: 16px; flex: 1 1 auto;">
+<p style="margin: 0; font-weight: 500; font-size: 12px; line-height: 1.2; letter-spacing: 0.18em; color: #664fa1;">IMPRESSO</p>
+<h3 style="margin: 0; font-family: 'Chillax Variable', Chillax, sans-serif; font-weight: 500; font-size: 26px; line-height: 1.3;">Mapa Natal impresso</h3>
+<p style="margin: 0; font-family: 'Chillax Variable', Chillax, sans-serif; font-weight: 500; font-size: 40px; line-height: 1.15;">R$ 697</p>
+<p style="margin: 0; font-size: 15px; line-height: 1.55; color: #5e5e5e;">O mesmo livro, impresso e entregue no seu endereço.</p>
+<div style="padding-top: 8px; margin-top: auto;">
+<a class="vs-botao" href="https://wa.me/557192469207" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; height: 48px; padding: 0 32px; border-radius: 9999px; background: #664fa1; color: #f2f2f2; text-decoration: none; font-weight: 700; font-size: 13px; letter-spacing: 0.12em;" onclick="return vsContato('Mapa Natal', this)">QUERO IMPRESSO</a>
+</div>
+</div>
+</div>
+</div>
+<p style="margin: 0; font-weight: 500; font-size: 13px; line-height: 1.5; color: #5e5e5e;">Prazos: PDF em [PRAZO DO PDF]. Impresso em [PRAZO DO IMPRESSO], mais o tempo de entrega.</p>
+</div>
+</section>
+
+<section style="background: #ffffff; padding: 96px clamp(24px, 4vw, 48px);">
+<div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 48px;">
+<div style="max-width: 680px; display: flex; flex-direction: column; gap: 16px;">
+<p style="margin: 0; font-weight: 500; font-size: 12px; line-height: 1.2; letter-spacing: 0.18em; color: #5e5e5e;">COMO ENCOMENDAR</p>
+<h2 style="margin: 0; font-family: 'Chillax Variable', Chillax, sans-serif; font-weight: 500; font-size: clamp(32px, 4vw, 40px); line-height: 1.15;">Do pedido ao livro</h2>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px;">
+<div style="display: flex; flex-direction: column; gap: 12px;">
+<p style="margin: 0; font-family: 'Chillax Variable', Chillax, sans-serif; font-weight: 700; font-size: 40px; line-height: 1;">01.</p>
+<p style="margin: 0; font-size: 17px; line-height: 1.6;">Chame no WhatsApp e escolha a versão.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px;">
+<p style="margin: 0; font-family: 'Chillax Variable', Chillax, sans-serif; font-weight: 700; font-size: 40px; line-height: 1;">02.</p>
+<p style="margin: 0; font-size: 17px; line-height: 1.6;">Envie a data, a hora e a cidade do seu nascimento, e as perguntas que você quer ver respondidas.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px;">
+<p style="margin: 0; font-family: 'Chillax Variable', Chillax, sans-serif; font-weight: 700; font-size: 40px; line-height: 1;">03.</p>
+<p style="margin: 0; font-size: 17px; line-height: 1.6;">O seu céu é calculado e lido por Guilherme Santana.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px;">
+<p style="margin: 0; font-family: 'Chillax Variable', Chillax, sans-serif; font-weight: 700; font-size: 40px; line-height: 1;">04.</p>
+<p style="margin: 0; font-size: 17px; line-height: 1.6;">Você recebe o PDF, ou o livro impresso no seu endereço.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section style="padding: 96px clamp(24px, 4vw, 48px);">
+<div style="max-width: 1120px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: stretch; gap: 0; border-radius: 8px; overflow: hidden; border: 1px solid #d9d9d9; background: #ffffff;">
+<div style="flex: 1.15 1 380px; min-width: 0; background: #191919;">
+<img src="/assets/guilherme/guilherme-frente.jpg" alt="Guilherme Santana, astrólogo da Via Simbólica" loading="lazy" style="width: 100%; height: 100%; min-height: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 20%; display: block;">
+</div>
+<div style="flex: 1 1 360px; min-width: 0; padding: clamp(32px, 4vw, 56px); display: flex; flex-direction: column; gap: 16px; justify-content: center;">
+<p style="margin: 0; font-weight: 500; font-size: 12px; line-height: 1.2; letter-spacing: 0.18em; color: #5e5e5e;">QUEM LÊ O SEU MAPA</p>
+<h2 style="margin: 0; font-family: 'Chillax Variable', Chillax, sans-serif; font-weight: 500; font-size: 26px; line-height: 1.3;">Guilherme Santana</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.6;">Astrólogo da Via Simbólica. Ensina a ler a vida e o mundo pela gramática da astrologia tradicional, a mesma que você vai encontrar no seu livro.</p>
+</div>
+</div>
+</section>
+
+<section style="padding: 0 clamp(24px, 4vw, 48px) 96px;">
+<div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px;">
+<div style="max-width: 680px; display: flex; flex-direction: column; gap: 16px;">
+<p style="margin: 0; font-weight: 500; font-size: 12px; line-height: 1.2; letter-spacing: 0.18em; color: #5e5e5e;">QUEM JÁ RECEBEU</p>
+<h2 style="margin: 0; font-family: 'Chillax Variable', Chillax, sans-serif; font-weight: 500; font-size: clamp(32px, 4vw, 40px); line-height: 1.15;">Quem já leu o próprio céu</h2>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px;">
+<figure style="margin: 0; background: #ffffff; border: 1px solid #d9d9d9; border-radius: 8px; padding: 32px; display: flex; flex-direction: column; gap: 16px;">
+<blockquote style="margin: 0; font-size: 17px; line-height: 1.6;">[Depoimento real de um cliente, usado com autorização.]</blockquote>
+<figcaption style="font-weight: 500; font-size: 13px; line-height: 1.5; color: #5e5e5e;">[Nome, cidade]</figcaption>
+</figure>
+<figure style="margin: 0; background: #ffffff; border: 1px solid #d9d9d9; border-radius: 8px; padding: 32px; display: flex; flex-direction: column; gap: 16px;">
+<blockquote style="margin: 0; font-size: 17px; line-height: 1.6;">[Depoimento real de um cliente, usado com autorização.]</blockquote>
+<figcaption style="font-weight: 500; font-size: 13px; line-height: 1.5; color: #5e5e5e;">[Nome, cidade]</figcaption>
+</figure>
+<figure style="margin: 0; background: #ffffff; border: 1px solid #d9d9d9; border-radius: 8px; padding: 32px; display: flex; flex-direction: column; gap: 16px;">
+<blockquote style="margin: 0; font-size: 17px; line-height: 1.6;">[Depoimento real de um cliente, usado com autorização.]</blockquote>
+<figcaption style="font-weight: 500; font-size: 13px; line-height: 1.5; color: #5e5e5e;">[Nome, cidade]</figcaption>
+</figure>
+</div>
+</div>
+</section>
+
+<section style="background: #ffffff; padding: 96px clamp(24px, 4vw, 48px);">
+<div class="vs-faq" style="max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px;">
+<div style="display: flex; flex-direction: column; gap: 16px;">
+<p style="margin: 0; font-weight: 500; font-size: 12px; line-height: 1.2; letter-spacing: 0.18em; color: #5e5e5e;">DÚVIDAS</p>
+<h2 style="margin: 0; font-family: 'Chillax Variable', Chillax, sans-serif; font-weight: 500; font-size: clamp(32px, 4vw, 40px); line-height: 1.15;">Perguntas frequentes</h2>
+</div>
+<div style="display: flex; flex-direction: column;">
+<details style="border-top: 1px solid #d9d9d9; padding: 20px 0;">
+<summary style="font-weight: 500; font-size: 17px; line-height: 1.5;">Preciso saber a hora do meu nascimento?</summary>
+<p style="margin: 12px 0 0; font-size: 15px; line-height: 1.55; color: #5e5e5e;">Sim. A hora define o seu Ascendente e as áreas da sua vida. Procure na certidão de nascimento ou pergunte à sua família. Se tiver dúvida sobre a hora, fale com a gente antes de encomendar.</p>
+</details>
+<details style="border-top: 1px solid #d9d9d9; padding: 20px 0;">
+<summary style="font-weight: 500; font-size: 17px; line-height: 1.5;">Eu escolho a capa?</summary>
+<p style="margin: 12px 0 0; font-size: 15px; line-height: 1.55; color: #5e5e5e;">A capa vem do seu Ascendente, calculado com a sua data, hora e cidade de nascimento. Se quiser saber qual é antes de encomendar, mande esses dados no WhatsApp.</p>
+</details>
+<details style="border-top: 1px solid #d9d9d9; padding: 20px 0;">
+<summary style="font-weight: 500; font-size: 17px; line-height: 1.5;">Posso dar o mapa de presente?</summary>
+<p style="margin: 12px 0 0; font-size: 15px; line-height: 1.55; color: #5e5e5e;">Pode. Você precisa da data, da hora e da cidade de nascimento de quem vai receber. O impresso vai para o endereço que você indicar.</p>
+</details>
+<details style="border-top: 1px solid #d9d9d9; padding: 20px 0;">
+<summary style="font-weight: 500; font-size: 17px; line-height: 1.5;">O mapa diz o que vai acontecer comigo?</summary>
+<p style="margin: 12px 0 0; font-size: 15px; line-height: 1.55; color: #5e5e5e;">O mapa descreve tendências da sua natureza e da sua vida. O que você faz com elas é seu.</p>
+</details>
+<details style="border-top: 1px solid #d9d9d9; padding: 20px 0;">
+<summary style="font-weight: 500; font-size: 17px; line-height: 1.5;">Quanto tempo leva?</summary>
+<p style="margin: 12px 0 0; font-size: 15px; line-height: 1.55; color: #5e5e5e;">O PDF fica pronto em [PRAZO DO PDF]. O impresso, em [PRAZO DO IMPRESSO], mais o tempo da entrega.</p>
+</details>
+<details style="border-top: 1px solid #d9d9d9; border-bottom: 1px solid #d9d9d9; padding: 20px 0;">
+<summary style="font-weight: 500; font-size: 17px; line-height: 1.5;">Para onde vocês enviam o impresso?</summary>
+<p style="margin: 12px 0 0; font-size: 15px; line-height: 1.55; color: #5e5e5e;">[ÁREA DE ENTREGA E FRETE]</p>
+</details>
+</div>
+</div>
+</section>
+
+<section style="background: #664fa1; color: #f2f2f2; padding: 112px clamp(24px, 4vw, 48px);">
+<div style="max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; align-items: flex-start; gap: 24px;">
+<h2 style="margin: 0; font-family: 'Chillax Variable', Chillax, sans-serif; font-weight: 500; font-size: clamp(36px, 5vw, 56px); line-height: 1.1; letter-spacing: -0.01em;">Encomende o seu Mapa Natal</h2>
+<p style="margin: 0; font-size: 19px; line-height: 1.6;">Chame no WhatsApp. A gente combina a versão, os seus dados de nascimento e o prazo.</p>
+<a class="vs-botao" href="https://wa.me/557192469207" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; height: 48px; padding: 0 32px; border-radius: 9999px; background: #faf559; color: #2e2e2e; text-decoration: none; font-weight: 700; font-size: 13px; letter-spacing: 0.12em;" onclick="return vsContato('Mapa Natal', this)">QUERO O MEU MAPA</a>
+</div>
+</section>
+
+<footer class="vs-escuro" style="background: #191919; color: #b8b8b8; padding: 64px clamp(24px, 4vw, 48px);">
+<div style="max-width: 1120px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 32px;">
+<div style="display: flex; flex-direction: column; gap: 16px;">
+<img src="/mapa-natal/img/3865374b50105a26ebf9aa39ac23d98b.svg" alt="via simbólica" style="width: 160px; height: auto; display: block;">
+<p style="margin: 0; font-size: 15px; line-height: 1.55;">Encante-se com o mundo pela Via Simbólica.</p>
+</div>
+<nav style="display: flex; gap: 24px; flex-wrap: wrap; font-weight: 500; font-size: 13px; letter-spacing: 0.12em;">
+<a href="https://www.instagram.com/viasimbolica/" target="_blank" rel="noopener" style="color: #b9a9e0; text-decoration: none;">INSTAGRAM</a>
+<a href="https://www.youtube.com/@aviasimbolica" target="_blank" rel="noopener" style="color: #b9a9e0; text-decoration: none;">YOUTUBE</a>
+<a href="https://substack.com/@viasimbolica" target="_blank" rel="noopener" style="color: #b9a9e0; text-decoration: none;">SUBSTACK</a>
+</nav>
+</div>
+</footer>
+
+</div>
+<script>
+class Component extends DCLogic {
+  renderVals() {
+    var B = '/mapa-natal/img/';
+    var base = [
+      ['Áries', 'março', '1443c57801e2d0d87a9a449afec74198.jpg', 'A lavoura diante do castelo de Lusignan: o campo aberto para a semente nova.'],
+      ['Touro', 'abril', '02a3213330eea3de15c7e2238d7f088d.jpg', 'Um noivado no jardim, diante do castelo de Dourdan, com a terra em flor.'],
+      ['Gêmeos', 'maio', 'a5901f2877f92525e46db1ea52759f28.jpg', 'O cortejo de maio: cavaleiros e damas com ramos verdes na cabeça.'],
+      ['Câncer', 'junho', '245f2beabf6789225e2fab32d6a4f31a.jpg', 'A fenação diante do palácio da Cité, em Paris.'],
+      ['Leão', 'julho', '388936eb7141ddebd714c47e27ada58b.jpg', 'A colheita do trigo e a tosquia das ovelhas, no auge do verão.'],
+      ['Virgem', 'agosto', '12819aadf138174932e2bff569dc2f76.jpg', 'A caça com falcões e o banho no rio, no fim do verão.'],
+      ['Libra', 'setembro', 'c7a18b89f745955ee75f7323a762a8ab.jpg', 'A vindima ao pé do castelo de Saumur.'],
+      ['Escorpião', 'outubro', '0082d0282f5d55ccdd843fa71290ada5.jpg', 'A semeadura diante do Louvre: a semente vai para debaixo da terra.'],
+      ['Sagitário', 'novembro', 'e0c9c0c74b6744dbe9c7c0f85bc23783.jpg', 'Os porcos comendo bolota no bosque, antes do inverno.'],
+      ['Capricórnio', 'dezembro', '55f012b723c1bcad7926a7faf1f5568c.jpg', 'A caça ao javali no bosque de Vincennes.'],
+      ['Aquário', 'janeiro', 'c1266cc4ef1d0caefce6a44881c1b8dc.jpg', 'O banquete de Ano-Novo na casa do duque de Berry.'],
+      ['Peixes', 'fevereiro', '1d6ac1abf22c618521ea4cd99019204f.jpg', 'O inverno na aldeia coberta de neve: dentro de casa, todos se aquecem junto ao fogo.']
+    ];
+    var self = this;
+    var esc = (this.state && this.state.escolhido != null) ? this.state.escolhido : 7;
+    var livros = base.map(function (b, i) {
+      return {
+        nome: b[0], mes: b[1], src: B + b[2],
+        rotulo: 'Capa do Ascendente em ' + b[0] + ', iluminura de ' + b[1],
+        classe: i === esc ? 'vs-livro vs-livro--ativo' : 'vs-livro',
+        itemClasse: i === esc ? 'vs-item vs-ativo' : 'vs-item',
+        ativo: i === esc ? 'true' : 'false',
+        escolher: function () { self.setState({ escolhido: i }); }
+      };
+    });
+    var a = base[esc];
+    var paginas = [
+      ['f7eb1169567874792a39744942f6eb7c.jpg', 'A roda do seu mapa', 'Página com a roda do mapa natal'],
+      ['e6fa22e971be9f1bf9a9fc5055d1af39.jpg', 'O sumário', 'Página do sumário'],
+      ['ad3cfab7276bc2d3bd6edd063e139061.jpg', 'A introdução', 'Página da introdução'],
+      ['8135839d5c3552ecd3966d60194b3248.jpg', 'O relógio de Massys', 'Prancha com o mostrador do relógio de Massys'],
+      ['4d3c6e5d5f835cff146f885c25c171b4.jpg', 'A abertura de cada área', 'Página escura de abertura da área Tendências e vitalidade'],
+      ['e3262e2210cd3d001daa91182e0014fa.jpg', 'A leitura', 'Página de leitura, com a capitular em roxo'],
+      ['73051f3e581fa8e88397ca2032fae1d0.jpg', 'O fechamento', 'Página do fechamento']
+    ].map(function (p) { return { src: B + p[0], legenda: p[1], alt: p[2] }; });
+    return {
+      livros: livros,
+      paginas: paginas,
+      atual: {
+        nome: a[0], src: B + a[2], cena: a[3],
+        rotuloMes: 'ILUMINURA DE ' + a[1].toUpperCase(),
+        alt: 'Capa do Mapa Natal para Ascendente em ' + a[0] + ', com a iluminura de ' + a[1]
+      }
+    };
+  }
+}
+vsIniciar(Component);
+</script>
+</body>
+</html>
