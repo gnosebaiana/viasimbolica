@@ -4,7 +4,7 @@
    e leva a pessoa ao WhatsApp do Guilherme com a mensagem já escrita. */
 (function () {
   // Endereço do App da Web do Apps Script. Vazio: o formulário não grava, só leva ao WhatsApp.
-  var PLANILHA_URL = '';
+  var PLANILHA_URL = 'https://script.google.com/macros/s/AKfycbzlSehDlHXqCe-Wgx02_WAEtPvBhAuPBYfOpXM03Th8-OWeOS0ZXRS2SvNGPxpQSDgd/exec';
   var WHATSAPP = '557192469207';
 
   var dialogo, form, campoNome, campoTel, campoIsca, erro, produtoAtual = '', origemAtual = '';
