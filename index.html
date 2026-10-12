@@ -16,8 +16,10 @@
      aponta para /espelho-de-venus e a Comunidade LiterAstro para /literastro
   2. CARDS DE SERVICO: Mapa Natal, Mapa Natal Infantil e Sinastria apontam para
      as paginas de venda (/mapa-natal, /mapa-infantil, /sinastria). Pergunta
-     Horaria, Mini Mapas e Terapia apontam para o WhatsApp do Guilherme
-     (wa.me/557192469207).
+     Horaria, Mini Mapas e Terapia abrem o formulario de contato das paginas
+     de venda (vsContato, em /assets/vs-contato.js): grava nome e telefone na
+     planilha, dispara o pixel e leva ao WhatsApp do Guilherme
+     (wa.me/557192469207) com a mensagem pronta.
   3. OBRAS: a pintura de cada card esta no style="--img:url('...')". Para trocar,
      basta substituir a URL. O ajuste de enquadramento fino e o --pos (opcional).
   4. REDES: os tres botoes finais ja estao com os links reais.
@@ -253,6 +255,14 @@
     .card:hover, .rede:hover { transform: none; }
   }
 </style>
+<!-- Formulario de contato dos cards de servico (o mesmo das paginas de venda) -->
+<link rel="stylesheet" href="/assets/vs-contato.css">
+<style>
+@font-face{font-family:"Chillax Variable";src:url("/assets/fontes/Chillax-Variable.woff2") format("woff2");font-weight:200 700;font-style:normal;font-display:swap}
+@font-face{font-family:"Satoshi";src:url("/assets/fontes/Satoshi-Variable.woff2") format("woff2");font-weight:300 900;font-style:normal;font-display:swap}
+dialog.vs-contato{margin:auto} /* o * { margin: 0 } desta pagina tirava a janela do centro */
+</style>
+<script src="/assets/vs-contato.js" defer></script>
 </head>
 <body>
 <div class="coluna">
@@ -356,7 +366,7 @@
       </div>
     </a>
 
-    <a class="card" href="https://wa.me/557192469207" style="--img:url('https://commons.wikimedia.org/wiki/Special:FilePath/Michelangelo_-_Delphic_Sibyl.jpg?width=1600'); --pos: 50% 24%">
+    <a class="card" href="https://wa.me/557192469207" onclick="return vsContato('Pergunta Horária', this.querySelector('.btn'))" style="--img:url('https://commons.wikimedia.org/wiki/Special:FilePath/Michelangelo_-_Delphic_Sibyl.jpg?width=1600'); --pos: 50% 24%">
       <div class="conteudo">
         <span class="eyebrow">Servi&ccedil;o</span>
         <h2>Pergunta Hor&aacute;ria</h2>
@@ -365,7 +375,7 @@
       </div>
     </a>
 
-    <a class="card" href="https://wa.me/557192469207" style="--img:url('https://commons.wikimedia.org/wiki/Special:FilePath/Jan_Brueghel_I_%26_Peter_Paul_Rubens_-_Sight_(Museo_del_Prado).jpg?width=1600')">
+    <a class="card" href="https://wa.me/557192469207" onclick="return vsContato('Mini Mapas', this.querySelector('.btn'))" style="--img:url('https://commons.wikimedia.org/wiki/Special:FilePath/Jan_Brueghel_I_%26_Peter_Paul_Rubens_-_Sight_(Museo_del_Prado).jpg?width=1600')">
       <div class="conteudo">
         <span class="eyebrow">Servi&ccedil;o</span>
         <h2>Mini Mapas</h2>
@@ -374,7 +384,7 @@
       </div>
     </a>
 
-    <a class="card" href="https://wa.me/557192469207" style="--img:url('https://commons.wikimedia.org/wiki/Special:FilePath/Advice_to_a_Young_Artist_by_Honor%C3%A9_Daumier_c1865-68.jpg?width=1600')">
+    <a class="card" href="https://wa.me/557192469207" onclick="return vsContato('Terapia', this.querySelector('.btn'))" style="--img:url('https://commons.wikimedia.org/wiki/Special:FilePath/Advice_to_a_Young_Artist_by_Honor%C3%A9_Daumier_c1865-68.jpg?width=1600')">
       <div class="conteudo">
         <span class="eyebrow">Acompanhamento</span>
         <h2>Terapia</h2>
