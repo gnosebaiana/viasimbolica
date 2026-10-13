@@ -23,11 +23,6 @@
   3. OBRAS: a pintura de cada card esta no style="--img:url('...')". Para trocar,
      basta substituir a URL. O ajuste de enquadramento fino e o --pos (opcional).
   4. REDES: os tres botoes finais ja estao com os links reais.
-  5. DESTAQUE 12 CASAS: de volta em 06/10/2026, abertura do carrinho da
-     turma 1. Card em primeiro lugar com contagem regressiva ate 12/10
-     23h59 (constante FECHAMENTO no script do fim da pagina). Tres trechos:
-     CSS do destaque, bloco INICIO/FIM no comeco de <main> e o script.
-     Remover os tres depois de 12/10, quando o carrinho fechar.
 -->
 
 <style>
@@ -147,43 +142,6 @@
 
   .card:hover .btn { background: #E2BE60; }
 
-  /* ===== Destaque temporario: 12 Casas (retirar apos 12/10, fechamento do carrinho) ===== */
-  .destaque-conta {
-    text-align: center;
-    margin-bottom: 16px;
-  }
-
-  .conta-rotulo {
-    display: block;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.34em;
-    text-indent: 0.34em;
-    text-transform: uppercase;
-    color: rgba(46, 42, 38, 0.62);
-  }
-
-  .conta-tempo {
-    display: block;
-    margin-top: 6px;
-    font-size: 21px;
-    font-weight: 700;
-    color: var(--tinta);
-    font-variant-numeric: tabular-nums;
-  }
-
-  .card-destaque {
-    background-image: linear-gradient(rgba(22, 18, 13, 0.5), rgba(22, 18, 13, 0.7)), var(--img);
-  }
-
-  .traco-destaque {
-    border: none;
-    width: 86px;
-    height: 2px;
-    background: var(--ouro);
-    margin: 36px auto 40px;
-  }
-
   /* ===== Redes ===== */
   .redes {
     display: grid;
@@ -278,30 +236,6 @@ dialog.vs-contato{margin:auto} /* o * { margin: 0 } desta pagina tirava a janela
   </header>
 
   <main>
-
-    <!-- ============================================================
-         DESTAQUE TEMPORARIO: A PSICOLOGIA DAS 12 CASAS
-         Carrinho da turma 1: 06/10 a 12/10/2026. Remover este bloco
-         inteiro (do marcador de INICIO ate o de FIM, incluindo o
-         traco), o CSS do destaque e o script da contagem no fim da
-         pagina depois de 12/10, quando o carrinho fechar.
-         ============================================================ -->
-    <div class="destaque-conta">
-      <span class="conta-rotulo" id="conta-rotulo">Inscri&ccedil;&otilde;es se encerram em</span>
-      <span class="conta-tempo" id="conta-12casas">&hellip;</span>
-    </div>
-
-    <a class="card card-destaque" href="/12casas" style="--img:url('https://commons.wikimedia.org/wiki/Special:FilePath/Anatomical_Man.jpg?width=1600'); --pos: 50% 30%">
-      <div class="conteudo">
-        <span class="eyebrow">Curso ao vivo</span>
-        <h2>A Psicologia das 12 Casas</h2>
-        <p>As doze &aacute;reas da vida humana desvendadas: quem voc&ecirc; &eacute;, sua fam&iacute;lia, seu amor e sua voca&ccedil;&atilde;o.</p>
-        <span class="btn">Garantir minha vaga</span>
-      </div>
-    </a>
-
-    <hr class="traco-destaque">
-    <!-- ============ FIM DO DESTAQUE TEMPORARIO ============ -->
 
     <a class="card" href="/venus" style="--img:url('https://commons.wikimedia.org/wiki/Special:FilePath/Diego_Vel%C3%A1zquez_-_Rokeby_Venus.jpg?width=1600'); --pos: 50% 38%">
       <div class="conteudo">
@@ -416,32 +350,5 @@ dialog.vs-contato{margin:auto} /* o * { margin: 0 } desta pagina tirava a janela
 
 </div>
 
-<!-- CONTAGEM DO DESTAQUE 12 CASAS (remover junto com o bloco do card) -->
-<script>
-(function () {
-  var tempo = document.getElementById("conta-12casas");
-  var rotulo = document.getElementById("conta-rotulo");
-  if (!tempo) return;
-  var FECHAMENTO = new Date("2026-10-12T23:59:59-03:00").getTime();
-  function dois(n) { return String(n).padStart(2, "0"); }
-  var relogio;
-  function tique() {
-    var resta = FECHAMENTO - Date.now();
-    if (resta <= 0) {
-      rotulo.style.display = "none";
-      tempo.textContent = "Inscri\u00e7\u00f5es encerradas";
-      if (relogio) clearInterval(relogio);
-      return;
-    }
-    var d = Math.floor(resta / 86400000);
-    var h = Math.floor((resta % 86400000) / 3600000);
-    var m = Math.floor((resta % 3600000) / 60000);
-    var s = Math.floor((resta % 60000) / 1000);
-    tempo.textContent = d + "d " + dois(h) + "h " + dois(m) + "min " + dois(s) + "s";
-  }
-  tique();
-  relogio = setInterval(tique, 1000);
-})();
-</script>
 </body>
 </html>
