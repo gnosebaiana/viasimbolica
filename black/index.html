@@ -75,7 +75,7 @@ figcaption b{color:var(--claro);font-weight:500}
 .trilho::-webkit-scrollbar{display:none}
 .trilho ul{list-style:none;display:flex;gap:28px;width:max-content;padding:0 24px}
 .capa{flex:none;width:auto}
-.capa img{display:block;height:clamp(280px,42svh,380px);width:auto}
+.capa img{display:block;user-select:none;-webkit-user-drag:none;height:clamp(280px,42svh,380px);width:auto}
 .capa p{margin-top:12px;font-size:14px;line-height:1.4}
 .capa b{display:block;font-family:var(--display);font-weight:500;font-size:18px}
 .capa span{color:var(--tinta-suave);font-weight:500}
@@ -219,31 +219,41 @@ footer p{font-size:14px;color:var(--suave-esc)}
   tick();
 
   var tr=document.getElementById("trilho");
-  if(tr&&!window.matchMedia("(prefers-reduced-motion: reduce)").matches){
-    var pausa=0,pos=0,ult=null,v=0.035;
-    var parar=function(){pausa=Date.now()+2500};
-    ["pointerdown","wheel","touchstart","mouseenter"].forEach(function(e){tr.addEventListener(e,parar,{passive:true})});
-    tr.addEventListener("mousemove",parar,{passive:true});
-    function anda(t){
-      if(ult!==null&&Date.now()>pausa){
-        var meio=tr.scrollWidth/2;
-        pos=tr.scrollLeft+v*(t-ult);
-        if(pos>=meio)pos-=meio;
-        tr.scrollLeft=pos;
+  if(tr){
+    var calmo=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var GAP=28,v=0.035,pausa=0,ult=null,pos=tr.scrollLeft,anim=null,arr=null;
+    var meio=function(){return tr.scrollWidth/2};
+    var passo=function(){var c=tr.querySelector(".capa");return c?c.getBoundingClientRect().width+GAP:300};
+    var norm=function(x){var m=meio();if(m<=0)return x;while(x>=m)x-=m;while(x<0)x+=m;return x};
+    var por=function(x){pos=x;tr.scrollLeft=Math.round(x)};
+    var parar=function(ms){pausa=Date.now()+(ms||2500)};
+    function quadro(t){
+      if(anim){
+        var k=Math.min(1,(t-anim.t0)/anim.d),e=1-Math.pow(1-k,3);
+        por(anim.de+(anim.para-anim.de)*e);
+        if(k>=1){por(norm(pos));anim=null}
+      }else if(!calmo&&!arr&&ult!==null&&Date.now()>pausa){
+        if(Math.abs(tr.scrollLeft-Math.round(pos))>2)pos=tr.scrollLeft;
+        por(norm(pos+v*(t-ult)));
       }
-      ult=t;requestAnimationFrame(anda);
+      ult=t;requestAnimationFrame(quadro);
     }
-    requestAnimationFrame(anda);
-    var passo=function(){var c=tr.querySelector(".capa");return c?c.getBoundingClientRect().width+28:300};
-    var vai=function(dir){
-      pausa=Date.now()+6000;
-      var meio=tr.scrollWidth/2;
-      if(dir<0&&tr.scrollLeft<passo()+5)tr.scrollLeft+=meio;
-      tr.scrollBy({left:dir*passo(),behavior:"smooth"});
-    };
+    requestAnimationFrame(quadro);
+    function vai(dir){
+      parar(6000);
+      var de=tr.scrollLeft;
+      if(dir<0&&de<passo()+5){de+=meio();por(de)}
+      anim={de:de,para:de+dir*passo(),t0:performance.now(),d:450};
+    }
     document.getElementById("ant").addEventListener("click",function(){vai(-1)});
     document.getElementById("prox").addEventListener("click",function(){vai(1)});
-    tr.addEventListener("scroll",function(){var meio=tr.scrollWidth/2;if(tr.scrollLeft>=meio+passo()*1.5)tr.scrollLeft-=meio},{passive:true});
+    ["wheel","touchstart","mouseenter","mousemove"].forEach(function(e){tr.addEventListener(e,function(){parar()},{passive:true})});
+    tr.addEventListener("scroll",function(){if(!anim&&!arr&&Math.abs(tr.scrollLeft-Math.round(pos))>2){pos=tr.scrollLeft;parar()}
+      var m=meio();if(!anim&&tr.scrollLeft>=m+passo()*1.5){por(tr.scrollLeft-m)}},{passive:true});
+    tr.addEventListener("pointerdown",function(e){if(e.pointerType!=="mouse"||e.button!==0)return;arr={x:e.clientX,s:tr.scrollLeft,m:false};anim=null;parar(6000);tr.style.cursor="grabbing"});
+    window.addEventListener("pointermove",function(e){if(!arr)return;var dx=e.clientX-arr.x;if(Math.abs(dx)>4)arr.m=true;var x=arr.s-dx,m=meio();if(x<0){x+=m;arr.s+=m}else if(x>=m+passo()){x-=m;arr.s-=m}por(x)});
+    window.addEventListener("pointerup",function(){if(!arr)return;var m=arr.m;arr=null;tr.style.cursor="";parar(4000);if(m){var bloq=function(ev){ev.preventDefault();ev.stopPropagation();tr.removeEventListener("click",bloq,true)};tr.addEventListener("click",bloq,true);setTimeout(function(){tr.removeEventListener("click",bloq,true)},50)}});
+    tr.addEventListener("dragstart",function(e){e.preventDefault()});
   }
   var hero=document.querySelector(".hero .acao"),fecho=document.querySelector(".fecho"),fixa=$("fixa");
   if("IntersectionObserver" in window){
