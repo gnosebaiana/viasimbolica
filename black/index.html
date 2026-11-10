@@ -66,6 +66,20 @@ figcaption b{color:var(--claro);font-weight:500}
 .saber .rot{color:var(--roxo)}
 .saber p{margin-top:8px;font-size:17px;color:var(--tinta)}
 
+
+/* as doze capas */
+.capas{margin-top:56px}
+.capas-txt h3{font-family:var(--display);font-weight:500;font-size:clamp(28px,5vw,40px);line-height:1.1;letter-spacing:-.008em;margin-top:10px}
+.capas-txt p:not(.rot){margin-top:12px;max-width:34em}
+.trilho{margin-top:32px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;cursor:grab}
+.trilho::-webkit-scrollbar{display:none}
+.trilho ul{list-style:none;display:flex;gap:28px;width:max-content;padding:0 24px}
+.capa{flex:none;width:auto}
+.capa img{display:block;height:clamp(280px,42svh,380px);width:auto}
+.capa p{margin-top:12px;font-size:14px;line-height:1.4}
+.capa b{display:block;font-family:var(--display);font-weight:500;font-size:18px}
+.capa span{color:var(--tinta-suave);font-weight:500}
+
 /* fecho (roxo) */
 .fecho{background:var(--roxo);color:var(--claro);padding:80px 0 88px;overflow:hidden}
 .fecho .w{display:flex;flex-direction:column;align-items:flex-start}
@@ -150,10 +164,16 @@ footer p{font-size:14px;color:var(--suave-esc)}
     <li><span class="n">02.</span><p>Textos curtos sobre o céu e sobre como o mapa é lido, até a abertura.</p></li>
     <li><span class="n">03.</span><p>Atendimento direto para tirar dúvidas na hora de escolher.</p></li>
   </ul>
-  <div class="saber">
-    <p class="rot">A capa do seu livro</p>
-    <p>Cada Mapa Natal vira um livro com a iluminura do mês do seu Ascendente na capa, como esta de novembro. São doze capas, uma para cada signo.</p>
   </div>
+<div class="capas">
+  <div class="w capas-txt">
+    <p class="rot">A capa do seu livro</p>
+    <h3>Doze meses, doze capas.</h3>
+    <p>Cada Mapa Natal vira um livro com a iluminura do mês do seu Ascendente na capa. São as páginas do calendário das Très Riches Heures, pintadas por volta de 1416.</p>
+  </div>
+  <div class="trilho" id="trilho" aria-label="As doze capas, de janeiro a dezembro"><ul><li class="capa"><img src="/black/img/meses/janeiro.webp" width="482" height="760" alt="Iluminura de janeiro das Très Riches Heures" loading="lazy" decoding="async"><p><b>Janeiro</b><span>Ascendente em Aquário</span></p></li><li class="capa"><img src="/black/img/meses/fevereiro.webp" width="460" height="760" alt="Iluminura de fevereiro das Très Riches Heures" loading="lazy" decoding="async"><p><b>Fevereiro</b><span>Ascendente em Peixes</span></p></li><li class="capa"><img src="/black/img/meses/marco.webp" width="474" height="760" alt="Iluminura de março das Très Riches Heures" loading="lazy" decoding="async"><p><b>Março</b><span>Ascendente em Áries</span></p></li><li class="capa"><img src="/black/img/meses/abril.webp" width="476" height="760" alt="Iluminura de abril das Très Riches Heures" loading="lazy" decoding="async"><p><b>Abril</b><span>Ascendente em Touro</span></p></li><li class="capa"><img src="/black/img/meses/maio.webp" width="480" height="760" alt="Iluminura de maio das Très Riches Heures" loading="lazy" decoding="async"><p><b>Maio</b><span>Ascendente em Gêmeos</span></p></li><li class="capa"><img src="/black/img/meses/junho.webp" width="469" height="760" alt="Iluminura de junho das Très Riches Heures" loading="lazy" decoding="async"><p><b>Junho</b><span>Ascendente em Câncer</span></p></li><li class="capa"><img src="/black/img/meses/julho.webp" width="470" height="760" alt="Iluminura de julho das Très Riches Heures" loading="lazy" decoding="async"><p><b>Julho</b><span>Ascendente em Leão</span></p></li><li class="capa"><img src="/black/img/meses/agosto.webp" width="463" height="760" alt="Iluminura de agosto das Très Riches Heures" loading="lazy" decoding="async"><p><b>Agosto</b><span>Ascendente em Virgem</span></p></li><li class="capa"><img src="/black/img/meses/setembro.webp" width="467" height="760" alt="Iluminura de setembro das Très Riches Heures" loading="lazy" decoding="async"><p><b>Setembro</b><span>Ascendente em Libra</span></p></li><li class="capa"><img src="/black/img/meses/outubro.webp" width="459" height="760" alt="Iluminura de outubro das Très Riches Heures" loading="lazy" decoding="async"><p><b>Outubro</b><span>Ascendente em Escorpião</span></p></li><li class="capa"><img src="/black/img/meses/novembro.webp" width="454" height="760" alt="Iluminura de novembro das Très Riches Heures" loading="lazy" decoding="async"><p><b>Novembro</b><span>Ascendente em Sagitário</span></p></li><li class="capa"><img src="/black/img/meses/dezembro.webp" width="452" height="760" alt="Iluminura de dezembro das Très Riches Heures" loading="lazy" decoding="async"><p><b>Dezembro</b><span>Ascendente em Capricórnio</span></p></li><li class="capa" aria-hidden="true"><img src="/black/img/meses/janeiro.webp" width="482" height="760" alt="" loading="lazy" decoding="async"><p><b>Janeiro</b><span>Ascendente em Aquário</span></p></li><li class="capa" aria-hidden="true"><img src="/black/img/meses/fevereiro.webp" width="460" height="760" alt="" loading="lazy" decoding="async"><p><b>Fevereiro</b><span>Ascendente em Peixes</span></p></li><li class="capa" aria-hidden="true"><img src="/black/img/meses/marco.webp" width="474" height="760" alt="" loading="lazy" decoding="async"><p><b>Março</b><span>Ascendente em Áries</span></p></li><li class="capa" aria-hidden="true"><img src="/black/img/meses/abril.webp" width="476" height="760" alt="" loading="lazy" decoding="async"><p><b>Abril</b><span>Ascendente em Touro</span></p></li><li class="capa" aria-hidden="true"><img src="/black/img/meses/maio.webp" width="480" height="760" alt="" loading="lazy" decoding="async"><p><b>Maio</b><span>Ascendente em Gêmeos</span></p></li><li class="capa" aria-hidden="true"><img src="/black/img/meses/junho.webp" width="469" height="760" alt="" loading="lazy" decoding="async"><p><b>Junho</b><span>Ascendente em Câncer</span></p></li><li class="capa" aria-hidden="true"><img src="/black/img/meses/julho.webp" width="470" height="760" alt="" loading="lazy" decoding="async"><p><b>Julho</b><span>Ascendente em Leão</span></p></li><li class="capa" aria-hidden="true"><img src="/black/img/meses/agosto.webp" width="463" height="760" alt="" loading="lazy" decoding="async"><p><b>Agosto</b><span>Ascendente em Virgem</span></p></li><li class="capa" aria-hidden="true"><img src="/black/img/meses/setembro.webp" width="467" height="760" alt="" loading="lazy" decoding="async"><p><b>Setembro</b><span>Ascendente em Libra</span></p></li><li class="capa" aria-hidden="true"><img src="/black/img/meses/outubro.webp" width="459" height="760" alt="" loading="lazy" decoding="async"><p><b>Outubro</b><span>Ascendente em Escorpião</span></p></li><li class="capa" aria-hidden="true"><img src="/black/img/meses/novembro.webp" width="454" height="760" alt="" loading="lazy" decoding="async"><p><b>Novembro</b><span>Ascendente em Sagitário</span></p></li><li class="capa" aria-hidden="true"><img src="/black/img/meses/dezembro.webp" width="452" height="760" alt="" loading="lazy" decoding="async"><p><b>Dezembro</b><span>Ascendente em Capricórnio</span></p></li></ul></div>
+</div>
+<div class="w">
 </div></section>
 
 <section class="fecho"><div class="w">
@@ -188,6 +208,25 @@ footer p{font-size:14px;color:var(--suave-esc)}
     setTimeout(tick,1000-(Date.now()%1000));
   }
   tick();
+
+  var tr=document.getElementById("trilho");
+  if(tr&&!window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+    var pausa=0,pos=0,ult=null,v=0.035;
+    var parar=function(){pausa=Date.now()+2500};
+    ["pointerdown","wheel","touchstart","mouseenter"].forEach(function(e){tr.addEventListener(e,parar,{passive:true})});
+    tr.addEventListener("mousemove",parar,{passive:true});
+    function anda(t){
+      if(ult!==null&&Date.now()>pausa){
+        var meio=tr.scrollWidth/2;
+        pos=tr.scrollLeft+v*(t-ult);
+        if(pos>=meio)pos-=meio;
+        tr.scrollLeft=pos;
+      }
+      ult=t;requestAnimationFrame(anda);
+    }
+    requestAnimationFrame(anda);
+    tr.addEventListener("scroll",function(){var meio=tr.scrollWidth/2;if(tr.scrollLeft>=meio)tr.scrollLeft-=meio},{passive:true});
+  }
   var hero=document.querySelector(".hero .acao"),fecho=document.querySelector(".fecho"),fixa=$("fixa");
   if("IntersectionObserver" in window){
     var vHero=true,vFecho=false;
