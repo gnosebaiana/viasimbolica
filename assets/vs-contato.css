@@ -1,5 +1,5 @@
 /* Via Simbólica: janela do formulário de contato. Cores e medidas dos tokens da marca. */
-.vs-contato{border:0;padding:0;border-radius:8px;background:#f2f2f2;color:#2e2e2e;width:min(440px,calc(100vw - 32px));max-height:calc(100dvh - 32px);box-shadow:0 24px 64px rgba(0,0,0,.35);font-family:Satoshi,'DM Sans',ui-sans-serif,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.vs-contato{margin:auto;border:0;padding:0;border-radius:8px;background:#f2f2f2;color:#2e2e2e;width:min(440px,calc(100vw - 32px));max-height:calc(100dvh - 32px);box-shadow:0 24px 64px rgba(0,0,0,.35);font-family:Satoshi,'DM Sans',ui-sans-serif,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 .vs-contato::backdrop{background:rgba(25,25,25,.66)}
 .vs-contato__form{position:relative;display:flex;flex-direction:column;gap:16px;padding:40px 32px 32px}
 .vs-contato__fechar{position:absolute;top:12px;right:12px;width:40px;height:40px;border:0;border-radius:9999px;background:none;color:#5e5e5e;font-size:26px;line-height:1;cursor:pointer}

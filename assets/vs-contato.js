@@ -7,7 +7,8 @@
   var PLANILHA_URL = 'https://script.google.com/macros/s/AKfycbzlSehDlHXqCe-Wgx02_WAEtPvBhAuPBYfOpXM03Th8-OWeOS0ZXRS2SvNGPxpQSDgd/exec';
   var WHATSAPP = '557192469207';
 
-  var dialogo, form, campoNome, campoTel, campoIsca, erro, produtoAtual = '', origemAtual = '';
+  var dialogo, form, campoNome, campoTel, campoIsca, erro, produtoAtual = '', origemAtual = '', opcoesAtuais = {};
+  var PADRAO = { titulo: 'Fale com o Guilherme', texto: 'Deixe seu nome e seu telefone. Em seguida, a conversa abre no WhatsApp com a mensagem pronta.', botao: 'CONTINUAR NO WHATSAPP', aguarde: 'ABRINDO O WHATSAPP…', destino: '' };
 
   function pixel(evento, dados) {
     try { if (window.fbq) window.fbq('track', evento, dados); } catch (e) {}
@@ -68,7 +69,7 @@
 
     var botao = form.querySelector('.vs-contato__enviar');
     botao.disabled = true;
-    botao.textContent = 'ABRINDO O WHATSAPP…';
+    botao.textContent = opcoesAtuais.aguarde;
 
     if (PLANILHA_URL && !campoIsca.value) {
       var dados = new URLSearchParams({
@@ -80,20 +81,27 @@
     pixel('Lead', { content_name: produtoAtual });
 
     var msg = 'Olá, Guilherme. Meu nome é ' + nome + ' e quero saber mais sobre: ' + produtoAtual + '.';
-    var destino = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(msg);
+    var destino = opcoesAtuais.destino || ('https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(msg));
     setTimeout(function () {
       location.href = destino;
       botao.disabled = false;
-      botao.textContent = 'CONTINUAR NO WHATSAPP';
+      botao.textContent = opcoesAtuais.botao;
       dialogo.close();
     }, 400);
   }
 
-  // Chamado pelos botões: onclick="return vsContato('Mapa Natal', this)"
-  window.vsContato = function (produto, botao) {
+  // Chamado pelos botões: onclick="return vsContato('Mapa Natal', this)".
+  // O terceiro argumento, opcional, troca textos e destino (ex.: o link de um grupo do WhatsApp):
+  // vsContato('Black November', this, { titulo: '…', texto: '…', botao: '…', aguarde: '…', destino: 'https://chat.whatsapp.com/…' })
+  window.vsContato = function (produto, botao, opcoes) {
     if (!dialogo) montar();
+    opcoesAtuais = {};
+    for (var k in PADRAO) opcoesAtuais[k] = (opcoes && opcoes[k]) || PADRAO[k];
+    dialogo.querySelector('.vs-contato__titulo').textContent = opcoesAtuais.titulo;
+    dialogo.querySelector('.vs-contato__texto').textContent = opcoesAtuais.texto;
+    form.querySelector('.vs-contato__enviar').textContent = opcoesAtuais.botao;
     var rotulo = botao ? (botao.textContent || '').trim() : '';
-    var formato = /PDF/i.test(rotulo) ? ' em PDF' : /IMPRESSO/i.test(rotulo) ? ' impresso' : '';
+    var formato = (opcoes && opcoes.destino) ? '' : /PDF/i.test(rotulo) ? ' em PDF' : /IMPRESSO/i.test(rotulo) ? ' impresso' : '';
     produtoAtual = produto + formato;
     origemAtual = rotulo;
     dialogo.querySelector('[data-produto]').textContent = produtoAtual.toUpperCase();
