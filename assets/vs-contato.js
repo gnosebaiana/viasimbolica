@@ -8,7 +8,7 @@
   var WHATSAPP = '557192469207';
 
   var dialogo, form, campoNome, campoTel, campoIsca, erro, produtoAtual = '', origemAtual = '', opcoesAtuais = {};
-  var PADRAO = { titulo: 'Fale com o Guilherme', texto: 'Deixe seu nome e seu telefone. Em seguida, a conversa abre no WhatsApp com a mensagem pronta.', botao: 'CONTINUAR NO WHATSAPP', aguarde: 'ABRINDO O WHATSAPP…', destino: '' };
+  var PADRAO = { titulo: 'Fale com o Guilherme', texto: 'Deixe seu nome e seu telefone. Em seguida, a conversa abre no WhatsApp com a mensagem pronta.', botao: 'CONTINUAR NO WHATSAPP', aguarde: 'ABRINDO O WHATSAPP…', destino: '', aviso: 'Usamos seu nome e seu telefone só para responder ao seu pedido.' };
 
   function pixel(evento, dados) {
     try { if (window.fbq) window.fbq('track', evento, dados); } catch (e) {}
@@ -99,6 +99,7 @@
     for (var k in PADRAO) opcoesAtuais[k] = (opcoes && opcoes[k]) || PADRAO[k];
     dialogo.querySelector('.vs-contato__titulo').textContent = opcoesAtuais.titulo;
     dialogo.querySelector('.vs-contato__texto').textContent = opcoesAtuais.texto;
+    dialogo.querySelector('.vs-contato__aviso').textContent = opcoesAtuais.aviso;
     form.querySelector('.vs-contato__enviar').textContent = opcoesAtuais.botao;
     var rotulo = botao ? (botao.textContent || '').trim() : '';
     var formato = (opcoes && opcoes.destino) ? '' : /PDF/i.test(rotulo) ? ' em PDF' : /IMPRESSO/i.test(rotulo) ? ' impresso' : '';
