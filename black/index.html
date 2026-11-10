@@ -90,8 +90,21 @@ footer p{font-size:14px;color:var(--suave-esc)}
 
 @media (min-width:860px){
   header .rot{display:block}
-  .hero figure{max-width:400px;justify-self:end}
-  .hero .w{grid-template-columns:1.15fr 1fr;align-items:center;gap:64px;padding-top:40px;padding-bottom:96px}
+  header{padding:20px 0}
+  .hero .w{grid-template-columns:1.15fr auto;align-items:center;gap:56px;padding-top:8px;padding-bottom:48px;min-height:calc(100svh - 84px)}
+  .hero figure{justify-self:end;display:flex;flex-direction:column;align-items:flex-end}
+  .hero figure img{width:auto;max-width:100%;height:calc(100svh - 84px - 56px - 64px);min-height:380px;max-height:820px}
+  .hero figcaption{max-width:340px;text-align:right}
+  h1{font-size:clamp(44px,min(6vw,9.5svh),84px)}
+  .sub{font-size:clamp(16px,2.4svh,19px);margin-top:20px}
+  .hero .acao{margin-top:28px}
+  .faixa{padding:32px 0 36px}
+  .relogio b{font-size:clamp(56px,min(10vw,15svh),128px)}
+  .claro{padding:64px 0}
+  .itens{margin-top:36px}
+  .saber{margin-top:40px}
+  .fecho{padding:64px 0}
+  .fecho svg.sol{max-width:380px;justify-self:end}
   .itens{grid-template-columns:repeat(3,1fr);gap:32px}
   .itens li,.itens li:last-child{grid-template-columns:1fr;border-bottom:0}
   .fecho .w{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:48px}
