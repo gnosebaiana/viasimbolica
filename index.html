@@ -142,6 +142,28 @@
 
   .card:hover .btn { background: #E2BE60; }
 
+
+  /* ===== Black November (card do topo; tirar depois de novembro) ===== */
+  .card-black {
+    display: grid;
+    grid-template-columns: 44% 1fr;
+    background: #191919;
+    background-image: none;
+    border: 1px solid #3a3a3a;
+  }
+  .card-black .iluminura {
+    height: 100%;
+    background: #12100d url('/black/img/novembro.webp') 50% 12% / cover no-repeat;
+  }
+  .card-black .conteudo { width: auto; margin: 0; }
+  .card-black .eyebrow { color: #faf559; }
+  .card-black h2 { font-family: 'Chillax Variable', 'DM Sans', sans-serif; font-weight: 500; font-size: 34px; letter-spacing: -0.01em; }
+  .card-black p { color: #d9d9d9; }
+  .card-black p b { color: #faf559; font-weight: 700; }
+  .card-black .btn { background: #faf559; color: #2e2e2e; }
+  .card-black:hover .btn { background: #fffa8a; }
+  .card-black:focus-visible { outline-color: #faf559; }
+
   /* ===== Redes ===== */
   .redes {
     display: grid;
@@ -206,6 +228,10 @@
       padding: 0 26px;
     }
     .card h2 { font-size: 27px; }
+    .card-black { grid-template-columns: 1fr; height: auto; }
+    .card-black .iluminura { height: 190px; background-position: 50% 8%; }
+    .card-black .conteudo { padding: 30px 26px 36px; }
+    .card-black h2 { font-size: 29px; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -236,6 +262,18 @@ dialog.vs-contato{margin:auto} /* o * { margin: 0 } desta pagina tirava a janela
   </header>
 
   <main>
+
+    <!-- BLACK NOVEMBER: card temporario no topo. Leva ao grupo do WhatsApp pelo
+         mesmo formulario da pagina /black (nome e telefone antes de entrar). -->
+    <a class="card card-black" href="https://chat.whatsapp.com/EuikHkBpzKpC0NvL6xvXBI" rel="noopener" onclick="return vsBlack(this.querySelector('.btn'))">
+      <div class="iluminura" aria-hidden="true"></div>
+      <div class="conteudo">
+        <span class="eyebrow">Black November</span>
+        <h2>As condi&ccedil;&otilde;es abrem no grupo.</h2>
+        <p id="black-quando">Mapa Natal, Sinastria e a forma&ccedil;&atilde;o em astrologia, primeiro no grupo do WhatsApp: <b style="white-space:nowrap">16 de novembro, &agrave;s 8h</b>.</p>
+        <span class="btn">Entrar no grupo</span>
+      </div>
+    </a>
 
     <a class="card" href="/venus" style="--img:url('https://commons.wikimedia.org/wiki/Special:FilePath/Diego_Vel%C3%A1zquez_-_Rokeby_Venus.jpg?width=1600'); --pos: 50% 38%">
       <div class="conteudo">
@@ -350,5 +388,22 @@ dialog.vs-contato{margin:auto} /* o * { margin: 0 } desta pagina tirava a janela
 
 </div>
 
+<script>
+function vsBlack(b){
+  if(typeof vsContato!=="function")return true;
+  return vsContato("Black November",b,{
+    titulo:"Falta pouco.",
+    texto:"Escreva seu nome e seu WhatsApp. Em seguida, o grupo abre e você já está dentro.",
+    aviso:"Seu número fica só com a Via Simbólica.",
+    botao:"ENTRAR NO GRUPO",
+    aguarde:"ABRINDO O GRUPO…",
+    destino:"https://chat.whatsapp.com/EuikHkBpzKpC0NvL6xvXBI"
+  });
+}
+if(Date.now()>=Date.parse("2026-11-16T08:00:00-03:00")){
+  var q=document.getElementById("black-quando");
+  if(q)q.innerHTML="As condi&ccedil;&otilde;es para o Mapa Natal, a Sinastria e a forma&ccedil;&atilde;o em astrologia <b>j&aacute; est&atilde;o abertas</b> no grupo do WhatsApp.";
+}
+</script>
 </body>
 </html>
