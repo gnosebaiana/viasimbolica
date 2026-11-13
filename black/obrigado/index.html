@@ -194,6 +194,8 @@ footer p{font-size:14px;color:var(--suave-esc)}
     var tel="";try{tel=localStorage.getItem("vs-telefone")||""}catch(e){}
     var dados=new URLSearchParams({nome:quem||"(sem nome)",telefone:tel,produto:"Black November · PAGO · "+n+" "+nome,origem:"pedido "+tx+" · "+metodo,pagina:location.pathname});
     try{fetch(PLANILHA,{method:"POST",mode:"no-cors",body:dados,keepalive:true})}catch(e){}
+    try{fetch("https://via-simbolica-painel.vercel.app/api/confirmar",{method:"POST",headers:{"Content-Type":"application/json"},keepalive:true,
+      body:JSON.stringify({order_nsu:nsu,transaction_nsu:tx,slug:(q.get("slug")||"").slice(0,64),nome:quem,telefone:tel,receipt_url:recibo})})}catch(e){}
     try{localStorage.setItem(chave,"1")}catch(e){}
     try{if(window.fbq)fbq("track","Purchase",{content_name:nome,currency:"BRL"})}catch(e){}
   }
