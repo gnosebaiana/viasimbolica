@@ -73,7 +73,21 @@
   }
   .marca a { color: inherit; text-decoration: none; }
 
-  .titulo { text-align: center; padding: 56px 0 18px; }
+  .quadro { margin: 48px auto 0; max-width: 360px; text-align: center; }
+  .quadro img {
+    display: block; width: 100%; height: auto;
+    box-shadow: 0 2px 4px rgba(30, 24, 16, 0.18), 0 22px 48px rgba(30, 24, 16, 0.22);
+  }
+  .quadro figcaption, .detalhe figcaption {
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 12px; line-height: 1.5; letter-spacing: 0.02em;
+    color: var(--tinta-suave);
+    margin-top: 18px;
+  }
+  .detalhe { margin: 56px 0 0; }
+  .detalhe img { display: block; width: 100%; height: auto; border-radius: 4px; }
+
+  .titulo { text-align: center; padding: 44px 0 18px; }
   .sobre {
     font-family: 'DM Sans', Arial, sans-serif;
     font-size: 11px;
@@ -297,45 +311,48 @@
 
 <main class="coluna">
 
+  <figure class="quadro">
+    <img src="img/jeronimo-moldura.webp" width="1400" height="1905" alt="São Jerônimo, de vermelho, lê à sua mesa de estudo, com livros, tinteiro, ampulheta e um bilhete dobrado; um leão dorme aos seus pés.">
+    <figcaption>Jan van Eyck e oficina, <i>São Jerônimo em seu estúdio</i>, c. 1442. Detroit Institute of Arts.</figcaption>
+  </figure>
+
   <div class="titulo">
     <p class="sobre">Correspondência diária</p>
     <h1>Epistolário</h1>
-    <p class="subtitulo">Uma carta por dia, escrita à mão do pensamento.</p>
+    <p class="subtitulo">Uma carta minha, por e-mail, todos os dias.</p>
   </div>
 
   <div class="ornamento" aria-hidden="true"><span>✦</span></div>
 
   <article>
-    <p class="vocativo">Caro leitor,</p>
+    <p class="capitular">Todos os dias eu escrevo uma carta e a mando por e-mail a quem está nesta lista. Uma por dia, também no sábado e no domingo.</p>
 
-    <p class="capitular">Todos os dias eu escrevo. Não um post, não uma legenda: uma carta. Ela sai cedo, chega à sua caixa de entrada e espera por você como o pão espera na mesa.</p>
+    <p>O que vai nela? O que estou estudando naqueles dias; um mapa que me ensinou alguma coisa; um trecho de livro que não consigo largar; o céu do dia, lido com calma. Às vezes é uma página inteira sobre uma casa, às vezes são três parágrafos sobre Saturno, e quase sempre é coisa para ler devagar.</p>
 
-    <p>Nela vai o que estou estudando, o que vi num mapa, um trecho de livro que não me largou, o céu do dia lido com calma. Às vezes uma página inteira sobre uma casa; às vezes três parágrafos sobre Saturno numa manhã fria. Sempre escrita para ser lida devagar, por alguém que gosta de ler.</p>
-
-    <p>Chamei de <em>Epistolário</em> porque é isso que ela é: uma correspondência. Eu escrevo, você lê, e a conversa segue no dia seguinte. Quem lê uma carta solta recebe uma ideia. Quem lê todas, dia após dia, vê o fio — e é no fio que as coisas se juntam.</p>
+    <p>Por que Epistolário? Porque epistolário é o nome que se dá ao conjunto das cartas de uma pessoa, escritas ao longo do tempo e lidas em sequência. Isto é: uma carta sozinha diz uma coisa, e o conjunto diz outra. Quem lê uma carta aqui e outra ali recebe ideias mais ou menos soltas. Quem lê todas, na ordem, percebe o que cada carta tira da anterior e o que deixa para a seguinte.</p>
 
     <h2>Antes de você se inscrever</h2>
 
-    <p>Preciso ser honesto com você. O Epistolário não é para todo mundo, e não quero que seja.</p>
+    <p>Uma precisão, antes que você deixe o seu e-mail: o Epistolário não é para todo mundo.</p>
 
-    <p>São cartas <em>diárias</em>. Segunda, terça, sábado, domingo. Se a ideia de receber um e-mail meu todos os dias parece demais, ela provavelmente é — e está tudo bem. Uma caixa de entrada cheia de cartas não lidas não serve a você nem a mim.</p>
+    <p>São cartas diárias. Se receber um e-mail meu por dia lhe parece muito, provavelmente é, e não há problema nenhum nisso. Mas então é melhor não se inscrever, porque a carta que chega e fica fechada na caixa de entrada não cumpre a sua função.</p>
 
-    <div class="compromisso">
-      Só se inscreva se tiver a disposição e o compromisso de ler todos os dias. Como quem rega uma planta: pouco, mas sempre.
-    </div>
+    <p class="compromisso">Por isso, só se inscreva se tiver a disposição e o compromisso de ler todos os dias.</p>
 
-    <p>Dez minutos com o café. O intervalo do almoço. A última coisa antes de dormir. O horário é seu; a constância é o que peço.</p>
+    <p>Não precisa ser muito tempo: uns dez, quinze minutos. Pode ser com o café, no intervalo do almoço ou antes de dormir; o horário você escolhe. O que eu peço é que seja todo dia.</p>
 
-    <p>Se for assim, será um prazer escrever para você.</p>
+    <p>Se for assim, vai ser um prazer escrever para você.</p>
 
-    <p class="assinatura">Com estima,
-      <span class="nome">Guilherme Santana</span>
-    </p>
+    <p class="assinatura"><span class="nome">Guilherme Santana</span></p>
   </article>
+
+  <figure class="detalhe">
+    <img src="img/jeronimo-mesa.webp" width="1400" height="879" loading="lazy" alt="Detalhe da mesa de São Jerônimo: o livro aberto, o tinteiro, a pena, a ampulheta e um bilhete dobrado.">
+  </figure>
 
   <section class="inscricao" id="inscricao" aria-labelledby="inscricao-titulo">
     <h2 id="inscricao-titulo">Receber as cartas</h2>
-    <p class="chamada">Deixe seu nome e o endereço onde a carta deve chegar amanhã.</p>
+    <p class="chamada">Deixe o seu nome e o e-mail em que a carta deve chegar.</p>
 
     <form novalidate>
       <label class="campo"><span>Seu nome</span>
@@ -353,14 +370,14 @@
 
       <button type="submit" class="enviar">Quero receber as cartas</button>
       <p class="erro" role="alert"></p>
-      <p class="aviso">Seu e-mail serve só para as cartas. Toda carta traz um link para sair da lista, a qualquer dia.</p>
+      <p class="aviso">Uso o seu e-mail só para mandar as cartas. Toda carta traz um link para sair da lista, se um dia você quiser.</p>
     </form>
 
     <div class="selado" aria-live="polite">
       <div class="selo" aria-hidden="true">G</div>
-      <h2>Carta selada</h2>
-      <p>Pronto, <span data-nome></span>. A primeira carta segue para <b data-email></b>.</p>
-      <p>Se ela não aparecer, procure na aba de promoções ou no spam e marque o remetente como contato. Assim as próximas chegam direto.</p>
+      <h2>Inscrição feita</h2>
+      <p>Pronto, <span data-nome></span>. A primeira carta vai para <b data-email></b>.</p>
+      <p>Se não a encontrar, procure na aba Promoções ou no spam e marque o remetente como contato; assim as seguintes chegam direto na caixa de entrada.</p>
     </div>
   </section>
 
