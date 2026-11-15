@@ -9,7 +9,7 @@
 <meta property="og:title" content="Epistolário · Via Simbólica">
 <meta property="og:description" content="Uma carta minha, por e-mail, todos os dias.">
 <meta property="og:image" content="/epistolario/img/jeronimo-mesa.webp">
-<link rel="preload" as="image" href="img/jeronimo-fundo.webp">
+<link rel="preload" as="image" href="/epistolario/img/jeronimo-fundo.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@400;500;700&family=Great+Vibes&display=swap" rel="stylesheet">
@@ -64,7 +64,7 @@
   .cena { position: fixed; inset: 0; z-index: 0; overflow: hidden; background: var(--noite); }
   .cena .ambiente {
     position: absolute; inset: -6%;
-    background: url('img/jeronimo-ambiente.webp') center 45% / cover no-repeat;
+    background: url('/epistolario/img/jeronimo-ambiente.webp') center 45% / cover no-repeat;
     filter: blur(28px) brightness(0.55) saturate(1.15);
     transform: scale(1.1);
   }
@@ -343,7 +343,7 @@
 <div class="cena" aria-hidden="true">
   <div class="ambiente"></div>
   <div class="quadro">
-    <img class="pintura" src="img/jeronimo-fundo.webp" width="1600" height="2523" alt="" fetchpriority="high">
+    <img class="pintura" src="/epistolario/img/jeronimo-fundo.webp" width="1600" height="2523" alt="" fetchpriority="high">
     <div class="luz"></div>
   </div>
   <div class="veu"></div>
@@ -413,7 +413,7 @@
     </article>
 
     <figure class="detalhe revelar">
-      <img src="img/jeronimo-mesa.webp" width="1400" height="879" loading="lazy" alt="Detalhe da mesa de São Jerônimo: o livro aberto, o tinteiro, a pena, a ampulheta e um bilhete dobrado.">
+      <img src="/epistolario/img/jeronimo-mesa.webp" width="1400" height="879" loading="lazy" alt="Detalhe da mesa de São Jerônimo: o livro aberto, o tinteiro, a pena, a ampulheta e um bilhete dobrado.">
     </figure>
 
     <section class="inscricao revelar" id="inscricao" aria-labelledby="inscricao-titulo">
