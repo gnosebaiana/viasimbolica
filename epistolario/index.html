@@ -63,6 +63,7 @@
   /* ===== Cena: o quadro como fundo ===== */
   .cena { position: fixed; inset: 0; z-index: 0; overflow: hidden; background: var(--noite); }
   .cena .ambiente {
+    display: none;
     position: absolute; inset: -6%;
     background: url('/epistolario/img/jeronimo-ambiente.webp') center 45% / cover no-repeat;
     filter: blur(28px) brightness(0.55) saturate(1.15);
@@ -71,10 +72,9 @@
   .cena .quadro {
     position: absolute; left: 50%; top: 50%;
     height: 100vh; height: 100lvh; aspect-ratio: 1600 / 2523;
-    transform: translate(-50%, -50%) scale(1.04);
+    transform: translate(-50%, -50%) scale(1);
     will-change: transform;
-    -webkit-mask-image: radial-gradient(ellipse 50% 54% at 50% 50%, #000 64%, transparent 100%);
-            mask-image: radial-gradient(ellipse 50% 54% at 50% 50%, #000 64%, transparent 100%);
+    box-shadow: 0 0 0 1px rgba(217, 180, 90, 0.35), 0 30px 80px rgba(0, 0, 0, 0.6);
   }
   .cena .pintura { display: block; width: 100%; height: 100%; filter: saturate(1.05); }
   .cena .luz {
@@ -88,34 +88,6 @@
     background:
       radial-gradient(ellipse at 50% 42%, transparent 35%, rgba(10, 7, 4, 0.6) 100%),
       linear-gradient(rgba(14, 10, 6, calc(var(--v) * 0.4)), rgba(14, 10, 6, calc(var(--v) * 0.4)));
-  }
-
-  /* Desktop: na abertura, o quadro inteiro e nítido à esquerda, como numa parede;
-     o título à direita. Ao rolar, o quadro vai ao centro e cresce até virar o fundo. */
-  @media (min-width: 900px) and (min-aspect-ratio: 1/1) {
-    .cena {
-      background:
-        radial-gradient(ellipse 38% 60% at 31% 50%, rgba(120, 78, 34, 0.32), transparent 70%),
-        radial-gradient(ellipse at 50% 50%, #1D150D 0%, #0E0A06 100%);
-    }
-    .cena .ambiente { display: none; }
-    .cena .quadro {
-      height: 84vh;
-      -webkit-mask-image: none; mask-image: none;
-      box-shadow:
-        0 0 0 1px rgba(217, 180, 90, 0.55),
-        0 0 0 7px rgba(14, 10, 6, 0.9),
-        0 0 0 8px rgba(217, 180, 90, 0.3),
-        0 30px 70px rgba(0, 0, 0, 0.7);
-    }
-    .cena .veu { opacity: var(--v); }
-    body .abertura {
-      justify-content: center; align-items: flex-end;
-      padding: 100px 7vw 60px 0;
-      background: none;
-    }
-    body .letreiro { width: 40vw; max-width: 560px; text-align: center; }
-    body .abertura h1 { font-size: clamp(64px, 7.4vw, 118px); }
   }
   @keyframes chama {
     0%, 100% { opacity: 0.85; } 18% { opacity: 1; } 31% { opacity: 0.7; }
@@ -393,7 +365,6 @@
 </header>
 
 <section class="abertura">
-  <div class="letreiro">
   <p class="sobre">Correspondência diária</p>
   <h1>Epistolário
     <span class="brilho b1" aria-hidden="true">✦</span>
@@ -403,7 +374,6 @@
   </h1>
   <p class="subtitulo">Uma carta minha, por e-mail, todos os dias.</p>
   <a class="descer" href="#carta">Leia a carta<i></i></a>
-  </div>
 </section>
 
 <div class="mesa">
@@ -494,7 +464,6 @@
   /* ---- Conforme a carta sobe, o quadro cresce até tomar a tela e desce
           devagar da cortina ao leão; o véu escurece um pouco para a leitura ---- */
   var quadroEl = document.querySelector('.cena .quadro');
-  var parede_mq = window.matchMedia('(min-width: 900px) and (min-aspect-ratio: 1/1)');
   var pedido = false;
   function suave(x) { return x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2; }
   function rolar() {
@@ -503,17 +472,15 @@
     var v = Math.min(1, Math.max(0, y / (vh * 0.95)));
     raiz.style.setProperty('--v', v.toFixed(3));
     topo.classList.toggle('rolou', y > vh * 0.6);
-    var parede = parede_mq.matches;
+    if (calmo) return;
     var largura = quadroEl.offsetWidth || vh * 0.634;
     var cobrir = Math.max(1, (vw / largura) * 1.08);
-    var s0 = parede ? 1 : 1.04;
-    var s = s0 + (Math.max(cobrir, 1.16) - s0) * suave(v);
+    var s = 1 + (Math.max(cobrir, 1.16) - 1) * suave(v);
     var total = Math.max(1, document.documentElement.scrollHeight - vh);
     var p = Math.min(1, Math.max(0, y / total));
     var sobra = quadroEl.offsetHeight * s - vh;
     var ty = sobra > 0 ? (0.5 - p) * sobra * 0.92 * suave(v) : 0;
-    var tx = parede ? (0.31 - 0.5) * vw * (1 - suave(v)) : 0;
-    quadroEl.style.transform = 'translate(-50%, -50%) translate(' + tx.toFixed(1) + 'px,' + ty.toFixed(1) + 'px) scale(' + s.toFixed(4) + ')';
+    quadroEl.style.transform = 'translate(-50%, -50%) translateY(' + ty.toFixed(1) + 'px) scale(' + s.toFixed(4) + ')';
   }
   window.addEventListener('scroll', function () { if (!pedido) { pedido = true; requestAnimationFrame(rolar); } }, { passive: true });
   window.addEventListener('resize', rolar);
