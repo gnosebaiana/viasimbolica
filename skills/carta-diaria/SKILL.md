@@ -1,19 +1,26 @@
 ---
 name: carta-diaria
-description: Gera o PDF da carta diária da Via Simbólica (as "Correspondências" que o Guiga manda por e-mail) no desenho fixado, com papel, estrela cadente e o Sol e a Lua do dia calculados. Use sempre que o Guiga pedir o PDF de uma carta, falar em "carta nº", "gera a carta de hoje", "a carta tá pronta no Notion", Casa 6, correspondências, ou quiser a versão em PDF que vai anexada ao e-mail, mesmo que ele não diga "PDF" nem "skill". Também serve para refazer uma carta já gerada (outra data, título corrigido, texto revisto).
+description: Gera o PDF da carta diária e da glosa da Via Simbólica (as "Correspondências" que o Guiga manda por e-mail) no desenho fixado, com papel, estrela cadente e o Sol e a Lua do dia calculados. Use sempre que o Guiga pedir o PDF de uma carta ou de uma glosa, falar em "carta nº", "glosa nº", "gera a carta de hoje", "a carta tá pronta no Notion", Casa 6, correspondências, ou quiser a versão em PDF que vai anexada ao e-mail, mesmo que ele não diga "PDF" nem "skill". Também serve para refazer uma carta já gerada (outra data, título corrigido, texto revisto).
 ---
 
 # Carta diária
 
 A carta é o texto que o Guiga escreve todo dia e envia por e-mail aos leitores, sempre com uma versão em PDF anexada. O PDF é a carta como foi desenhada: papel, as letras da marca, o céu do dia em que foi escrita. O desenho já foi aprovado; o seu trabalho é aplicar, não redesenhar.
 
+## Cartas e glosas
+
+- **Carta**: o texto do dia. Página no Notion "Carta nº N - Título".
+- **Glosa**: o Guiga cita trechos de cartas que recebeu dos leitores e os comenta. Página "Glosa nº N - Título" (o título pode estar vazio). Gere com `--tipo glosa`. Os trechos do leitor viram citação: no `.md`, cada parágrafo citado começa com `> `. Os colchetes de corte (`[…]`) ficam como ele escreveu. Sem título, o topo mostra "CORRESPONDÊNCIAS" e o título vira "Glosa nº N".
+
+Hoje as duas ficam no Notion em "Casa 3: escritos, aprendizados › Cartas diárias" (a Carta nº 1 está na Casa 6). Busque pelo nome; se não achar, procure na página "Cartas diárias".
+
 ## Fluxo
 
-1. **Achar a carta.** Ela fica no Notion, na página "Casa 6: rotina e organização", com o título "Carta nº N - Título". Busque por "Carta nº N" e abra a página principal; ignore subpáginas como "versão anterior". Se o Guiga colar o texto na conversa, use o texto colado.
+1. **Achar o texto.** Fica no Notion com o título "Carta nº N - Título" ou "Glosa nº N - Título". Busque por "Carta nº N" e abra a página principal; ignore subpáginas como "versão anterior". Se o Guiga colar o texto na conversa, use o texto colado.
 
 2. **Separar as partes.**
    - Número e título: vêm do nome da página ("Carta nº 1 - Por que falar em cartas" → número 1, título "Por que falar em cartas").
-   - Corpo: os parágrafos, palavra por palavra. Não revise, não corte, não "melhore": a carta é dele. Só os itálicos do Notion viram `*assim*`.
+   - Corpo: os parágrafos, palavra por palavra. Não revise, não corte, não "melhore": a carta é dele. Só os itálicos do Notion viram `*assim*` e os negritos viram `**assim**`. Um bloco `<p>…</p>` solto no Notion é um parágrafo comum.
    - Fecho: o que vem depois do último parágrafo ("Até amanhã," / "Guiga" / *Via Simbólica*). Passe em `--fecho`, linhas separadas por `|`. Se for igual ao padrão, não precisa passar.
    Salve o corpo num arquivo `.md`, um parágrafo por bloco, com linha em branco entre eles.
 
@@ -39,8 +46,9 @@ Estas decisões foram tomadas com o Guiga. Não mude nenhuma sem ele pedir.
 - **Topo, à esquerda:** "CARTA Nº N" em versalete pequeno e o título em Chillax.
 - **Topo, à direita:** a estrela cadente da logo, em roxo (#664fa1), **sem fundo**; embaixo, o ícone do Sol ao lado do signo dele e o da Lua ao lado do signo dela; embaixo, a data em algarismos: `15 · 11 · 2026`.
 - **Texto:** justificado, **todo parágrafo com recuo** (6 mm), sem espaço entre parágrafos.
-- **Fecho:** "Até amanhã," / "Guiga" / *Via Simbólica*, na mesma letra do corpo, em linhas seguidas; uma estrela cadente pequena em roxo embaixo. Sempre na mesma página do último parágrafo.
-- **Rodapé:** "CARTA Nº N · VIA SIMBÓLICA" e o número da página.
+- **Citação do leitor (glosa):** recuada 6 mm, com um fio roxo fino à esquerda, letra um ponto menor e um tom mais claro, sem recuo de parágrafo. Parágrafos citados seguidos ficam num bloco só.
+- **Fecho:** "Até amanhã," / "Guiga" / *Via Simbólica*, na mesma letra do corpo, em linhas seguidas; uma estrela cadente pequena em roxo embaixo. Sempre na mesma página do último parágrafo. O fecho é o que ele escreveu: numa glosa pode ser "Guiga." seguido do "Ps.:", e tudo isso vai em `--fecho`.
+- **Rodapé:** "CARTA Nº N · VIA SIMBÓLICA" (ou "GLOSA Nº N") e o número da página.
 - **Tamanho:** abaixo de 1 MB, para anexar ao e-mail.
 
 O que o Guiga recusou e não deve voltar: selo roxo com borda picotada, "Escorpião · água fixa" ou qualquer descrição do signo por extenso, a logo do olho/sol, assinatura cursiva ou "à mão", data em algarismos romanos, a última página só com o fecho, as iluminuras das Très Riches Heures.

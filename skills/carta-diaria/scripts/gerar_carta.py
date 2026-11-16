@@ -67,6 +67,8 @@ def lua_muda_no_dia(data, fuso):
 def inline(t):
     t = html.escape(t.strip(), quote=False)
     t = re.sub(r"&lt;(/?)(i|em)&gt;", r"<\1i>", t)
+    t = re.sub(r"&lt;(/?)(b|strong)&gt;", r"<\1b>", t)
+    t = re.sub(r"\*\*(?!\s)(.+?)(?<!\s)\*\*", r"<b>\1</b>", t)
     t = re.sub(r"(?<![\w*])\*(?!\s)(.+?)(?<!\s)\*(?![\w*])", r"<i>\1</i>", t)
     t = re.sub(r"(?<![\w_])_(?!\s)(.+?)(?<!\s)_(?![\w_])", r"<i>\1</i>", t)
     t = re.sub(r'"([^"]+)"', r"“\1”", t)
@@ -106,7 +108,8 @@ def renderizar(carta_html, fundo_html, pdf_texto, pdf_fundo, rodape):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--numero", required=True)
-    ap.add_argument("--titulo", required=True)
+    ap.add_argument("--tipo", choices=["carta", "glosa"], default="carta")
+    ap.add_argument("--titulo", default="", help="vazio numa glosa sem título: o título vira 'Glosa nº N'")
     ap.add_argument("--data", required=True, help="AAAA-MM-DD, o dia em que a carta foi escrita")
     ap.add_argument("--hora", help="HH:MM, hora local em que foi escrita")
     ap.add_argument("--fuso", type=float, default=-3, help="horas em relação a UTC (Brasília = -3)")
@@ -134,7 +137,20 @@ def main():
         blocos = [b for b in re.split(r"\n\s*\n", f.read()) if b.strip()]
     if not blocos:
         sys.exit("O texto da carta está vazio.")
-    pars = [f"<p>{inline(b)}</p>" for b in blocos]
+    def bloco(b):
+        if b.lstrip().startswith(">"):
+            miolo = re.sub(r"^\s*>\s?", "", b, flags=re.M)
+            return f'<blockquote><p>{inline(miolo)}</p></blockquote>'
+        return f"<p>{inline(b)}</p>"
+    pars = []
+    for b in blocos:
+        h = bloco(b)
+        if h.startswith("<blockquote>") and pars and pars[-1].startswith("<blockquote>"):
+            pars[-1] = pars[-1][:-len("</blockquote>")] + h[len("<blockquote>"):]
+        else:
+            pars.append(h)
+    nome_tipo = "Carta" if a.tipo == "carta" else "Glosa"
+    titulo = a.titulo.strip() or f"{nome_tipo} nº {a.numero}"
     fecho = "".join(f"<p>{inline(l)}</p>" for l in a.fecho.split("|") if l.strip())
 
     astros = (f'<span title="Sol em {s_sol[0]}">{svg(SOL)}{svg(s_sol[1])}</span>'
@@ -146,7 +162,8 @@ def main():
         "__SATOSHI__": fonte("Satoshi-Variable.woff2"),
         "__SATOSHI_ITALICO__": fonte("Satoshi-VariableItalic.woff2"),
         "__NUMERO__": html.escape(str(a.numero)),
-        "__TITULO__": inline(a.titulo),
+        "__TITULO__": inline(titulo),
+        "__ROTULO__": f"{nome_tipo} nº {html.escape(str(a.numero))}" if a.titulo.strip() else "Correspondências",
         "__ASTROS__": astros,
         "__DATA__": f"{data.day:02d} · {data.month:02d} · {data.year}",
         "__CORPO__": "\n".join(pars[:-1]),
@@ -156,20 +173,20 @@ def main():
         t = t.replace(k, v)
 
     os.makedirs(a.saida, exist_ok=True)
-    nome = f"Carta nº {a.numero} · Via Simbólica.pdf"
+    nome = f"{nome_tipo} nº {a.numero} · Via Simbólica.pdf"
     destino = os.path.join(a.saida, nome)
     with tempfile.TemporaryDirectory() as tmp:
         ch = os.path.join(tmp, "carta.html")
         with open(ch, "w", encoding="utf-8") as f:
             f.write(t)
         pt, pf = os.path.join(tmp, "texto.pdf"), os.path.join(tmp, "fundo.pdf")
-        renderizar(ch, os.path.join(ASSETS, "fundo.html"), pt, pf, f"CARTA Nº {a.numero} · VIA SIMBÓLICA")
+        renderizar(ch, os.path.join(ASSETS, "fundo.html"), pt, pf, f"{nome_tipo.upper()} Nº {a.numero} · VIA SIMBÓLICA")
         fundo = pypdf.PdfReader(pf).pages[0]
         w = pypdf.PdfWriter()
         for pg in pypdf.PdfReader(pt).pages:
             pg.merge_page(fundo, over=False)
             w.add_page(pg)
-        w.add_metadata({"/Title": f"Carta nº {a.numero} · {re.sub('<[^>]+>', '', inline(a.titulo))}",
+        w.add_metadata({"/Title": f"{nome_tipo} nº {a.numero} · {re.sub('<[^>]+>', '', inline(titulo))}",
                         "/Author": "Guiga · Via Simbólica"})
         try:
             w.compress_identical_objects(remove_duplicates=True, remove_unreferenced=True)

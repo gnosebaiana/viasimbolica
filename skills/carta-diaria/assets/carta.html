@@ -1,4 +1,4 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>Carta nº __NUMERO__ · Via Simbólica</title>
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>__TITULO__ · Via Simbólica</title>
 <style>
 @font-face{font-family:"Chillax";src:url(__CHILLAX__) format("woff2");font-weight:200 700}
 @font-face{font-family:"Satoshi";src:url(__SATOSHI__) format("woff2");font-weight:300 900;font-style:normal}
@@ -21,13 +21,17 @@ h1{font-family:"Chillax",sans-serif;font-weight:500;font-size:19pt;line-height:1
 .texto{margin-top:6mm}
 .texto p{text-align:justify;text-indent:6mm;orphans:3;widows:3}
 .final{break-inside:avoid}
+.texto b{font-weight:700}
+blockquote{margin:3.2mm 0 3.2mm 6mm;padding:.4mm 0 .4mm 4.2mm;border-left:.5pt solid #664fa1;color:#4a4642;font-size:9pt;line-height:1.55}
+blockquote p{text-indent:0!important}
+blockquote p+p{margin-top:1.6mm}
 .fecho{margin-top:4mm;break-inside:avoid}
 .fecho p{text-indent:0}
 .marca{display:block;width:10mm;height:auto;color:#664fa1;margin:4mm 0 0}
 </style></head><body>
 <svg width="0" height="0" style="position:absolute"><defs><symbol id="estrela" viewBox="0 5 66 38"><path d="M18 33 C30 27, 44 18, 60 8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" opacity="0.6"></path><path d="M20 40 C33 34, 47 25, 62 15" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity="0.35"></path><path d="M11 22 L13.3 31 L11 40 L8.7 31 Z" fill="currentColor"></path><path d="M2 31 L11 28.9 L20 31 L11 33.1 Z" fill="currentColor"></path></symbol></defs></svg>
 <div class="topo">
-  <div class="meta"><p class="rot">Carta nº __NUMERO__</p><h1>__TITULO__</h1></div>
+  <div class="meta"><p class="rot">__ROTULO__</p><h1>__TITULO__</h1></div>
   <div class="ceu-do-dia">
     <svg class="estrela-topo" viewBox="0 5 66 38" aria-hidden="true"><use href="#estrela"/></svg>
     <p class="astros">__ASTROS__</p>
