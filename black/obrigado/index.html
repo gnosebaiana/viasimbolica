@@ -179,7 +179,7 @@ footer p{font-size:14px;color:var(--suave-esc)}
   if(nome)document.getElementById("oferta").textContent="a condição "+n+", "+nome;
   if(tx)document.getElementById("pedido").textContent="Pedido "+tx;
   if(/^https:\/\/[^\s"']+$/.test(recibo)){var r=document.getElementById("recibo");r.href=recibo;r.hidden=false}
-  var extra={"06":"Mande os dados dos dois.","07":"Mande os dados da mãe, do pai e de cada filho.","08":"Mande só os seus dados agora. Quem ganha o vale manda os dados depois.","09":"O Manual é um curso: o acesso chega no seu e-mail. Não precisa mandar dados de nascimento."};
+  var extra={"06":"Mande os dados dos dois.","07":"Mande os dados da mãe, do pai e de cada filho.","08":"Mande só os seus dados agora. Quem ganha o vale manda os dados depois.","09":"O Manual é um curso: o acesso chega ao seu e-mail. Não precisa mandar dados de nascimento."};
   if(extra[n])document.getElementById("nota-extra").textContent=extra[n];
   var quem="";try{quem=localStorage.getItem("vs-nome")||""}catch(e){}
   var msg="Olá, Guilherme. "+(quem?"Sou "+quem+". ":"")+"Comprei na Black November"+(nome?": "+nome:"")+(tx?" (pedido "+tx+")":"")+"."+(n==="09"?"":" Meus dados de nascimento: data: , hora: , cidade: .");
