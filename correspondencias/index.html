@@ -23,10 +23,12 @@
   2. MAGIA: passaros dourados (desenhados aqui, em SVG), po dourado (canvas),
      a luz da mesa tremulando, brilhos e o ornamento que se desenha. Tudo para
      quando o visitante pede "reduzir movimento" no aparelho.
-  3. FORMULARIO: grava na planilha "Contatos do site" (Apps Script de
-     /assets/vs-contato.js), produto "Correspondências". O e-mail vai no campo "email"
-     e, por garantia, tambem em "origem", ate o script ganhar a coluna propria.
-     Dispara o pixel "Lead" se o pixel estiver na pagina.
+  3. FORMULARIO: manda para o mesmo Apps Script de /assets/vs-contato.js
+     ("Via Simbolica - formulario do site"), produto "Correspondências". O script
+     separa pelo produto: as Correspondencias entram como linha nova na planilha
+     "Leitores das Correspondências - Via Simbólica" (Nº, Nome, E-mail, Inscricao,
+     Origem Site, Status Ativo); o resto segue em "Contatos do site". O e-mail vai em
+     "email" e tambem em "origem" (reserva). Dispara o pixel "Lead" se houver pixel.
 -->
 
 <style>
