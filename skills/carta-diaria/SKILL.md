@@ -46,7 +46,7 @@ Estas decisões foram tomadas com o Guiga. Não mude nenhuma sem ele pedir.
 - **Topo, à esquerda:** "CARTA Nº N" em versalete pequeno e o título em Chillax.
 - **Topo, à direita:** a estrela cadente da logo, em roxo (#664fa1), **sem fundo**; embaixo, o ícone do Sol ao lado do signo dele e o da Lua ao lado do signo dela; embaixo, a data em algarismos: `15 · 11 · 2026`.
 - **Texto:** justificado, **todo parágrafo com recuo** (6 mm), sem espaço entre parágrafos.
-- **Citação do leitor (glosa):** recuada 6 mm, com um fio roxo fino à esquerda, letra um ponto menor e um tom mais claro, sem recuo de parágrafo. Parágrafos citados seguidos ficam num bloco só.
+- **Citação do leitor (glosa):** bloco centralizado (88 mm de largura), texto centralizado e em itálico, entre duas linhas paralelas finas em cima e duas embaixo, no estilo das citações do Substack. Parágrafos citados seguidos ficam num bloco só.
 - **Fecho:** "Até amanhã," / "Guiga" / *Via Simbólica*, na mesma letra do corpo, em linhas seguidas; uma estrela cadente pequena em roxo embaixo. Sempre na mesma página do último parágrafo. O fecho é o que ele escreveu: numa glosa pode ser "Guiga." seguido do "Ps.:", e tudo isso vai em `--fecho`.
 - **Rodapé:** "CARTA Nº N · VIA SIMBÓLICA" (ou "GLOSA Nº N") e o número da página.
 - **Tamanho:** abaixo de 1 MB, para anexar ao e-mail.
