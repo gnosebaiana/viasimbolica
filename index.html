@@ -5,9 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Via Simb&oacute;lica</title>
 <meta name="description" content="Cursos, consultas de astrologia tradicional e acompanhamento terap&ecirc;utico com Guilherme Santana.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=DM+Sans:wght@400;500;700&family=Baskervville:ital@1&display=swap" rel="stylesheet">
+<link rel="preload" href="/assets/fontes/Chillax-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fontes/Satoshi-Variable.woff2" as="font" type="font/woff2" crossorigin>
 
 <!--
   VIA SIMBOLICA - PAGINA PRINCIPAL
@@ -26,19 +25,33 @@
 -->
 
 <style>
+  /* Paleta e tipografia do sistema de design Via Simbolica (fundos fixados em 22/11/2026). */
+  @font-face{font-family:"Chillax Variable";src:url("/assets/fontes/Chillax-Variable.woff2") format("woff2");font-weight:200 700;font-style:normal;font-display:swap}
+  @font-face{font-family:"Satoshi";src:url("/assets/fontes/Satoshi-Variable.woff2") format("woff2");font-weight:300 900;font-style:normal;font-display:swap}
+
   :root {
-    --marfim: #F2EFE9;
-    --tinta: #2E2A26;
-    --ouro: #D2AC4C;
-    --escuro: #1E1B16;
+    --fundo: #f6f3ee;       /* papel */
+    --papel: #ffffff;
+    --tinta: #2e2e2e;
+    --tinta-suave: #5e5e5e;
+    --linha: #d5d0c8;
+    --roxo: #664fa1;
+    --roxo-claro: #b9a9e0;
+    --claro: #f2f2f2;       /* tinta sobre roxo, sobre noite e sobre o veu */
+    --sol: #faf559;
+    --noite: #1a152a;
+    --veu: #1a152a99;       /* a noite a 60%, sobre as pinturas */
+    --display: "Chillax Variable", Chillax, ui-sans-serif, system-ui, sans-serif;
+    --texto: Satoshi, ui-sans-serif, system-ui, sans-serif;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
-    background: var(--marfim);
-    font-family: 'DM Sans', Arial, sans-serif;
+    background: var(--fundo);
+    font-family: var(--texto);
     color: var(--tinta);
+    -webkit-font-smoothing: antialiased;
   }
 
   .coluna {
@@ -53,16 +66,8 @@
     padding: 58px 0 42px;
   }
 
-  .estrela { width: 46px; height: 36px; display: block; margin: 0 auto; }
-
-  .logotipo {
-    font-family: 'Great Vibes', cursive;
-    font-weight: 400;
-    font-size: clamp(44px, 8vw, 58px);
-    line-height: 1.1;
-    margin-top: 8px;
-    color: var(--tinta);
-  }
+  .logotipo { line-height: 0; }
+  .logotipo img { width: clamp(180px, 34vw, 232px); height: auto; display: block; margin: 0 auto; }
 
   /* ===== Cards ===== */
   .card {
@@ -70,25 +75,22 @@
     display: flex;
     align-items: center;
     height: 384px;
-    border-radius: 14px;
+    border-radius: 8px;
     overflow: hidden;
     margin-bottom: 26px;
     text-decoration: none;
-    background-color: var(--escuro);
-    background-image: linear-gradient(rgba(22, 18, 13, 0.42), rgba(22, 18, 13, 0.62)), var(--img);
+    background-color: var(--noite);
+    background-image: linear-gradient(var(--veu), var(--veu)), var(--img);
     background-size: cover;
     background-position: var(--pos, center);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    transition: transform 0.25s ease;
   }
 
-  .card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 16px 38px rgba(30, 27, 22, 0.28);
-  }
+  .card:hover { transform: translateY(-3px); }
 
   .card:focus-visible, .rede:focus-visible {
-    outline: 3px solid var(--ouro);
-    outline-offset: 3px;
+    outline: 2px solid var(--roxo);
+    outline-offset: 2px;
   }
 
   .conteudo {
@@ -103,66 +105,68 @@
   }
 
   .eyebrow {
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 500;
-    letter-spacing: 0.34em;
-    text-indent: 0.34em;
+    line-height: 1.2;
+    letter-spacing: 0.18em;
+    text-indent: 0.18em;
     text-transform: uppercase;
-    color: #E3C05C;
+    color: var(--roxo-claro);
   }
 
   .card h2 {
+    font-family: var(--display);
     font-size: 30px;
-    font-weight: 700;
-    line-height: 1.15;
-    color: #FFFFFF;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.005em;
+    color: var(--claro);
     max-width: 340px;
   }
 
   .card p {
-    font-size: 13.5px;
+    font-size: 15px;
     line-height: 1.55;
-    color: rgba(255, 255, 255, 0.92);
+    color: var(--claro);
     max-width: 300px;
   }
 
   .btn {
-    font-size: 11px;
+    display: inline-flex;
+    align-items: center;
+    height: 44px;
+    font-size: 13px;
     font-weight: 700;
-    letter-spacing: 0.2em;
-    text-indent: 0.2em;
+    letter-spacing: 0.12em;
+    text-indent: 0.12em;
     text-transform: uppercase;
-    color: #2A2208;
-    background: var(--ouro);
-    border-radius: 999px;
-    padding: 15px 48px;
+    color: var(--claro);
+    background: var(--roxo);
+    border-radius: 9999px;
+    padding: 0 32px;
     margin-top: 9px;
-    transition: background 0.25s ease;
   }
-
-  .card:hover .btn { background: #E2BE60; }
 
 
   /* ===== Black November (card do topo; tirar depois de novembro) ===== */
   .card-black {
     display: grid;
     grid-template-columns: 44% 1fr;
-    background: #191919;
+    background: var(--noite);
     background-image: none;
-    border: 1px solid #3a3a3a;
+    border: 1px solid #413c53;
   }
   .card-black .iluminura {
     height: 100%;
-    background: #12100d url('/black/img/novembro.webp') 50% 12% / cover no-repeat;
+    background: var(--noite) url('/black/img/novembro.webp') 50% 12% / cover no-repeat;
   }
   .card-black .conteudo { width: auto; margin: 0; }
-  .card-black .eyebrow { color: #faf559; }
-  .card-black h2 { font-family: 'Chillax Variable', 'DM Sans', sans-serif; font-weight: 500; font-size: 34px; letter-spacing: -0.01em; }
-  .card-black p { color: #d9d9d9; }
-  .card-black p b { color: #faf559; font-weight: 700; }
-  .card-black .btn { background: #faf559; color: #2e2e2e; }
-  .card-black:hover .btn { background: #fffa8a; }
-  .card-black:focus-visible { outline-color: #faf559; }
+  .card-black .eyebrow { color: var(--sol); }
+  .card-black h2 { font-size: 34px; line-height: 1.15; letter-spacing: -0.01em; }
+  .card-black p { color: #b8b8b8; }
+  .card-black p b { color: var(--sol); font-weight: 700; }
+  .card-black .btn { background: var(--sol); color: var(--tinta); }
+  .card-black:focus-visible { outline-color: var(--roxo); }
 
   /* ===== Redes ===== */
   .redes {
@@ -177,8 +181,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 5px;
-    border-radius: 14px;
+    gap: 6px;
+    background: var(--papel);
+    border: 1px solid var(--linha);
+    border-radius: 8px;
     padding: 24px 10px;
     text-decoration: none;
     transition: transform 0.25s ease;
@@ -187,36 +193,34 @@
   .rede:hover { transform: translateY(-3px); }
 
   .rede .acao {
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 500;
-    letter-spacing: 0.3em;
-    text-indent: 0.3em;
+    line-height: 1.2;
+    letter-spacing: 0.18em;
+    text-indent: 0.18em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--tinta-suave);
   }
 
   .rede .nome {
-    font-size: 17px;
-    font-weight: 700;
-    color: #FFFFFF;
+    font-family: var(--display);
+    font-size: 19px;
+    font-weight: 500;
+    color: var(--tinta);
   }
-
-  .yt { background: #C22743; }
-  .ig { background: #2F7261; }
-  .sb { background: #1F3D33; }
 
   /* ===== Fechamento ===== */
   .divisor {
     border: none;
     height: 1px;
-    background: rgba(46, 42, 38, 0.16);
+    background: var(--linha);
     margin: 46px 0 36px;
   }
 
   .assinatura-final {
-    font-family: 'Baskervville', Georgia, serif;
-    font-style: italic;
-    font-size: clamp(21px, 4vw, 26px);
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--tinta-suave);
     text-align: center;
     padding-bottom: 56px;
   }
@@ -235,15 +239,13 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .card, .rede, .btn { transition: none; }
+    .card, .rede { transition: none; }
     .card:hover, .rede:hover { transform: none; }
   }
 </style>
 <!-- Formulario de contato dos cards de servico (o mesmo das paginas de venda) -->
 <link rel="stylesheet" href="/assets/vs-contato.css">
 <style>
-@font-face{font-family:"Chillax Variable";src:url("/assets/fontes/Chillax-Variable.woff2") format("woff2");font-weight:200 700;font-style:normal;font-display:swap}
-@font-face{font-family:"Satoshi";src:url("/assets/fontes/Satoshi-Variable.woff2") format("woff2");font-weight:300 900;font-style:normal;font-display:swap}
 dialog.vs-contato{margin:auto} /* o * { margin: 0 } desta pagina tirava a janela do centro */
 </style>
 <script src="/assets/vs-contato.js" defer></script>
@@ -252,13 +254,7 @@ dialog.vs-contato{margin:auto} /* o * { margin: 0 } desta pagina tirava a janela
 <div class="coluna">
 
   <header>
-    <svg class="estrela" viewBox="0 0 64 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M18 33 C30 27, 44 18, 60 8" fill="none" stroke="#2E2A26" stroke-width="1.7" stroke-linecap="round" opacity="0.6"/>
-      <path d="M20 40 C33 34, 47 25, 62 15" fill="none" stroke="#2E2A26" stroke-width="1.4" stroke-linecap="round" opacity="0.35"/>
-      <path d="M11 22 L13.3 31 L11 40 L8.7 31 Z" fill="#2E2A26"/>
-      <path d="M2 31 L11 28.9 L20 31 L11 33.1 Z" fill="#2E2A26"/>
-    </svg>
-    <h1 class="logotipo">via simb&oacute;lica</h1>
+    <h1 class="logotipo"><img src="/assets/marcas/assinatura-tinta.svg" alt="via simb&oacute;lica" width="232" height="141"></h1>
   </header>
 
   <main>
