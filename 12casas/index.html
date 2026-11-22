@@ -5,9 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>A Psicologia das 12 Casas · Via Simbólica</title>
 <meta name="description" content="Curso ao vivo: as doze áreas da vida humana lidas pela cosmologia antiga e pela psicologia. 16 aulas, de 13 de outubro a 3 de dezembro.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=DM+Sans:wght@400;500;700&family=Great+Vibes&display=swap" rel="stylesheet">
+<link rel="preload" href="/assets/fontes/Chillax-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fontes/Satoshi-Variable.woff2" as="font" type="font/woff2" crossorigin>
 
 <!--
   A PSICOLOGIA DAS 12 CASAS - PAGINA DE LANCAMENTO
@@ -29,18 +28,23 @@
 -->
 
 <style>
+  /* Paleta e tipografia do sistema de design Via Simbolica (fundos fixados em 22/11/2026). Pagina de noite. */
+  @font-face{font-family:"Chillax Variable";src:url("/assets/fontes/Chillax-Variable.woff2") format("woff2");font-weight:200 700;font-style:normal;font-display:swap}
+  @font-face{font-family:"Satoshi";src:url("/assets/fontes/Satoshi-Variable.woff2") format("woff2");font-weight:300 900;font-style:normal;font-display:swap}
+  @font-face{font-family:"Satoshi";src:url("/assets/fontes/Satoshi-VariableItalic.woff2") format("woff2");font-weight:300 900;font-style:italic;font-display:swap}
+
   :root {
-    --noite: #0B1830;
-    --noite-funda: #081222;
-    --agua: #0E2A42;
-    --card: rgba(17, 36, 66, 0.78);
-    --card-cheio: #10233F;
-    --marfim: #EFEBE0;
-    --texto: rgba(239, 235, 224, 0.84);
-    --ouro: #D2AC4C;
-    --ouro-claro: #E6C567;
-    --agua-luz: #8FC1E3;
-    --linha: rgba(210, 172, 76, 0.26);
+    --noite: #1a152a;        /* fundo */
+    --cartao: #2d2740;       /* cartao sobre a noite */
+    --claro: #f2f2f2;        /* tinta sobre a noite e sobre o roxo */
+    --suave: #b8b8b8;        /* texto secundario */
+    --roxo: #664fa1;
+    --roxo-claro: #b9a9e0;   /* o roxo legivel na noite */
+    --sol: #faf559;          /* uma vez: o botao da oferta */
+    --tinta: #2e2e2e;        /* texto sobre o sol */
+    --linha: #413c53;
+    --display: "Chillax Variable", Chillax, ui-sans-serif, system-ui, sans-serif;
+    --sans: Satoshi, ui-sans-serif, system-ui, sans-serif;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -48,10 +52,11 @@
   html { scroll-behavior: smooth; }
 
   body {
-    background: linear-gradient(180deg, #081222 0%, #0B1830 34%, #0D2238 68%, #0E2A42 100%);
-    color: var(--texto);
-    font-family: 'DM Sans', Arial, sans-serif;
-    line-height: 1.68;
+    background: var(--noite);
+    color: var(--claro);
+    font-family: var(--sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
 
@@ -97,53 +102,60 @@
   .coluna { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
   .estreita { max-width: 690px; margin: 0 auto; }
 
-  h1, h2, h3 { font-family: 'Baskervville', Georgia, serif; font-weight: 400; color: var(--marfim); }
+  h1, h2, h3 { font-family: var(--display); font-weight: 500; color: var(--claro); }
 
-  em { font-style: italic; color: var(--ouro-claro); }
+  em { font-style: normal; color: var(--roxo-claro); }
 
   .eyebrow {
     display: block;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 500;
-    letter-spacing: 0.34em;
-    text-indent: 0.34em;
+    line-height: 1.2;
+    letter-spacing: 0.18em;
+    text-indent: 0.18em;
     text-transform: uppercase;
-    color: var(--ouro);
-    margin-bottom: 18px;
+    color: var(--suave);
+    margin-bottom: 16px;
   }
 
-  h2 { font-size: clamp(28px, 4.5vw, 42px); margin-bottom: 22px; line-height: 1.2; }
+  h2 { font-size: clamp(28px, 4.2vw, 40px); margin-bottom: 22px; line-height: 1.15; letter-spacing: -0.005em; }
 
   .btn {
-    display: inline-block;
-    font-size: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    font-size: 13px;
     font-weight: 700;
-    letter-spacing: 0.2em;
-    text-indent: 0.2em;
+    line-height: 1.3;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #241C08;
-    background: var(--ouro);
-    border-radius: 999px;
-    padding: 17px 46px;
+    text-align: center;
+    color: var(--claro);
+    background: var(--roxo);
+    border-radius: 9999px;
+    padding: 12px 32px;
     text-decoration: none;
-    transition: background 0.25s ease, transform 0.25s ease;
+    transition: transform 0.25s ease;
   }
 
-  .btn:hover { background: var(--ouro-claro); transform: translateY(-2px); }
+  .btn:hover { transform: translateY(-2px); }
+
+  /* o unico sol da pagina: o botao que fecha a oferta */
+  .card-oferta .btn { background: var(--sol); color: var(--tinta); }
 
   .btn:focus-visible, a:focus-visible, summary:focus-visible, .setor:focus-visible {
-    outline: 3px solid var(--ouro);
-    outline-offset: 3px;
+    outline: 2px solid var(--sol);
+    outline-offset: 2px;
   }
 
   section { padding: 92px 0; }
 
   .moldura {
     border: 1px solid var(--linha);
-    border-radius: 14px;
+    border-radius: 8px;
     padding: 10px;
-    background: var(--card-cheio);
-    box-shadow: 0 18px 44px rgba(2, 8, 18, 0.5);
+    background: var(--cartao);
   }
 
   .moldura img { width: 100%; display: block; border-radius: 8px; }
@@ -151,7 +163,7 @@
   .legenda {
     font-size: 12px;
     letter-spacing: 0.08em;
-    color: rgba(239, 235, 224, 0.55);
+    color: var(--suave);
     text-align: center;
     margin-top: 12px;
   }
@@ -173,7 +185,7 @@
     text-align: center;
     padding: 100px 0 60px;
     background-image:
-      linear-gradient(rgba(8, 18, 34, 0.68), rgba(8, 18, 34, 0.94)),
+      linear-gradient(rgba(26, 21, 42, 0.68), rgba(26, 21, 42, 0.94)),
       url('https://pdr-assets.b-cdn.net/collections/zodiac-man/zodiac-man-2.jpg?width=1400');
     background-size: cover;
     background-position: center 26%;
@@ -182,23 +194,25 @@
   .hero-conteudo { max-width: 780px; margin: 0 auto; }
 
   .hero h1 {
-    font-size: clamp(42px, 7vw, 68px);
-    line-height: 1.08;
+    font-size: clamp(38px, 6.2vw, 64px);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
     margin-bottom: 22px;
   }
 
-  .hero .sub { font-size: 17.5px; max-width: 560px; margin: 0 auto 32px; }
+  .hero .sub { font-size: 19px; max-width: 560px; margin: 0 auto 32px; }
 
   .hero .conta-linha {
     display: block;
     margin-top: 18px;
-    font-size: 13px;
-    letter-spacing: 0.14em;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--agua-luz);
+    color: var(--suave);
   }
 
-  .hero .conta-linha strong { color: var(--marfim); font-weight: 700; }
+  .hero .conta-linha strong { color: var(--claro); font-weight: 700; }
 
   .stats {
     display: grid;
@@ -206,32 +220,33 @@
     gap: 1px;
     background: var(--linha);
     border: 1px solid var(--linha);
-    border-radius: 14px;
+    border-radius: 8px;
     overflow: hidden;
     margin-top: 54px;
   }
 
   .stat {
-    background: var(--card);
+    background: var(--cartao);
     padding: 20px 12px;
     text-align: center;
   }
 
   .stat .num {
     display: block;
-    font-family: 'Baskervville', Georgia, serif;
-    font-size: 23px;
-    color: var(--ouro-claro);
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 22px;
+    color: var(--claro);
     line-height: 1.2;
   }
 
   .stat .rot {
     display: block;
-    font-size: 10.5px;
-    letter-spacing: 0.16em;
+    font-size: 12px;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     margin-top: 5px;
-    color: rgba(239, 235, 224, 0.66);
+    color: var(--suave);
   }
 
   /* ===== Dor ===== */
@@ -246,12 +261,10 @@
     position: relative;
     max-width: 540px;
     padding-left: 26px;
-    border-left: 2px solid var(--ouro);
-    font-family: 'Baskervville', Georgia, serif;
-    font-style: italic;
-    font-size: 19.5px;
+    border-left: 2px solid var(--roxo-claro);
+    font-size: 19px;
     line-height: 1.5;
-    color: var(--marfim);
+    color: var(--claro);
   }
 
   .voz:nth-child(2) { margin-left: 9%; }
@@ -260,10 +273,10 @@
   .dor p.corrido { font-size: 16.5px; margin-bottom: 16px; }
 
   .ponte {
-    font-family: 'Baskervville', Georgia, serif;
-    font-style: italic;
+    font-family: var(--display);
+    font-weight: 500;
     font-size: 21px;
-    color: var(--marfim);
+    color: var(--claro);
     margin-top: 26px;
   }
 
@@ -278,10 +291,10 @@
   .tese p { font-size: 16.5px; margin-bottom: 16px; }
 
   .tese .fecho {
-    font-family: 'Baskervville', Georgia, serif;
-    font-style: italic;
+    font-family: var(--display);
+    font-weight: 500;
     font-size: 21px;
-    color: var(--marfim);
+    color: var(--claro);
   }
 
   /* ===== Roda ===== */
@@ -304,9 +317,9 @@
   .setor { cursor: pointer; transition: fill 0.25s ease; }
 
   .painel-casa {
-    background: var(--card);
+    background: var(--cartao);
     border: 1px solid var(--linha);
-    border-radius: 16px;
+    border-radius: 8px;
     padding: 36px 34px;
     min-height: 290px;
     transition: opacity 0.22s ease;
@@ -314,11 +327,11 @@
 
   .painel-casa .num-casa {
     display: block;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.3em;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--ouro);
+    color: var(--roxo-claro);
     margin-bottom: 12px;
   }
 
@@ -328,10 +341,8 @@
   }
 
   .painel-casa .etapa {
-    font-family: 'Baskervville', Georgia, serif;
-    font-style: italic;
     font-size: 17.5px;
-    color: var(--agua-luz);
+    color: var(--suave);
     margin-bottom: 18px;
   }
 
@@ -343,11 +354,11 @@
 
   .painel-casa .temas strong {
     display: block;
-    font-size: 10.5px;
-    font-weight: 700;
-    letter-spacing: 0.22em;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--ouro);
+    color: var(--roxo-claro);
     margin-bottom: 8px;
   }
 
@@ -360,19 +371,19 @@
   }
 
   .alicerce {
-    background: var(--card);
+    background: var(--cartao);
     border: 1px solid var(--linha);
-    border-radius: 14px;
+    border-radius: 8px;
     padding: 26px 24px;
   }
 
   .alicerce .rot {
     display: block;
-    font-size: 10.5px;
-    font-weight: 700;
-    letter-spacing: 0.24em;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--ouro);
+    color: var(--roxo-claro);
     margin-bottom: 10px;
   }
 
@@ -394,16 +405,17 @@
     gap: 20px;
     font-size: 16.5px;
     font-weight: 500;
-    color: var(--marfim);
+    color: var(--claro);
   }
 
   summary::-webkit-details-marker { display: none; }
 
   summary::after {
     content: "+";
-    font-family: 'Baskervville', Georgia, serif;
+    font-weight: 400;
+    line-height: 1;
     font-size: 24px;
-    color: var(--ouro);
+    color: var(--roxo-claro);
     flex: 0 0 auto;
   }
 
@@ -415,11 +427,11 @@
 
   summary .data-aula {
     flex: 0 0 auto;
-    font-size: 10.5px;
-    font-weight: 700;
-    letter-spacing: 0.22em;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--ouro);
+    color: var(--roxo-claro);
     white-space: nowrap;
   }
 
@@ -427,7 +439,7 @@
     text-align: center;
     font-size: 15px;
     margin-top: 34px;
-    color: var(--agua-luz);
+    color: var(--suave);
   }
 
   /* ===== Anatomia ===== */
@@ -440,13 +452,14 @@
     border-bottom: 1px solid var(--linha);
     padding: 15px 4px;
     font-size: 16.5px;
-    color: var(--marfim);
+    color: var(--claro);
   }
 
   .anatomia .num {
-    font-family: 'Baskervville', Georgia, serif;
+    font-family: var(--display);
+    font-weight: 500;
     font-size: 19px;
-    color: var(--agua-luz);
+    color: var(--suave);
     flex: 0 0 34px;
   }
 
@@ -465,10 +478,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 22px;
-    color: var(--ouro-claro);
-    background: var(--card);
+    color: var(--roxo-claro);
+    background: var(--cartao);
   }
+
+  .planeta svg { width: 24px; height: 24px; display: block; }
 
   /* ===== Convivio ===== */
   .tres-cards {
@@ -479,9 +493,9 @@
   }
 
   .mini-card {
-    background: var(--card);
+    background: var(--cartao);
     border: 1px solid var(--linha);
-    border-radius: 14px;
+    border-radius: 8px;
     padding: 26px 24px;
   }
 
@@ -498,14 +512,14 @@
   }
 
   .sintese {
-    font-family: 'Baskervville', Georgia, serif;
-    font-style: italic;
+    font-family: var(--display);
+    font-weight: 500;
     font-size: 20px;
-    color: var(--marfim);
+    color: var(--claro);
     max-width: 640px;
   }
 
-  .nota-astro { font-size: 14.5px; margin-top: 16px; color: var(--agua-luz); }
+  .nota-astro { font-size: 14.5px; margin-top: 16px; color: var(--suave); }
 
   /* ===== Para quem ===== */
   .lista-check { list-style: none; margin: 30px 0 40px; }
@@ -515,7 +529,7 @@
     padding: 0 0 0 42px;
     margin-bottom: 16px;
     font-size: 16px;
-    color: var(--marfim);
+    color: var(--claro);
   }
 
   .lista-check li::before {
@@ -525,9 +539,9 @@
     top: 1px;
     width: 26px;
     height: 26px;
-    border: 1px solid var(--ouro);
+    border: 1px solid var(--roxo-claro);
     border-radius: 50%;
-    color: var(--ouro);
+    color: var(--roxo-claro);
     font-size: 13px;
     display: flex;
     align-items: center;
@@ -552,10 +566,10 @@
     display: block;
     font-size: 12px;
     font-weight: 500;
-    letter-spacing: 0.3em;
-    text-indent: 0.3em;
+    letter-spacing: 0.18em;
+    text-indent: 0.18em;
     text-transform: uppercase;
-    color: var(--agua-luz);
+    color: var(--suave);
     margin-bottom: 16px;
   }
 
@@ -567,51 +581,49 @@
   }
 
   .bloco-t {
-    background: var(--card);
+    background: var(--cartao);
     border: 1px solid var(--linha);
-    border-radius: 12px;
+    border-radius: 8px;
     min-width: 84px;
     padding: 16px 10px 12px;
   }
 
   .bloco-t .v {
     display: block;
-    font-family: 'Baskervville', Georgia, serif;
+    font-family: var(--display);
+    font-weight: 500;
     font-size: 38px;
     line-height: 1;
-    color: var(--marfim);
+    color: var(--claro);
   }
 
   .bloco-t .r {
     display: block;
-    font-size: 10px;
-    letter-spacing: 0.2em;
+    font-size: 12px;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     margin-top: 7px;
-    color: rgba(239, 235, 224, 0.6);
+    color: var(--suave);
   }
 
   .card-oferta {
     max-width: 580px;
     margin: 0 auto;
-    background: var(--card-cheio);
-    border: 1px solid var(--ouro);
-    border-radius: 18px;
+    background: var(--cartao);
+    border: 1px solid var(--linha);
+    border-radius: 8px;
     padding: 46px 42px;
     text-align: center;
-    box-shadow: 0 24px 60px rgba(2, 8, 18, 0.55);
   }
 
   .card-oferta .tag {
-    display: inline-block;
-    font-size: 10.5px;
-    font-weight: 700;
-    letter-spacing: 0.24em;
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: #241C08;
-    background: var(--ouro);
-    border-radius: 999px;
-    padding: 7px 18px;
+    color: var(--roxo-claro);
     margin-bottom: 24px;
   }
 
@@ -650,7 +662,7 @@
   .calendario-lista .dia {
     font-weight: 700;
     letter-spacing: 0.04em;
-    color: var(--ouro);
+    color: var(--roxo-claro);
     font-variant-numeric: tabular-nums;
     margin-right: 8px;
   }
@@ -660,10 +672,11 @@
   }
 
   .preco-num {
-    font-family: 'Baskervville', Georgia, serif;
+    font-family: var(--display);
+    font-weight: 500;
     font-size: 54px;
     line-height: 1;
-    color: var(--marfim);
+    color: var(--claro);
   }
 
   .preco-nota { font-size: 15px; margin: 8px 0 26px; }
@@ -677,23 +690,20 @@
     border-top: 1px solid var(--linha);
   }
 
-  footer .estrela { width: 42px; height: 32px; display: block; margin: 0 auto 6px; }
-
   footer .logotipo {
-    font-family: 'Great Vibes', cursive;
-    font-size: 34px;
-    color: var(--marfim);
-    text-decoration: none;
     display: inline-block;
+    line-height: 0;
   }
+
+  footer .logotipo img { width: 160px; height: auto; display: block; }
 
   footer .mini {
     display: block;
     margin-top: 14px;
-    font-size: 11.5px;
-    letter-spacing: 0.14em;
+    font-size: 12px;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: rgba(239, 235, 224, 0.45);
+    color: var(--suave);
   }
 
   /* ===== Celular ===== */
@@ -758,8 +768,8 @@
 </section>
 
 <svg class="divisor-onda" viewBox="0 0 210 30" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <path d="M4 15 Q 20 6, 36 15 T 68 15 T 100 15 T 132 15 T 164 15 T 196 15" fill="none" stroke="#8FC1E3" stroke-width="1.2" opacity="0.5" stroke-linecap="round"/>
-  <path d="M105 8 L106.6 13.4 L112 15 L106.6 16.6 L105 22 L103.4 16.6 L98 15 L103.4 13.4 Z" fill="#D2AC4C"/>
+  <path d="M4 15 Q 20 6, 36 15 T 68 15 T 100 15 T 132 15 T 164 15 T 196 15" fill="none" stroke="#b9a9e0" stroke-width="1.2" opacity="0.5" stroke-linecap="round"/>
+  <path d="M105 8 L106.6 13.4 L112 15 L106.6 16.6 L105 22 L103.4 16.6 L98 15 L103.4 13.4 Z" fill="#b9a9e0"/>
 </svg>
 
 <!-- ===== A TESE ===== -->
@@ -804,8 +814,8 @@
 </section>
 
 <svg class="divisor-onda" viewBox="0 0 210 30" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <path d="M4 15 Q 20 6, 36 15 T 68 15 T 100 15 T 132 15 T 164 15 T 196 15" fill="none" stroke="#8FC1E3" stroke-width="1.2" opacity="0.5" stroke-linecap="round"/>
-  <path d="M105 8 L106.6 13.4 L112 15 L106.6 16.6 L105 22 L103.4 16.6 L98 15 L103.4 13.4 Z" fill="#D2AC4C"/>
+  <path d="M4 15 Q 20 6, 36 15 T 68 15 T 100 15 T 132 15 T 164 15 T 196 15" fill="none" stroke="#b9a9e0" stroke-width="1.2" opacity="0.5" stroke-linecap="round"/>
+  <path d="M105 8 L106.6 13.4 L112 15 L106.6 16.6 L105 22 L103.4 16.6 L98 15 L103.4 13.4 Z" fill="#b9a9e0"/>
 </svg>
 
 <!-- ===== O CRONOGRAMA ===== -->
@@ -904,13 +914,13 @@
       <li><span class="num">04</span> Os sete planetas naquela casa, um a um</li>
     </ul>
     <div class="planetas" aria-label="Os sete planetas tradicionais">
-      <span class="planeta">☽</span>
-      <span class="planeta">☿</span>
-      <span class="planeta">♀</span>
-      <span class="planeta">☉</span>
-      <span class="planeta">♂</span>
-      <span class="planeta">♃</span>
-      <span class="planeta">♄</span>
+      <span class="planeta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15.5 3.6A8.8 8.8 0 1 0 15.5 20.4A7.2 8.8 0 0 1 15.5 3.6Z"/></svg></span>
+      <span class="planeta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="11" r="4.3"/><path d="M12 15.3v6.2M9 18.6h6M7.6 3.2a4.4 3.6 0 0 0 8.8 0"/></svg></span>
+      <span class="planeta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8.6" r="5.2"/><path d="M12 13.8v7.7M8.5 17.9h7"/></svg></span>
+      <span class="planeta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/></svg></span>
+      <span class="planeta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="14" r="5.6"/><path d="M14 10l6-6M14.6 4H20v5.4"/></svg></span>
+      <span class="planeta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.2 8.2C5.6 5.7 7.3 4.2 9.2 4.2c2 0 3.3 1.5 3.3 3.5 0 3.2-3 6-7.3 8.5h14.3M15.8 4.5V21"/></svg></span>
+      <span class="planeta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3v13M4.8 6.6h6.4M8 12.4c1.2-2.6 3.8-3.6 5.7-2.5 2.3 1.4 2.1 4.4.8 6.6-1 1.7-.8 3.5.6 4.2 1 .5 2.2 0 2.8-.9"/></svg></span>
     </div>
     <p>Da Lua a Saturno, você vê o que cada planeta faz em cada mundo: na aula da Casa I, a Lua na I, Mercúrio na I, Vênus na I, e assim por diante, casa por casa, até completar o mapa.</p>
     <p style="margin-top: 14px;">É aqui que a densidade aparece: filosofia, antropologia e psicologia, assentadas no fundamento da cosmologia antiga. Aulas robustas, de 1h30 a 2h, para quem quer entender de verdade.</p>
@@ -918,8 +928,8 @@
 </section>
 
 <svg class="divisor-onda" viewBox="0 0 210 30" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <path d="M4 15 Q 20 6, 36 15 T 68 15 T 100 15 T 132 15 T 164 15 T 196 15" fill="none" stroke="#8FC1E3" stroke-width="1.2" opacity="0.5" stroke-linecap="round"/>
-  <path d="M105 8 L106.6 13.4 L112 15 L106.6 16.6 L105 22 L103.4 16.6 L98 15 L103.4 13.4 Z" fill="#D2AC4C"/>
+  <path d="M4 15 Q 20 6, 36 15 T 68 15 T 100 15 T 132 15 T 164 15 T 196 15" fill="none" stroke="#b9a9e0" stroke-width="1.2" opacity="0.5" stroke-linecap="round"/>
+  <path d="M105 8 L106.6 13.4 L112 15 L106.6 16.6 L105 22 L103.4 16.6 L98 15 L103.4 13.4 Z" fill="#b9a9e0"/>
 </svg>
 
 <!-- ===== CONVIVIO ===== -->
@@ -1126,13 +1136,7 @@
 
 <!-- ===== RODAPE ===== -->
 <footer>
-  <svg class="estrela" viewBox="0 0 64 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <path d="M18 33 C30 27, 44 18, 60 8" fill="none" stroke="#D2AC4C" stroke-width="1.7" stroke-linecap="round" opacity="0.6"/>
-    <path d="M20 40 C33 34, 47 25, 62 15" fill="none" stroke="#D2AC4C" stroke-width="1.4" stroke-linecap="round" opacity="0.35"/>
-    <path d="M11 22 L13.3 31 L11 40 L8.7 31 Z" fill="#D2AC4C"/>
-    <path d="M2 31 L11 28.9 L20 31 L11 33.1 Z" fill="#D2AC4C"/>
-  </svg>
-  <a class="logotipo" href="/">via simbólica</a>
+  <a class="logotipo" href="/"><img src="/assets/marcas/assinatura-claro.svg" alt="via simbólica" width="160" height="98"></a>
   <span class="mini">A Psicologia das 12 Casas · Via Simbólica · 2026</span>
 </footer>
 
@@ -1179,7 +1183,7 @@
       var e = estrelas[i];
       var tw = reduz ? 1 : (0.55 + 0.45 * Math.sin(t * 0.001 * e.vel + e.fase));
       ctx.globalAlpha = e.base * tw;
-      ctx.fillStyle = "#EFEBE0";
+      ctx.fillStyle = "#f2f2f2";
       ctx.beginPath();
       ctx.arc(e.x, e.y, e.r, 0, Math.PI * 2);
       ctx.fill();
@@ -1187,7 +1191,7 @@
     ctx.globalAlpha = 1;
     for (var j = 0; j < ondas.length; j++) {
       var o = ondas[j];
-      ctx.strokeStyle = "rgba(143, 193, 227, 0.07)";
+      ctx.strokeStyle = "rgba(185, 169, 224, 0.07)";
       ctx.lineWidth = 1.4;
       ctx.beginPath();
       var desloc = reduz ? 0 : t * 0.0004 * o.vel;
@@ -1230,7 +1234,7 @@
     onda.className = "peixe-onda";
     onda.style.animationDelay = (Math.random() * 4) + "s";
     var escala = 0.6 + Math.random() * 0.6;
-    var cor = Math.random() < 0.75 ? "rgba(143,193,227,0.6)" : "rgba(210,172,76,0.55)";
+    var cor = Math.random() < 0.75 ? "rgba(185,169,224,0.6)" : "rgba(242,242,242,0.4)";
     onda.innerHTML = peixeSVG(escala, cor);
     if (Math.random() < 0.5) { onda.style.transform = "scaleX(-1)"; rota.style.animationDirection = "reverse"; }
     rota.appendChild(onda);
@@ -1284,8 +1288,8 @@
   function seleciona(i) {
     atual = i;
     for (var k = 0; k < setores.length; k++) {
-      setores[k].setAttribute("fill", k === i ? "rgba(210,172,76,0.26)" : "rgba(239,235,224,0.03)");
-      setores[k].setAttribute("stroke", k === i ? "#D2AC4C" : "rgba(210,172,76,0.35)");
+      setores[k].setAttribute("fill", k === i ? "rgba(185,169,224,0.26)" : "rgba(242,242,242,0.03)");
+      setores[k].setAttribute("stroke", k === i ? "#b9a9e0" : "rgba(185,169,224,0.35)");
       setores[k].setAttribute("stroke-width", k === i ? "2" : "1");
       setores[k].setAttribute("aria-pressed", k === i ? "true" : "false");
     }
@@ -1323,9 +1327,10 @@
     rotulo.setAttribute("x", pt[0]);
     rotulo.setAttribute("y", pt[1] + 7);
     rotulo.setAttribute("text-anchor", "middle");
-    rotulo.setAttribute("font-family", "Baskervville, Georgia, serif");
+    rotulo.setAttribute("font-family", "'Chillax Variable', Chillax, sans-serif");
+    rotulo.setAttribute("font-weight", "500");
     rotulo.setAttribute("font-size", "21");
-    rotulo.setAttribute("fill", "#EFEBE0");
+    rotulo.setAttribute("fill", "#f2f2f2");
     rotulo.setAttribute("pointer-events", "none");
     rotulo.textContent = casas[i].n;
     svg.appendChild(rotulo);
@@ -1333,17 +1338,17 @@
 
   var aro = document.createElementNS(NS, "circle");
   aro.setAttribute("cx", cx); aro.setAttribute("cy", cy); aro.setAttribute("r", rExt + 8);
-  aro.setAttribute("fill", "none"); aro.setAttribute("stroke", "rgba(210,172,76,0.4)"); aro.setAttribute("stroke-width", "1");
+  aro.setAttribute("fill", "none"); aro.setAttribute("stroke", "rgba(185,169,224,0.4)"); aro.setAttribute("stroke-width", "1");
   svg.appendChild(aro);
 
   var miolo = document.createElementNS(NS, "circle");
   miolo.setAttribute("cx", cx); miolo.setAttribute("cy", cy); miolo.setAttribute("r", rInt - 12);
-  miolo.setAttribute("fill", "none"); miolo.setAttribute("stroke", "rgba(210,172,76,0.4)"); miolo.setAttribute("stroke-width", "1");
+  miolo.setAttribute("fill", "none"); miolo.setAttribute("stroke", "rgba(185,169,224,0.4)"); miolo.setAttribute("stroke-width", "1");
   svg.appendChild(miolo);
 
   var estrelaC = document.createElementNS(NS, "path");
   estrelaC.setAttribute("d", "M260 236 L265 255 L284 260 L265 265 L260 284 L255 265 L236 260 L255 255 Z");
-  estrelaC.setAttribute("fill", "#D2AC4C");
+  estrelaC.setAttribute("fill", "#b9a9e0");
   estrelaC.setAttribute("pointer-events", "none");
   svg.appendChild(estrelaC);
 
