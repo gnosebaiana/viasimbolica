@@ -5,9 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Espelho de Vênus · Via Simbólica</title>
 <meta name="description" content="Descubra o que em você encanta e atrai: 14 aulas sobre a sua Vênus, o ponto do mapa que mostra o seu charme.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=DM+Sans:wght@400;500;700&family=Great+Vibes&display=swap" rel="stylesheet">
+<link rel="preload" href="/assets/fontes/Chillax-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fontes/Satoshi-Variable.woff2" as="font" type="font/woff2" crossorigin>
 
 <!--
   ESPELHO DE VENUS - PAGINA DE VENDAS
@@ -19,16 +18,23 @@
 -->
 
 <style>
+  /* Paleta e tipografia do sistema de design Via Simbolica (fundos fixados em 22/11/2026). Pagina de dia. */
+  @font-face{font-family:"Chillax Variable";src:url("/assets/fontes/Chillax-Variable.woff2") format("woff2");font-weight:200 700;font-style:normal;font-display:swap}
+  @font-face{font-family:"Satoshi";src:url("/assets/fontes/Satoshi-Variable.woff2") format("woff2");font-weight:300 900;font-style:normal;font-display:swap}
+  @font-face{font-family:"Satoshi";src:url("/assets/fontes/Satoshi-VariableItalic.woff2") format("woff2");font-weight:300 900;font-style:italic;font-display:swap}
+
   :root {
-    --fundo: #F7F1EA;
-    --fundo2: #F2E7DC;
-    --tinta: #2E2A26;
-    --texto: #55483E;
-    --ouro: #C9A24B;
-    --ouro-escuro: #8A6D2F;
-    --rose: #B96A5B;
-    --linha: rgba(138, 109, 47, 0.25);
-    --branco: #FFFDFA;
+    --fundo: #f6f3ee;        /* papel */
+    --fundo2: #ffffff;       /* secoes alternadas */
+    --tinta: #2e2e2e;
+    --texto: #2e2e2e;
+    --suave: #5e5e5e;        /* texto secundario */
+    --roxo: #664fa1;
+    --claro: #f2f2f2;        /* tinta sobre roxo */
+    --linha: #d5d0c8;
+    --branco: #ffffff;       /* cartoes */
+    --display: "Chillax Variable", Chillax, ui-sans-serif, system-ui, sans-serif;
+    --sans: Satoshi, ui-sans-serif, system-ui, sans-serif;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -38,50 +44,55 @@
   body {
     background: var(--fundo);
     color: var(--texto);
-    font-family: 'DM Sans', Arial, sans-serif;
-    line-height: 1.65;
+    font-family: var(--sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
   }
 
   .coluna { max-width: 1010px; margin: 0 auto; padding: 0 24px; }
   .estreita { max-width: 660px; margin: 0 auto; }
 
-  h1, h2, h3 { font-family: 'Baskervville', Georgia, serif; font-weight: 400; color: var(--tinta); }
+  h1, h2, h3 { font-family: var(--display); font-weight: 500; color: var(--tinta); }
 
-  em { font-style: italic; color: var(--ouro-escuro); }
+  em { font-style: normal; color: var(--roxo); }
 
   .eyebrow {
     display: block;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 500;
-    letter-spacing: 0.34em;
-    text-indent: 0.34em;
+    line-height: 1.2;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--ouro-escuro);
-    margin-bottom: 18px;
+    color: var(--suave);
+    margin-bottom: 16px;
   }
 
-  h2 { font-size: clamp(28px, 4.5vw, 40px); margin-bottom: 22px; line-height: 1.2; }
+  h2 { font-size: clamp(28px, 4.2vw, 40px); margin-bottom: 22px; line-height: 1.15; letter-spacing: -0.005em; }
 
   .btn {
-    display: inline-block;
-    font-size: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    font-size: 13px;
     font-weight: 700;
-    letter-spacing: 0.2em;
-    text-indent: 0.2em;
+    line-height: 1.3;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #2A2208;
-    background: var(--ouro);
-    border-radius: 999px;
-    padding: 17px 44px;
+    text-align: center;
+    color: var(--claro);
+    background: var(--roxo);
+    border-radius: 9999px;
+    padding: 12px 32px;
     text-decoration: none;
-    transition: background 0.25s ease, transform 0.25s ease;
+    transition: transform 0.25s ease;
   }
 
-  .btn:hover { background: #D8B45E; transform: translateY(-2px); }
+  .btn:hover { transform: translateY(-2px); }
 
   .btn:focus-visible, a:focus-visible, summary:focus-visible {
-    outline: 3px solid var(--ouro-escuro);
-    outline-offset: 3px;
+    outline: 2px solid var(--roxo);
+    outline-offset: 2px;
   }
 
   section { padding: 88px 0; }
@@ -90,13 +101,12 @@
 
   .moldura {
     border: 1px solid var(--linha);
-    border-radius: 14px;
+    border-radius: 8px;
     padding: 10px;
     background: var(--branco);
-    box-shadow: 0 16px 40px rgba(84, 62, 34, 0.12);
   }
 
-  .moldura img { width: 100%; display: block; border-radius: 8px; }
+  .moldura img { width: 100%; display: block; border-radius: 4px; }
 
   /* ===== Lamina 1: hero ===== */
   .hero {
@@ -108,47 +118,44 @@
     text-align: center;
     padding: 70px 24px 40px;
     position: relative;
-    background:
-      radial-gradient(circle at 12% 10%, rgba(185, 106, 91, 0.10), transparent 40%),
-      radial-gradient(circle at 90% 26%, rgba(201, 162, 75, 0.14), transparent 42%),
-      var(--fundo);
+    background: var(--fundo);
   }
 
   .venus-selo {
-    font-family: 'Baskervville', Georgia, serif;
-    font-size: 30px;
-    color: var(--rose);
-    line-height: 1;
+    display: block;
+    width: 34px;
+    height: 34px;
+    color: var(--roxo);
   }
 
   .hero .lockup { margin: 14px 0 34px; }
 
   .hero .lockup .alto {
     display: block;
-    font-size: clamp(15px, 3vw, 21px);
+    font-size: clamp(13px, 2.4vw, 16px);
     font-weight: 500;
-    letter-spacing: 0.5em;
-    text-indent: 0.5em;
+    letter-spacing: 0.18em;
+    text-indent: 0.18em;
     text-transform: uppercase;
-    color: var(--tinta);
+    color: var(--suave);
   }
 
   .hero .lockup .venus {
     display: block;
-    font-family: 'Baskervville', Georgia, serif;
-    font-style: italic;
-    font-size: clamp(58px, 12vw, 96px);
-    line-height: 1;
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(56px, 11vw, 92px);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
     color: var(--tinta);
-    margin-top: 2px;
+    margin-top: 6px;
   }
 
   .hero .quadro { max-width: 760px; width: 100%; }
 
   .hero .frase {
-    font-family: 'Baskervville', Georgia, serif;
-    font-style: italic;
-    font-size: clamp(19px, 3.4vw, 25px);
+    font-size: clamp(17px, 3vw, 19px);
+    line-height: 1.6;
     color: var(--tinta);
     margin-top: 30px;
   }
@@ -156,7 +163,7 @@
   .seta {
     display: inline-block;
     margin-top: 34px;
-    color: var(--ouro-escuro);
+    color: var(--suave);
     animation: descer 2.2s ease-in-out infinite;
   }
 
@@ -178,27 +185,26 @@
   .quote-card {
     background: var(--branco);
     border: 1px solid var(--linha);
-    border-radius: 14px;
+    border-radius: 8px;
     padding: 28px 26px 24px;
   }
 
   .quote-card .aspas {
     display: block;
-    font-family: 'Baskervville', Georgia, serif;
+    font-family: var(--display);
+    font-weight: 500;
     font-size: 44px;
-    line-height: 0.4;
-    color: var(--rose);
-    margin-bottom: 14px;
+    line-height: 0.6;
+    color: var(--roxo);
+    margin-bottom: 10px;
   }
 
   .quote-card p {
-    font-family: 'Baskervville', Georgia, serif;
-    font-style: italic;
     font-size: 17px;
     color: var(--tinta);
   }
 
-  .dor p.corrido { font-size: 16.5px; margin-bottom: 16px; }
+  .dor p.corrido { font-size: 17px; margin-bottom: 16px; }
 
   /* ===== Lamina 3: a promessa ===== */
   .duas-colunas {
@@ -208,12 +214,13 @@
     align-items: center;
   }
 
-  .promessa p { font-size: 16.5px; margin-bottom: 16px; }
+  .promessa p { font-size: 17px; margin-bottom: 16px; }
 
   .promessa .fecho {
-    font-family: 'Baskervville', Georgia, serif;
-    font-style: italic;
+    font-family: var(--display);
+    font-weight: 500;
     font-size: 21px;
+    line-height: 1.35;
     color: var(--tinta);
   }
 
@@ -228,22 +235,23 @@
   .passo {
     background: var(--branco);
     border: 1px solid var(--linha);
-    border-radius: 14px;
+    border-radius: 8px;
     padding: 30px 26px;
   }
 
   .passo .n {
     display: block;
-    font-family: 'Baskervville', Georgia, serif;
+    font-family: var(--display);
+    font-weight: 700;
     font-size: 40px;
     line-height: 1;
-    color: var(--ouro);
+    color: var(--roxo);
     margin-bottom: 14px;
   }
 
-  .passo h3 { font-size: 22px; margin-bottom: 10px; }
+  .passo h3 { font-size: 21px; line-height: 1.3; margin-bottom: 10px; }
 
-  .passo p { font-size: 14.5px; }
+  .passo p { font-size: 15px; line-height: 1.55; color: var(--suave); }
 
   /* ===== Lamina 5: o que tem dentro ===== */
   .anatomia { list-style: none; margin: 30px 0 46px; max-width: 640px; }
@@ -254,14 +262,15 @@
     gap: 18px;
     border-bottom: 1px solid var(--linha);
     padding: 15px 4px;
-    font-size: 16.5px;
+    font-size: 17px;
     color: var(--tinta);
   }
 
   .anatomia .num {
-    font-family: 'Baskervville', Georgia, serif;
-    font-size: 19px;
-    color: var(--rose);
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--roxo);
     flex: 0 0 34px;
   }
 
@@ -275,31 +284,32 @@
   .aula-card {
     background: var(--branco);
     border: 1px solid var(--linha);
-    border-radius: 14px;
+    border-radius: 8px;
     padding: 26px;
   }
 
   .aula-card .rot {
     display: block;
-    font-size: 10.5px;
-    font-weight: 700;
-    letter-spacing: 0.24em;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--ouro-escuro);
+    color: var(--roxo);
     margin-bottom: 10px;
   }
 
-  .aula-card h3 { font-size: 21px; margin-bottom: 8px; }
+  .aula-card h3 { font-size: 21px; line-height: 1.3; margin-bottom: 8px; }
 
-  .aula-card p { font-size: 14.5px; }
+  .aula-card p { font-size: 15px; line-height: 1.55; color: var(--suave); }
 
   .signos-rot {
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 500;
-    letter-spacing: 0.3em;
-    text-indent: 0.3em;
+    line-height: 1.4;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--ouro-escuro);
+    color: var(--suave);
     text-align: center;
     display: block;
     margin: 26px 0 16px;
@@ -313,12 +323,12 @@
   }
 
   .chip {
-    font-family: 'Baskervville', Georgia, serif;
-    font-size: 16px;
+    font-size: 15px;
+    font-weight: 500;
     color: var(--tinta);
     border: 1px solid var(--linha);
     background: var(--branco);
-    border-radius: 999px;
+    border-radius: 9999px;
     padding: 9px 20px;
   }
 
@@ -335,19 +345,20 @@
   .pq-card {
     background: var(--branco);
     border: 1px solid var(--linha);
-    border-radius: 14px;
+    border-radius: 8px;
     padding: 32px 28px;
   }
 
-  .pq-card h3 { font-size: 23px; margin-bottom: 10px; }
+  .pq-card h3 { font-size: 22px; line-height: 1.3; margin-bottom: 10px; }
 
-  .pq-card p { font-size: 15px; }
+  .pq-card p { font-size: 15px; line-height: 1.55; color: var(--suave); }
 
   .amarra {
     text-align: center;
-    font-family: 'Baskervville', Georgia, serif;
-    font-style: italic;
+    font-family: var(--display);
+    font-weight: 500;
     font-size: 20px;
+    line-height: 1.35;
     color: var(--tinta);
     margin-top: 34px;
   }
@@ -372,7 +383,7 @@
     scroll-snap-align: center;
     background: var(--branco);
     border: 1px solid var(--linha);
-    border-radius: 14px;
+    border-radius: 8px;
     padding: 30px 28px 24px;
     display: flex;
     flex-direction: column;
@@ -380,11 +391,12 @@
 
   .depo .aspas {
     display: block;
-    font-family: 'Baskervville', Georgia, serif;
+    font-family: var(--display);
+    font-weight: 500;
     font-size: 46px;
-    line-height: 0.4;
-    color: var(--rose);
-    margin-bottom: 16px;
+    line-height: 0.6;
+    color: var(--roxo);
+    margin-bottom: 12px;
   }
 
   .depo p { font-size: 15px; color: var(--tinta); }
@@ -394,20 +406,21 @@
     margin-top: 16px;
     padding-top: 14px;
     border-top: 1px solid var(--linha);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.16em;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--ouro-escuro);
+    color: var(--suave);
   }
 
   .dica {
     text-align: center;
-    font-size: 11.5px;
-    letter-spacing: 0.14em;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--ouro-escuro);
-    opacity: 0.8;
+    color: var(--suave);
   }
 
   /* ===== Lamina 8: oferta ===== */
@@ -415,24 +428,21 @@
     max-width: 560px;
     margin: 40px auto 0;
     background: var(--branco);
-    border: 1px solid var(--ouro);
-    border-radius: 18px;
+    border: 1px solid var(--linha);
+    border-radius: 8px;
     padding: 46px 40px;
     text-align: center;
-    box-shadow: 0 20px 50px rgba(84, 62, 34, 0.14);
   }
 
   .card-oferta .tag {
-    display: inline-block;
-    font-size: 10.5px;
-    font-weight: 700;
-    letter-spacing: 0.24em;
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: #2A2208;
-    background: var(--ouro);
-    border-radius: 999px;
-    padding: 7px 18px;
-    margin-bottom: 22px;
+    color: var(--roxo);
+    margin-bottom: 24px;
   }
 
   .lista-check { list-style: none; text-align: left; margin-bottom: 28px; }
@@ -452,9 +462,9 @@
     top: 1px;
     width: 25px;
     height: 25px;
-    border: 1px solid var(--ouro-escuro);
+    border: 1px solid var(--roxo);
     border-radius: 50%;
-    color: var(--ouro-escuro);
+    color: var(--roxo);
     font-size: 13px;
     display: flex;
     align-items: center;
@@ -462,18 +472,20 @@
   }
 
   .preco-num {
-    font-family: 'Baskervville', Georgia, serif;
+    font-family: var(--display);
+    font-weight: 500;
     font-size: 52px;
     line-height: 1;
+    letter-spacing: -0.01em;
     color: var(--tinta);
   }
 
-  .preco-nota { font-size: 15px; margin: 8px 0 26px; }
+  .preco-nota { font-size: 15px; margin: 8px 0 26px; color: var(--suave); }
 
   .garantia {
     font-size: 13px;
     margin-top: 20px;
-    color: var(--texto);
+    color: var(--suave);
   }
 
   /* ===== Lamina 9: FAQ ===== */
@@ -486,7 +498,7 @@
     justify-content: space-between;
     align-items: center;
     gap: 20px;
-    font-size: 16.5px;
+    font-size: 17px;
     font-weight: 500;
     color: var(--tinta);
   }
@@ -495,15 +507,16 @@
 
   summary::after {
     content: "+";
-    font-family: 'Baskervville', Georgia, serif;
     font-size: 24px;
-    color: var(--ouro-escuro);
+    font-weight: 400;
+    line-height: 1;
+    color: var(--suave);
     flex: 0 0 auto;
   }
 
   details[open] summary::after { content: "−"; }
 
-  details p { padding: 14px 4px 4px; font-size: 15px; max-width: 660px; }
+  details p { padding: 14px 4px 4px; font-size: 15px; max-width: 660px; color: var(--suave); }
 
   /* ===== Rodape ===== */
   footer {
@@ -512,23 +525,21 @@
     border-top: 1px solid var(--linha);
   }
 
-  footer .estrela { width: 42px; height: 32px; display: block; margin: 0 auto 6px; }
-
   footer .logotipo {
-    font-family: 'Great Vibes', cursive;
-    font-size: 34px;
-    color: var(--tinta);
-    text-decoration: none;
     display: inline-block;
+    line-height: 0;
   }
+
+  footer .logotipo img { width: 160px; height: auto; display: block; }
 
   footer .mini {
     display: block;
     margin-top: 14px;
-    font-size: 11.5px;
-    letter-spacing: 0.14em;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: rgba(46, 42, 38, 0.5);
+    color: var(--suave);
   }
 
   /* ===== Celular ===== */
@@ -551,7 +562,7 @@
 
 <!-- ===== LAMINA 1: HERO ===== -->
 <header class="hero">
-  <span class="venus-selo">♀</span>
+  <svg class="venus-selo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8.6" r="5.2"/><path d="M12 13.8v7.7M8.5 17.9h7"/></svg>
   <div class="lockup">
     <span class="alto">Espelho de</span>
     <span class="venus">Vênus</span>
@@ -791,13 +802,7 @@
 
 <!-- ===== RODAPE ===== -->
 <footer>
-  <svg class="estrela" viewBox="0 0 64 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <path d="M18 33 C30 27, 44 18, 60 8" fill="none" stroke="#8A6D2F" stroke-width="1.7" stroke-linecap="round" opacity="0.6"/>
-    <path d="M20 40 C33 34, 47 25, 62 15" fill="none" stroke="#8A6D2F" stroke-width="1.4" stroke-linecap="round" opacity="0.35"/>
-    <path d="M11 22 L13.3 31 L11 40 L8.7 31 Z" fill="#8A6D2F"/>
-    <path d="M2 31 L11 28.9 L20 31 L11 33.1 Z" fill="#8A6D2F"/>
-  </svg>
-  <a class="logotipo" href="/">via simbólica</a>
+  <a class="logotipo" href="/"><img src="/assets/marcas/assinatura-tinta.svg" alt="via simbólica" width="160" height="98"></a>
   <span class="mini">Espelho de Vênus · Via Simbólica · 2026</span>
 </footer>
 
