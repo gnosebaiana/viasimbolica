@@ -1,0 +1,5 @@
+{
+  "redirects": [
+    { "source": "/", "destination": "/black/venda.html", "permanent": false }
+  ]
+}
