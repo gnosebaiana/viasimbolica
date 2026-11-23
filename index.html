@@ -25,8 +25,8 @@
      leva ao WhatsApp do Guilherme com a mensagem pronta. Nome provisorio.
   3. CORRESPONDENCIAS: card de noite que leva a /correspondencias.
   4. OBRAS: a pintura de cada card esta no style="--img:url('...')".
-  5. Enquanto o vercel.json mandar "/" para a Black (ate 1/12), esta pagina so
-     aparece em /index.html. Para ela voltar a ser a home, tire o redirect.
+  5. BLACK NOVEMBER: card temporario no topo (CSS .card-black, funcao vsBlack).
+     Tirar depois que a Black fechar.
 -->
 
 <style>
@@ -153,6 +153,26 @@
   }
 
 
+  /* ===== Black November (card do topo; tirar depois de novembro) ===== */
+  .card-black {
+    display: grid;
+    grid-template-columns: 44% 1fr;
+    background: var(--noite);
+    background-image: none;
+    border: 1px solid #413c53;
+  }
+  .card-black .iluminura {
+    height: 100%;
+    background: var(--noite) url('/black/img/novembro.webp') 50% 12% / cover no-repeat;
+  }
+  .card-black .conteudo { width: auto; margin: 0; }
+  .card-black .eyebrow { color: var(--sol); }
+  .card-black h2 { font-size: 34px; line-height: 1.15; letter-spacing: -0.01em; }
+  .card-black p { color: #b8b8b8; }
+  .card-black p b { color: var(--sol); font-weight: 700; }
+  .card-black .btn { background: var(--sol); color: var(--tinta); }
+  .card-black:focus-visible { outline-color: var(--roxo); }
+
   /* ===== Redes ===== */
   .redes {
     display: grid;
@@ -227,6 +247,10 @@
       width: 100%;
       padding: 0 26px;
     }
+    .card-black { grid-template-columns: 1fr; height: auto; }
+    .card-black .iluminura { height: 190px; background-position: 50% 8%; }
+    .card-black .conteudo { padding: 30px 26px 36px; }
+    .card-black h2 { font-size: 29px; }
     .card h2 { font-size: 27px; }
   }
 
@@ -255,6 +279,18 @@ dialog.vs-contato{margin:auto} /* o * { margin: 0 } desta pagina tirava a janela
   </div>
 
   <main>
+
+    <!-- BLACK NOVEMBER: card temporario no topo. Leva ao grupo do WhatsApp pelo
+         mesmo formulario da pagina /black (nome e telefone antes de entrar). -->
+    <a class="card card-black" href="https://chat.whatsapp.com/EuikHkBpzKpC0NvL6xvXBI" rel="noopener" onclick="return vsBlack(this.querySelector('.btn'))">
+      <div class="iluminura" aria-hidden="true"></div>
+      <div class="conteudo">
+        <span class="eyebrow">Black November</span>
+        <h2>As condi&ccedil;&otilde;es abrem no grupo.</h2>
+        <p id="black-quando">Mapa Natal, Sinastria e a forma&ccedil;&atilde;o em astrologia, primeiro no grupo do WhatsApp: <b style="white-space:nowrap">16 de novembro, &agrave;s 8h</b>.</p>
+        <span class="btn">Entrar no grupo</span>
+      </div>
+    </a>
 
     <h2 class="secao">O mapa em livro</h2>
 
@@ -326,5 +362,22 @@ dialog.vs-contato{margin:auto} /* o * { margin: 0 } desta pagina tirava a janela
 
 </div>
 
+<script>
+function vsBlack(b){
+  if(typeof vsContato!=="function")return true;
+  return vsContato("Black November",b,{
+    titulo:"Falta pouco.",
+    texto:"Escreva seu nome e seu WhatsApp. Em seguida, o grupo abre e você já está dentro.",
+    aviso:"Seu número fica só com a Via Simbólica.",
+    botao:"ENTRAR NO GRUPO",
+    aguarde:"ABRINDO O GRUPO…",
+    destino:"https://chat.whatsapp.com/EuikHkBpzKpC0NvL6xvXBI"
+  });
+}
+if(Date.now()>=Date.parse("2026-11-16T08:00:00-03:00")){
+  var q=document.getElementById("black-quando");
+  if(q)q.innerHTML="As condi&ccedil;&otilde;es para o Mapa Natal, a Sinastria e a forma&ccedil;&atilde;o em astrologia <b>j&aacute; est&atilde;o abertas</b> no grupo do WhatsApp.";
+}
+</script>
 </body>
 </html>
