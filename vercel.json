@@ -1,5 +1,7 @@
 {
   "redirects": [
-    { "source": "/", "destination": "/black/venda.html", "permanent": false }
+    { "source": "/", "destination": "/black/venda.html", "permanent": false },
+    { "source": "/assets/marcas/assinatura-tinta.svg", "destination": "/assets/marcas/principal-tinta.svg", "permanent": true },
+    { "source": "/assets/marcas/assinatura-claro.svg", "destination": "/assets/marcas/principal-claro.svg", "permanent": true }
   ]
 }
