@@ -4,24 +4,29 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Via Simb&oacute;lica</title>
-<meta name="description" content="Cursos, consultas de astrologia tradicional e acompanhamento terap&ecirc;utico com Guilherme Santana.">
+<meta name="description" content="Astrologia tradicional com Guilherme Santana: o seu mapa de nascimento lido e entregue em livro, a sinastria do casal, o mapa da criança e as Correspondências, cartas diárias gratuitas.">
+<meta property="og:title" content="Via Simbólica">
+<meta property="og:description" content="Astrologia tradicional com Guilherme Santana. O seu céu de nascimento, num livro com o seu nome.">
+<meta property="og:image" content="https://viasimbolica.com.br/mapa-natal/img/4cae09b5e66b781ab2814cafdaf20caa.jpg">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
 <link rel="preload" href="/assets/fontes/Chillax-Variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fontes/Satoshi-Variable.woff2" as="font" type="font/woff2" crossorigin>
 
 <!--
-  VIA SIMBOLICA - PAGINA PRINCIPAL
-  1. CARDS DE PRODUTO: A4A e MPA apontam direto para o checkout da Kiwify
-     (temporario, ate as paginas internas ficarem prontas). Espelho de Venus
-     aponta para /espelho-de-venus e a Comunidade LiterAstro para /literastro
-  2. CARDS DE SERVICO: Mapa Natal, Mapa Natal Infantil e Sinastria apontam para
-     as paginas de venda (/mapa-natal, /mapa-infantil, /sinastria). Pergunta
-     Horaria, Mini Mapas e Terapia abrem o formulario de contato das paginas
-     de venda (vsContato, em /assets/vs-contato.js): grava nome e telefone na
-     planilha, dispara o pixel e leva ao WhatsApp do Guilherme
-     (wa.me/557192469207) com a mensagem pronta.
-  3. OBRAS: a pintura de cada card esta no style="--img:url('...')". Para trocar,
-     basta substituir a URL. O ajuste de enquadramento fino e o --pos (opcional).
-  4. REDES: os tres botoes finais ja estao com os links reais.
+  VIA SIMBOLICA - PAGINA PRINCIPAL (refeita em 24/11/2026 conforme o retrato
+  "Ecossistema Via Simbolica hoje": a vitrine e o mapa em livro e o acompanhamento;
+  as Correspondencias sao a porta gratuita. Cursos, Horaria, Mini Mapas e a
+  LiterAstro sairam da vitrine e voltam por fases.)
+  1. MAPA EM LIVRO: Mapa Natal, Sinastria e Mapa Natal Infantil apontam para as
+     paginas de venda (/mapa-natal, /sinastria, /mapa-infantil).
+  2. ACOMPANHAMENTO: abre o formulario de contato (vsContato, em
+     /assets/vs-contato.js): grava nome e telefone na planilha, dispara o pixel e
+     leva ao WhatsApp do Guilherme com a mensagem pronta. Nome provisorio.
+  3. CORRESPONDENCIAS: card de noite que leva a /correspondencias.
+  4. OBRAS: a pintura de cada card esta no style="--img:url('...')".
+  5. BLACK NOVEMBER: card temporario no topo (CSS .card-black, funcao vsBlack).
+     Tirar depois que a Black fechar.
 -->
 
 <style>
@@ -225,17 +230,28 @@
     padding-bottom: 56px;
   }
 
+
+  /* ===== Apresentacao e secoes (24/11/2026) ===== */
+  .apresenta { text-align: center; max-width: 560px; margin: -8px auto 44px; }
+  .apresenta .rotulo-casa { font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--roxo); }
+  .apresenta p.frase { font-family: var(--display); font-weight: 500; font-size: clamp(24px, 4vw, 30px); line-height: 1.25; letter-spacing: -0.005em; margin-top: 12px; }
+  .secao { font-size: 12px; font-weight: 500; line-height: 1.2; letter-spacing: 0.18em; text-transform: uppercase; color: var(--tinta-suave); margin: 48px 0 18px; }
+  .secao:first-of-type { margin-top: 0; }
+  .card-cartas .btn { background: var(--claro); color: var(--noite); }
+  .card-cartas .eyebrow { color: var(--roxo-claro); }
+  .redes { grid-template-columns: repeat(2, 1fr); }
+
   /* ===== Celular ===== */
   @media (max-width: 640px) {
     .conteudo {
       width: 100%;
       padding: 0 26px;
     }
-    .card h2 { font-size: 27px; }
     .card-black { grid-template-columns: 1fr; height: auto; }
     .card-black .iluminura { height: 190px; background-position: 50% 8%; }
     .card-black .conteudo { padding: 30px 26px 36px; }
     .card-black h2 { font-size: 29px; }
+    .card h2 { font-size: 27px; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -257,6 +273,11 @@ dialog.vs-contato{margin:auto} /* o * { margin: 0 } desta pagina tirava a janela
     <h1 class="logotipo"><img src="/assets/marcas/assinatura-tinta.svg" alt="via simb&oacute;lica" width="232" height="141"></h1>
   </header>
 
+  <div class="apresenta">
+    <p class="rotulo-casa">Astrologia tradicional</p>
+    <p class="frase">O seu céu de nascimento, lido com cuidado e entregue num livro com o seu nome.</p>
+  </div>
+
   <main>
 
     <!-- BLACK NOVEMBER: card temporario no topo. Leva ao grupo do WhatsApp pelo
@@ -271,93 +292,54 @@ dialog.vs-contato{margin:auto} /* o * { margin: 0 } desta pagina tirava a janela
       </div>
     </a>
 
-    <a class="card" href="/venus" style="--img:url('https://commons.wikimedia.org/wiki/Special:FilePath/Diego_Vel%C3%A1zquez_-_Rokeby_Venus.jpg?width=1600'); --pos: 50% 38%">
-      <div class="conteudo">
-        <span class="eyebrow">Curso</span>
-        <h2>Espelho de V&ecirc;nus</h2>
-        <p>Descubra o que em voc&ecirc; atrai, encanta e fascina pelo olhar da astrologia.</p>
-        <span class="btn">Saiba mais</span>
-      </div>
-    </a>
-
-    <a class="card" href="https://pay.kiwify.com.br/7td4XrU" style="--img:url('https://commons.wikimedia.org/wiki/Special:FilePath/Antoine_Watteau_-_The_Italian_Comedians_-_Google_Art_Project.jpg?width=1600')">
-      <div class="conteudo">
-        <span class="eyebrow">Curso</span>
-        <h2>Astrologia em 4 Atos</h2>
-        <p>Comece a estudar astrologia entrando num teatro: os planetas s&atilde;o os atores, e o c&eacute;u, o palco.</p>
-        <span class="btn">Saiba mais</span>
-      </div>
-    </a>
-
-    <a class="card" href="https://pay.kiwify.com.br/lennkFV" style="--img:url('https://commons.wikimedia.org/wiki/Special:FilePath/Wright_of_Derby,_The_Orrery.jpg?width=1600')">
-      <div class="conteudo">
-        <span class="eyebrow">Forma&ccedil;&atilde;o</span>
-        <h2>Manual Pr&aacute;tico de Astrologia</h2>
-        <p>A forma&ccedil;&atilde;o completa para interpretar mapas natais, do princ&iacute;pio &agrave; pr&aacute;tica.</p>
-        <span class="btn">Saiba mais</span>
-      </div>
-    </a>
-
-    <a class="card" href="/literastro" style="--img:url('https://commons.wikimedia.org/wiki/Special:FilePath/Wilhelm_Bendz,_Kunstnere_i_Fincks_Kaffehus_i_M%C3%BCnchen,_1832,_B197,_Thorvaldsens_Museum.jpg?width=1600')">
-      <div class="conteudo">
-        <span class="eyebrow">Comunidade</span>
-        <h2>Comunidade LiterAstro</h2>
-        <p>A comunidade que une literatura e astrologia num s&oacute; lugar de estudo e amizade.</p>
-        <span class="btn">Saiba mais</span>
-      </div>
-    </a>
+    <h2 class="secao">O mapa em livro</h2>
 
     <a class="card" href="/mapa-natal" style="--img:url('https://commons.wikimedia.org/wiki/Special:FilePath/Vincent_van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg?width=1600'); --pos: 50% 30%">
       <div class="conteudo">
-        <span class="eyebrow">Servi&ccedil;o</span>
+        <span class="eyebrow">Para você</span>
         <h2>Mapa Natal</h2>
-        <p>A leitura completa do seu c&eacute;u de nascimento: temperamento, motiva&ccedil;&atilde;o prim&aacute;ria e as &aacute;reas da sua vida.</p>
-        <span class="btn">Saiba mais</span>
-      </div>
-    </a>
-
-    <a class="card" href="/mapa-infantil" style="--img:url('/mapa-infantil/img/natividade.webp'); --pos: 50% 40%">
-      <div class="conteudo">
-        <span class="eyebrow">Servi&ccedil;o</span>
-        <h2>Mapa Natal Infantil</h2>
-        <p>O c&eacute;u de nascimento da crian&ccedil;a lido para os pais: a natureza que ela traz e onde vai precisar de mais amparo.</p>
-        <span class="btn">Saiba mais</span>
+        <p>A leitura completa do seu céu de nascimento: o temperamento, a motivação primária e as doze áreas da sua vida.</p>
+        <span class="btn">Conhecer</span>
       </div>
     </a>
 
     <a class="card" href="/sinastria" style="--img:url('https://commons.wikimedia.org/wiki/Special:FilePath/Caspar_David_Friedrich_-_Auf_dem_Segler.jpg?width=1600'); --pos: 50% 55%">
       <div class="conteudo">
-        <span class="eyebrow">Servi&ccedil;o</span>
+        <span class="eyebrow">Para dois</span>
         <h2>Sinastria</h2>
-        <p>Dois mapas sobrepostos para entender o que cada um d&aacute;, pede e desperta no outro.</p>
-        <span class="btn">Saiba mais</span>
+        <p>Dois mapas sobrepostos para entender o que cada um dá, pede e desperta no outro.</p>
+        <span class="btn">Conhecer</span>
       </div>
     </a>
 
-    <a class="card" href="https://wa.me/557192469207" onclick="return vsContato('Pergunta Horária', this.querySelector('.btn'))" style="--img:url('https://commons.wikimedia.org/wiki/Special:FilePath/Michelangelo_-_Delphic_Sibyl.jpg?width=1600'); --pos: 50% 24%">
+    <a class="card" href="/mapa-infantil" style="--img:url('/mapa-infantil/img/natividade.webp'); --pos: 50% 40%">
       <div class="conteudo">
-        <span class="eyebrow">Servi&ccedil;o</span>
-        <h2>Pergunta Hor&aacute;ria</h2>
-        <p>Uma pergunta objetiva respondida pelo c&eacute;u do momento em que ela &eacute; feita.</p>
-        <span class="btn">Saiba mais</span>
+        <span class="eyebrow">Para a família</span>
+        <h2>Mapa Natal Infantil</h2>
+        <p>O céu de nascimento da criança lido para os pais: a natureza que ela traz e onde vai precisar de mais amparo.</p>
+        <span class="btn">Conhecer</span>
       </div>
     </a>
 
-    <a class="card" href="https://wa.me/557192469207" onclick="return vsContato('Mini Mapas', this.querySelector('.btn'))" style="--img:url('https://commons.wikimedia.org/wiki/Special:FilePath/Jan_Brueghel_I_%26_Peter_Paul_Rubens_-_Sight_(Museo_del_Prado).jpg?width=1600')">
+    <h2 class="secao">Encontros</h2>
+
+    <a class="card" href="https://wa.me/557192469207" onclick="return vsContato('Acompanhamento', this.querySelector('.btn'))" style="--img:url('https://commons.wikimedia.org/wiki/Special:FilePath/Advice_to_a_Young_Artist_by_Honor%C3%A9_Daumier_c1865-68.jpg?width=1600')">
       <div class="conteudo">
-        <span class="eyebrow">Servi&ccedil;o</span>
-        <h2>Mini Mapas</h2>
-        <p>Leituras dedicadas a uma &aacute;rea da vida: dinheiro, fam&iacute;lia, amor, estudo ou voca&ccedil;&atilde;o.</p>
-        <span class="btn">Saiba mais</span>
+        <span class="eyebrow">Poucas vagas</span>
+        <h2>Acompanhamento</h2>
+        <p>Encontros individuais e semanais para ler a própria vida com o mapa ao lado.</p>
+        <span class="btn">Perguntar por vaga</span>
       </div>
     </a>
 
-    <a class="card" href="https://wa.me/557192469207" onclick="return vsContato('Terapia', this.querySelector('.btn'))" style="--img:url('https://commons.wikimedia.org/wiki/Special:FilePath/Advice_to_a_Young_Artist_by_Honor%C3%A9_Daumier_c1865-68.jpg?width=1600')">
+    <h2 class="secao">De graça, todos os dias</h2>
+
+    <a class="card card-cartas" href="/correspondencias?origem=home" style="--img:url('/correspondencias/img/jeronimo-mesa.webp'); --pos: 30% 50%">
       <div class="conteudo">
-        <span class="eyebrow">Acompanhamento</span>
-        <h2>Terapia</h2>
-        <p>Encontros individuais e semanais para caminhar acompanhado na leitura da pr&oacute;pria vida.</p>
-        <span class="btn">Saiba mais</span>
+        <span class="eyebrow">Cartas diárias</span>
+        <h2>Correspondências</h2>
+        <p>Uma carta de astrologia por dia, no seu e-mail, às 18h.</p>
+        <span class="btn">Ler e receber</span>
       </div>
     </a>
 
@@ -370,15 +352,11 @@ dialog.vs-contato{margin:auto} /* o * { margin: 0 } desta pagina tirava a janela
         <span class="acao">Siga</span>
         <span class="nome">Instagram</span>
       </a>
-      <a class="rede sb" href="https://substack.com/@viasimbolica" target="_blank" rel="noopener">
-        <span class="acao">Leia</span>
-        <span class="nome">Substack</span>
-      </a>
     </div>
 
     <hr class="divisor">
 
-    <p class="assinatura-final">Encante-se com o mundo pela Via Simb&oacute;lica</p>
+    <p class="assinatura-final">Encante-se com o mundo pela Via Simbólica</p>
 
   </main>
 

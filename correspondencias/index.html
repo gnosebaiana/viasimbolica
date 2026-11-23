@@ -4,28 +4,37 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Correspondências · Via Simbólica</title>
-<meta name="description" content="Uma carta de Guilherme Santana, por e-mail, todos os dias. Para quem tem a disposição e o compromisso de ler todos os dias.">
+<meta name="description" content="Uma carta de astrologia por dia, no seu e-mail, às 18h. Gratuitas, escritas por Guilherme Santana, astrólogo da Via Simbólica.">
 <meta name="theme-color" content="#1a152a">
 <meta property="og:title" content="Correspondências · Via Simbólica">
-<meta property="og:description" content="Uma carta minha, por e-mail, todos os dias.">
-<meta property="og:image" content="/correspondencias/img/jeronimo-mesa.webp">
+<meta property="og:description" content="Uma carta de astrologia por dia, no seu e-mail, às 18h. Gratuitas.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://viasimbolica.com.br/correspondencias">
+<meta property="og:image" content="https://viasimbolica.com.br/correspondencias/img/compartilhar.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="628">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preload" as="image" href="/correspondencias/img/jeronimo-fundo.webp">
 <link rel="preload" href="/assets/fontes/Chillax-Variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fontes/Satoshi-Variable.woff2" as="font" type="font/woff2" crossorigin>
 
 <!--
-  VIA SIMBOLICA - CORRESPONDENCIAS (captura de e-mail da correspondencia diaria)
+  VIA SIMBOLICA - CORRESPONDENCIAS (pagina das cartas diarias; refeita em 24/11/2026
+  a partir da banca critica de 22/11 e do retrato do ecossistema de 23/11)
   1. CENA: o fundo e o Sao Jeronimo de Jan van Eyck e oficina (c. 1442, Detroit
-     Institute of Arts, dominio publico). Fica fixo; a carta sobe por cima dele.
-     img/jeronimo-fundo.webp e a pintura.
-  2. IDENTIDADE (22/11/2026): pagina de noite. O quadro fica atras do veu da
-     noite; a carta e papel chapado, em Satoshi; titulos em Chillax; o destaque
-     e o roxo (roxo claro sobre a noite). A estrela cadente e o sinal das
-     Correspondencias. Passaros em claro (SVG) atravessam o quadro e param
-     quando o visitante pede "reduzir movimento" no aparelho.
-  3. FORMULARIO: grava na planilha "Contatos do site" (Apps Script de
-     /assets/vs-contato.js), produto "Correspondências". O e-mail vai no campo "email"
-     e, por garantia, tambem em "origem", ate o script ganhar a coluna propria.
+     Institute of Arts, dominio publico). Fica fixo; as folhas sobem por cima dele.
+  2. A MESA: cinco folhas de papel, uma ideia por folha: o convite, uma carta
+     inteira (a nº 5), como funciona com os titulos ja enviados, quem escreve (com
+     a porta para o Mapa Natal) e a inscricao. Ao mandar uma carta nova, acrescente
+     uma linha na lista "As cartas ate aqui" (ol.arquivo).
+  3. IDENTIDADE: pagina de noite; papel chapado; Chillax nos titulos, Satoshi no
+     texto; destaque roxo (roxo claro sobre a noite). Passaros em claro param
+     quando o visitante pede "reduzir movimento".
+  4. FORMULARIO: grava na planilha "Contatos do site" (Apps Script), produto
+     "Correspondências". So confirma depois que o pedido chega ao servidor. Nao
+     grava telefone. O e-mail vai em "email" e tambem em "origem", junto com a
+     origem do inscrito (utm, ?origem=, site de onde veio ou "direto").
      Dispara o pixel "Lead" se o pixel estiver na pagina.
 -->
 
@@ -254,6 +263,80 @@
     .revelar { opacity: 1; transform: none; }
     html { scroll-behavior: auto; }
   }
+
+  /* ===== Pagina de 24/11/2026: a mesa com varias folhas ===== */
+  .abertura .subtitulo b { font-weight: 500; color: var(--roxo-claro); }
+  .abertura .acoes { margin-top: 36px; display: flex; flex-wrap: wrap; align-items: center; gap: 18px 32px; }
+  .abertura .acoes .descer { margin-top: 0; }
+  .botao-claro {
+    display: inline-flex; align-items: center; height: 48px; padding: 0 28px;
+    font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--noite); background: var(--claro); text-decoration: none;
+    border-radius: 9999px; transition: transform 0.25s ease;
+  }
+  .botao-claro:hover { transform: translateY(-2px); }
+  .botao-claro:focus-visible { outline: 2px solid var(--claro); outline-offset: 3px; }
+
+  .mesa > .carta + .carta { margin-top: 14vh; }
+  .carta h2.folha-titulo {
+    font-family: var(--display); font-weight: 500;
+    font-size: 34px; line-height: 1.15; letter-spacing: -0.005em; margin: 0 0 0.6em;
+  }
+
+  /* a carta de amostra */
+  .amostra .cabeca { margin-bottom: 28px; }
+  .amostra .data { font-size: 14px; color: var(--tinta-suave); margin-bottom: 6px; }
+  .amostra h2.titulo-carta {
+    font-family: var(--display); font-weight: 500; color: var(--tinta);
+    font-size: clamp(30px, 4.4vw, 40px); line-height: 1.12; letter-spacing: -0.01em; margin: 0 0 1.1em;
+  }
+  .sete { list-style: none; margin: 0.4em 0 1.4em; border-top: 1px solid var(--linha); max-width: 34em; }
+  .sete li { display: flex; justify-content: space-between; gap: 16px; padding: 0.55em 0; border-bottom: 1px solid var(--linha); }
+  .sete li i { color: var(--roxo); font-style: italic; }
+  .amostra .assinatura span { font-size: 26px; }
+
+  /* como funciona */
+  .como { margin: 0.4em 0 0; border-top: 1px solid var(--linha); }
+  .como > div { display: grid; grid-template-columns: 11em 1fr; gap: 6px 24px; padding: 1em 0; border-bottom: 1px solid var(--linha); }
+  .como dt { font-weight: 500; font-size: 12px; line-height: 1.6; letter-spacing: 0.18em; text-transform: uppercase; color: var(--roxo); padding-top: 4px; }
+  .como dd { margin: 0; max-width: 32em; }
+
+  /* as cartas ate aqui */
+  .arquivo { list-style: none; margin: 0.4em 0 1.2em; border-top: 1px solid var(--linha); }
+  .arquivo li { display: grid; grid-template-columns: 5.5em 1fr auto; gap: 4px 16px; align-items: baseline; padding: 0.8em 0; border-bottom: 1px solid var(--linha); }
+  .arquivo .num { font-size: 13px; font-weight: 500; letter-spacing: 0.06em; color: var(--tinta-suave); }
+  .arquivo .tit { font-family: var(--display); font-weight: 500; font-size: 20px; line-height: 1.3; }
+  .arquivo .dia { font-size: 14px; color: var(--tinta-suave); white-space: nowrap; }
+  .arquivo li.aqui .tit { color: var(--roxo); }
+  .nota { font-size: 17px; color: var(--tinta-suave); max-width: 34em; }
+
+  /* quem escreve */
+  .autor { display: grid; grid-template-columns: 200px 1fr; gap: 32px; align-items: start; }
+  .autor img { display: block; width: 100%; height: auto; border-radius: 8px; }
+  .autor p { max-width: 30em; margin-bottom: 1.05em; }
+  .botao-linha {
+    display: inline-flex; align-items: center; min-height: 48px; padding: 10px 26px; margin-top: 8px;
+    font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; line-height: 1.3;
+    color: var(--roxo); text-decoration: none;
+    border: 1.5px solid var(--roxo); border-radius: 9999px; transition: transform 0.25s ease;
+  }
+  .botao-linha:hover { transform: translateY(-2px); }
+  .botao-linha:focus-visible { outline: 2px solid var(--roxo); outline-offset: 3px; }
+
+  .inscricao { margin-top: 0; }
+
+  @media (max-width: 640px) {
+    .mesa > .carta + .carta { margin-top: 10vh; }
+    .carta h2.folha-titulo { font-size: 29px; }
+    .como > div { grid-template-columns: 1fr; padding: 0.9em 0; }
+    .como dt { padding-top: 0; }
+    .arquivo li { grid-template-columns: 1fr auto; }
+    .arquivo .num { grid-column: 1 / -1; }
+    .arquivo .tit { font-size: 18px; }
+    .autor { grid-template-columns: 1fr; gap: 22px; }
+    .autor img { width: 150px; }
+    .sete li { font-size: 16px; }
+  }
 </style>
 </head>
 <body>
@@ -274,85 +357,189 @@
 </header>
 
 <section class="abertura">
-  <p class="rotulo">Cartas diárias</p>
+  <p class="rotulo">Cartas de astrologia · gratuitas</p>
   <h1>Correspondências</h1>
-  <p class="subtitulo">Uma carta minha, por e-mail, todos os dias.</p>
-  <a class="descer" href="#carta">Leia a carta<i></i></a>
+  <p class="subtitulo">Uma carta de astrologia por dia, no seu e-mail, <b>às 18h</b>. O céu, os símbolos e o que eles dizem do homem, escritos por Guilherme Santana, astrólogo da Via Simbólica.</p>
+  <div class="acoes">
+    <a class="botao-claro" href="#inscricao">Quero receber</a>
+    <a class="descer" href="#amostra">Leia uma carta<i></i></a>
+  </div>
 </section>
 
-<div class="mesa">
-  <main class="carta" id="carta">
+<main class="mesa">
 
+  <!-- 1. O convite -->
+  <section class="carta" id="convite" aria-labelledby="convite-titulo">
     <div class="cabeca revelar">
       <svg class="estrela" viewBox="0 0 66 38" aria-hidden="true"><path d="M18 28 C30 22, 44 13, 60 3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" opacity=".6"/><path d="M20 35 C33 29, 47 20, 62 10" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity=".35"/><path d="M11 17 L13.3 26 L11 35 L8.7 26 Z" fill="currentColor"/><path d="M2 26 L11 23.9 L20 26 L11 28.1 Z" fill="currentColor"/></svg>
       <p class="rotulo">Via Simbólica</p>
     </div>
 
     <article>
-      <p class="revelar">Como tenho o hábito de escrever cartas já há alguns anos bem enraizado em mim, decidi que elas se tornarão públicas: uma por dia, por e-mail, àqueles que se inscreverem para as receber.</p>
+      <h2 class="folha-titulo revelar" id="convite-titulo">Por que cartas</h2>
 
-      <p class="revelar">Decidi escolher cartas em vez de ensaios porque desejo mesmo estabelecer uma correspondência com os meus leitores, evocando fatos do dia, autores que estou lendo, crítica literária, conselhos de irmão mais velho, traduções inéditas, a exposição de conceitos e o que mais a natureza geminiana me sugerir no dia.</p>
+      <p class="revelar">Escrevo cartas há anos, com a mesma naturalidade com que outros mandam mensagens. Desde 15 de novembro de 2026, elas são públicas: uma por dia, por e-mail, para quem se inscrever.</p>
 
-      <p class="revelar">A ideia é que os textos sejam de fácil leitura, abrangendo temas de simbolismo tradicional a comentários sobre a treta do dia. Os temas principais são, obviamente, astrologia, psicologia, literatura, filosofia e religião.</p>
+      <p class="revelar">Escolhi a carta, e não o ensaio, porque quero uma correspondência de verdade com você. No centro está a astrologia; em volta dela, o que a astrologia ilumina: a alma, a literatura, a filosofia, a fé. Uma carta expõe um conceito com calma, outra conta uma história, outra responde à pergunta de um leitor.</p>
 
-      <p class="revelar">Criei as Correspondências como um meio de me conectar com o meu público mais fiel, com as pessoas que me acompanham diariamente, então, se você sabe que não lerá todos os dias, por favor, não se inscreva. As cartas não buscarão ser palatáveis para quem não está a fim, nem buscarão um "formato viral". Quero leitores interessados, ainda que poucos.</p>
+      <p class="revelar">As cartas podem ser respondidas. Sugira temas, faça perguntas, discorde. Não é obrigatório: ler sem responder é tão livre quanto responder. Quando muitas perguntas pedem a mesma resposta, escrevo uma glosa, uma carta que responde a vários leitores de uma vez.</p>
 
-      <p class="revelar">As cartas podem ser respondidas. Se assim o desejar, responda como se cada uma tivesse sido escrita só para você, porque é com esta finalidade que a escrevo: sugira temas, faça perguntas, discorde. Mas não se sinta obrigado a responder: ler e não responder ou ler e responder é uma escolha livre sua.</p>
+      <p class="revelar">Faço um pedido só. Inscreva-se se tiver a disposição de ler todos os dias. São dez, quinze minutos, com o café, no almoço ou antes de dormir. Se um e-mail por dia lhe parece muito, provavelmente é, e não há problema nenhum nisso.</p>
 
-      <p class="revelar">No fim de cada mês, reúno as cartas num caderno e o envio a você gratuitamente.</p>
+      <p class="compromisso revelar">As cartas chegam todos os dias, às 18h.</p>
 
-      <hr class="filete">
-
-      <h2 class="revelar">Antes de você se inscrever</h2>
-
-      <p class="revelar">Uma precisão: a meta é escrever todos os dias, sem falhar, e a carta só cumpre a sua função se for lida. Se receber um e-mail meu por dia lhe parece muito, provavelmente é, e não há problema nenhum nisso; mas então é melhor não se inscrever.</p>
-
-      <p class="compromisso revelar">Só se inscreva se tiver a disposição e o compromisso de ler todos os dias.</p>
-
-      <p class="revelar">Não precisa ser muito tempo: uns dez, quinze minutos, com o café, no intervalo do almoço ou antes de dormir.</p>
-
-      <p class="revelar" id="estreia" data-ate="2026-11-15T18:00:00-03:00" data-antes="Se for assim, a primeira carta sai hoje (15 de novembro de 2026) às 18h." data-depois="Se for assim, as cartas chegam todos os dias às 18h.">Se for assim, as cartas chegam todos os dias às 18h.</p>
-
-      <p class="assinatura revelar">Te espero,<br><span>Guiga</span></p>
+      <p class="assinatura revelar">Espero você,<br><span>Guilherme</span></p>
     </article>
+  </section>
 
-    <figure class="detalhe revelar">
-      <img src="/correspondencias/img/jeronimo-mesa.webp" width="1400" height="879" loading="lazy" alt="Detalhe da mesa de São Jerônimo: o livro aberto, o tinteiro, a pena, a ampulheta e um bilhete dobrado.">
-    </figure>
+  <!-- 2. Uma carta inteira -->
+  <section class="carta amostra" id="amostra" aria-labelledby="amostra-titulo">
+    <div class="cabeca revelar">
+      <svg class="estrela" viewBox="0 0 66 38" aria-hidden="true"><path d="M18 28 C30 22, 44 13, 60 3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" opacity=".6"/><path d="M20 35 C33 29, 47 20, 62 10" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity=".35"/><path d="M11 17 L13.3 26 L11 35 L8.7 26 Z" fill="currentColor"/><path d="M2 26 L11 23.9 L20 26 L11 28.1 Z" fill="currentColor"/></svg>
+      <p class="rotulo">Leia uma carta inteira</p>
+    </div>
 
-    <section class="inscricao revelar" id="inscricao" aria-labelledby="inscricao-titulo">
-      <h2 id="inscricao-titulo">Receber as cartas</h2>
-      <p class="chamada">Deixe o seu nome e o e-mail em que a carta deve chegar.</p>
+    <article>
+      <p class="data revelar">Carta nº 5 · 21 de novembro de 2026</p>
+      <h2 class="titulo-carta revelar" id="amostra-titulo">Sete planetas, sete faculdades</h2>
 
-      <form novalidate>
-        <label class="campo"><span>Seu nome</span>
-          <input name="nome" type="text" autocomplete="name" required minlength="2" maxlength="80">
-        </label>
-        <label class="campo"><span>Seu e-mail</span>
-          <input name="email" type="email" inputmode="email" autocomplete="email" required maxlength="120" placeholder="voce@exemplo.com">
-        </label>
-        <label class="isca" aria-hidden="true">Não preencha<input name="site" type="text" tabindex="-1" autocomplete="off"></label>
+      <p class="revelar">Na última carta, mostrei ao leitor que o calendário que ele segue, a direção em que a sua igreja foi construída e a estrela que levou os Magos até Belém supõem, todos, um céu que fala. Na anterior, eu tinha dito que pretendo formá-lo numa visão de mundo e numa visão de homem, e que a astrologia é o sistema simbólico que articula as duas. Hoje começo pelo lado do homem. Quero mostrar por que é importante falar de astrologia mesmo a quem nunca pensou em ter o seu mapa lido: ela nos lembra de certos elementos tradicionais que nós esquecemos, e o primeiro deles é a ideia de que o homem opera desde sete faculdades.</p>
 
-        <label class="promessa">
-          <input name="promessa" type="checkbox" required>
-          <span>Tenho a disposição e o compromisso de ler as cartas todos os dias.</span>
-        </label>
+      <p class="revelar">Faça o leitor um teste. Quantas vezes, só nesta semana, você disse “eu quero”, “eu desejo”, “eu sinto”, “eu acho”, “eu sei”? Agora me responda, sem consultar nada: querer e desejar são a mesma coisa? Com que parte de você se deseja um bolo, e com que parte se decide não o comer? Perceber a cor de um gato e saber que aquilo é um gato são obra da mesma faculdade? Posso apostar que o leitor usa essas palavras todos os dias e que nunca lhe deram um quadro em que cada uma tivesse o seu lugar. É um pedaço da confusão de que falei na carta nº 3: fala-se da alma o dia inteiro, e ninguém sabe dizer por meio de quê ela age.</p>
 
-        <button type="submit" class="enviar">Quero receber as cartas</button>
-        <p class="erro" role="alert"></p>
-        <p class="aviso">Uso o seu e-mail só para mandar as cartas. Toda carta traz um link para sair da lista, se um dia você quiser.</p>
-      </form>
+      <p class="revelar">A filosofia tradicional sabia. Santo Tomás, seguindo Aristóteles, descreve uma por uma as faculdades por meio das quais a alma age. Do quadro dele, separo sete, as que movem o homem: o senso comum, a cogitativa, o apetite concupiscível, a vontade, o apetite irascível, o intelecto agente e o intelecto paciente. (Não são todas as que a alma tem: a memória e a imaginação, por exemplo, ficam noutra parte do quadro, a dos signos, a que chegaremos a seu tempo.)</p>
 
-      <div class="selado" aria-live="polite">
-        <div class="selo" aria-hidden="true"><svg class="estrela" viewBox="0 0 66 38" aria-hidden="true"><path d="M18 28 C30 22, 44 13, 60 3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" opacity=".6"/><path d="M20 35 C33 29, 47 20, 62 10" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity=".35"/><path d="M11 17 L13.3 26 L11 35 L8.7 26 Z" fill="currentColor"/><path d="M2 26 L11 23.9 L20 26 L11 28.1 Z" fill="currentColor"/></svg></div>
-        <h2>Inscrição feita</h2>
-        <p>Pronto, <span data-nome></span>. A primeira carta vai para <b data-email></b>.</p>
-        <p>Se não a encontrar, procure na aba Promoções ou no spam e marque o remetente como contato; assim as seguintes chegam direto na caixa de entrada.</p>
+      <p class="revelar">Não vou explicar hoje cada uma delas; isso é matéria para muitas cartas. O que quero pôr diante do leitor é outra coisa. Lida assim, a lista não fica. Cogitativa, concupiscível, irascível: são nomes de tratado, e quem os lê hoje já os esqueceu amanhã. É aqui que entra o céu.</p>
+
+      <p class="revelar">No céu há sete astros errantes, visíveis sem instrumento nenhum: a Lua, Mercúrio, Vênus, o Sol, Marte, Júpiter e Saturno. São os mesmos que, nas outras línguas, dão nome aos dias da semana, como vimos na última carta. Cada um deles é a imagem de uma das sete faculdades, e cada faculdade fica, assim, com o seu astro e com o seu verbo:</p>
+
+      <ul class="sete revelar">
+        <li><span>A Lua é o senso comum</span><i>recebe</i></li>
+        <li><span>Mercúrio é a cogitativa</span><i>liga</i></li>
+        <li><span>Vênus é o apetite concupiscível</span><i>une</i></li>
+        <li><span>O Sol é a vontade</span><i>ordena</i></li>
+        <li><span>Marte é o apetite irascível</span><i>corta</i></li>
+        <li><span>Júpiter é o intelecto agente</span><i>expande</i></li>
+        <li><span>Saturno é o intelecto paciente</span><i>limita</i></li>
+      </ul>
+
+      <p class="revelar">Veja agora como o céu fixa o que o tratado só enumera.</p>
+
+      <p class="revelar">Comece pela ordem. Os planetas não estão uns ao lado dos outros, como bolas de gude sobre uma mesa. Estão em níveis, como numa escada que sobe da Terra: primeiro a Lua, depois Mercúrio, Vênus, o Sol, Marte, Júpiter e, por último, Saturno. Ora, você, enquanto corpo, é a Terra. O astro mais próximo é a Lua, e a faculdade da Lua é justamente a que está mais perto das coisas enquanto corpo: o senso comum, que recebe e reúne o que os olhos, os ouvidos, o nariz, a língua e a pele trazem de fora. O mais distante é Saturno, e a ele cabe guardar o que há de menos corporal nas coisas, que é o conceito delas. Quem aprendeu a escada dos planetas aprendeu, sem perceber, a ordem das faculdades, da mais próxima à mais distante do corpo.</p>
+
+      <p class="revelar">Repare, depois, onde fica o Sol: no meio, quarto de sete, com três astros abaixo e três acima. É o lugar de quem governa, e a faculdade do Sol é a vontade, que não tem outra função senão a de agir sobre as demais. Pense num carro: cada planeta é uma parte dele, a roda, o chassi, o motor; o banco do motorista é o Sol.</p>
+
+      <p class="revelar">E repare no jeito de cada astro. A Lua ora está cheia, ora nova, ora crescente, ora minguante, e o nosso modo de receber as coisas varia do mesmo jeito: quem passou o dia inteiro sem comer e encontra um banquete na mesa corre para ele; quem acabou de sair de um banquete e encontra outro não quer nem ver comida. Mercúrio nunca se afasta muito do Sol: vai e volta em torno dele, como uma ponte, e a cogitativa é em nós aquilo que liga uma coisa a outra, que compara, mede, classifica. A língua guardou o nome de Marte na arte marcial, que é a arte da luta, porque o irascível é em nós como que um guerreiro, feito para os bens que custam. E Saturno é o mais lento dos sete: leva quase trinta anos para dar a volta que a Lua dá em menos de um mês. É a parte de você que guarda, e é por isso que se associa a imagem do velho à do sábio.</p>
+
+      <p class="revelar">Para que serve tudo isso? Para que o leitor não pense nada no ar. Volte às perguntas do começo.</p>
+
+      <p class="revelar">Há um bolo sobre a mesa. Que ele está ali, deste tamanho e com este cheiro, quem percebe é a Lua. Se é grande ou pequeno, se dá para todos, quem mede é Mercúrio. Quem o deseja é Vênus. E quem decide comê-lo ou deixá-lo onde está é o Sol. Desejar e querer, portanto, não são a mesma coisa. E querer tampouco é ter coragem. Imagine uma mulher fisicamente corajosa, com toda a força necessária para enfrentar alguma coisa difícil. E ela não vai. Por quê? “Porque eu não quero.” A coragem, que é de Marte, estava ali; quem decidiu foi o Sol.</p>
+
+      <p class="revelar">O gato, agora. Diante dele, uma parte de você percebe se é branco ou amarelo, se é grande ou pequeno, se é bravo ou manso: é Mercúrio. Mas saber que aquilo é um gato, e não um cachorro, já é obra de Júpiter, que tira deste gato o que vale para todos os gatos. E o que Júpiter tirou dali, Saturno guarda.</p>
+
+      <p class="revelar">Quem tem esse quadro diante dos olhos olha para uma ação qualquer, sua ou alheia, e começa a reconhecer nela os movimentos que a compõem. A astrologia serve, antes de tudo, para isto: para facilitar a imaginação.</p>
+
+      <p class="revelar">Até a ordem de uma vida inteira cabe na mesma escada. Ptolomeu distribui as idades do homem pelos sete planetas. O bebê só tem Lua: recebe a temperatura, a dor, o leite, e mais nada. Depois a criança aprende a dizer o nome das coisas e quer saber o porquê de tudo: é Mercúrio. O adolescente vai descobrindo do que gosta: Vênus. O jovem quer ser alguém, quer ter um centro: o Sol. O homem feito sai ao mundo e se gasta pelo que quer: Marte. Mais tarde, goza do fruto do que fez: Júpiter. E o velho se contrai e guarda: Saturno. Nenhuma idade morre: a Lua do bebê continua no velho.</p>
+
+      <p class="revelar">Esse quadro é fixo. Não há um único ser humano que não funcione segundo essa dinâmica; o que varia de um para outro é o arranjo, e é o arranjo o que o céu do nascimento de cada um insinua. O que cada um faz com ele é obra da liberdade.</p>
+
+      <p class="revelar">Peço ao leitor um exercício. Tome uma decisão que você tomou nesta semana, uma só, e procure nela os sete. O que você recebeu? O que comparou? O que desejou? O que lhe custou? E quem, afinal, decidiu? Escreva-me contando o que encontrou, e me diga qual das sete você nunca tinha sabido nomear.</p>
+
+      <p class="assinatura revelar">Até amanhã,<br><span>Guilherme</span></p>
+    </article>
+  </section>
+
+  <!-- 3. Como funciona e as cartas ate aqui -->
+  <section class="carta" id="como" aria-labelledby="como-titulo">
+    <div class="cabeca revelar">
+      <svg class="estrela" viewBox="0 0 66 38" aria-hidden="true"><path d="M18 28 C30 22, 44 13, 60 3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" opacity=".6"/><path d="M20 35 C33 29, 47 20, 62 10" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity=".35"/><path d="M11 17 L13.3 26 L11 35 L8.7 26 Z" fill="currentColor"/><path d="M2 26 L11 23.9 L20 26 L11 28.1 Z" fill="currentColor"/></svg>
+      <p class="rotulo">Como funciona</p>
+    </div>
+
+    <h2 class="folha-titulo revelar" id="como-titulo">O que chega, e quando</h2>
+
+    <dl class="como revelar">
+      <div><dt>Quando</dt><dd>Todos os dias, às 18h, no e-mail que você deixar aqui.</dd></div>
+      <div><dt>Quanto custa</dt><dd>Nada. As cartas são gratuitas.</dd></div>
+      <div><dt>Responder</dt><dd>Quando quiser, respondendo ao próprio e-mail. As respostas viram conversa ou glosa; o seu nome só aparece numa glosa se você autorizar.</dd></div>
+      <div><dt>O caderno do mês</dt><dd>No fim de cada mês, reúno as cartas num caderno em PDF e o envio a quem está inscrito.</dd></div>
+      <div><dt>Sair</dt><dd>A qualquer momento: responda a qualquer carta com a palavra “sair”, e você sai da lista.</dd></div>
+      <div><dt>Seus dados</dt><dd>Uso o seu nome e o seu e-mail para mandar as cartas e, de vez em quando, para contar no fim delas de um serviço da Via Simbólica. Não passo os seus dados para ninguém.</dd></div>
+    </dl>
+
+    <div style="height:56px" aria-hidden="true"></div>
+
+    <h2 class="folha-titulo revelar">As cartas até aqui</h2>
+
+    <ol class="arquivo revelar">
+      <li><span class="num">Carta nº 1</span><span class="tit">Por que falar em cartas</span><span class="dia">15/11</span></li>
+      <li><span class="num">Carta nº 2</span><span class="tit">Radiografia da alma de um filho que não nasceu</span><span class="dia">16/11</span></li>
+      <li><span class="num">Glosa nº 1</span><span class="tit">Do hábito de estudar</span><span class="dia">16/11</span></li>
+      <li><span class="num">Carta nº 3</span><span class="tit">Da confusão generalizada</span><span class="dia">17/11</span></li>
+      <li><span class="num">Carta nº 4</span><span class="tit">Pela cristianização da astrologia</span><span class="dia">20/11</span></li>
+      <li class="aqui"><span class="num">Carta nº 5</span><span class="tit"><a href="#amostra" style="color:inherit;text-decoration:none">Sete planetas, sete faculdades</a></span><span class="dia">21/11</span></li>
+    </ol>
+
+    <p class="nota revelar">A carta nº 5 está inteira nesta página. As outras, e o caderno de novembro, chegam a quem se inscreve.</p>
+  </section>
+
+  <!-- 4. Quem escreve -->
+  <section class="carta" id="autor" aria-labelledby="autor-titulo">
+    <div class="cabeca revelar">
+      <svg class="estrela" viewBox="0 0 66 38" aria-hidden="true"><path d="M18 28 C30 22, 44 13, 60 3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" opacity=".6"/><path d="M20 35 C33 29, 47 20, 62 10" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity=".35"/><path d="M11 17 L13.3 26 L11 35 L8.7 26 Z" fill="currentColor"/><path d="M2 26 L11 23.9 L20 26 L11 28.1 Z" fill="currentColor"/></svg>
+      <p class="rotulo">Quem escreve</p>
+    </div>
+
+    <div class="autor revelar">
+      <img src="/correspondencias/img/guilherme.webp" width="720" height="900" decoding="async" alt="Guilherme Santana">
+      <div>
+        <h2 class="folha-titulo" id="autor-titulo">Guilherme Santana</h2>
+        <p>Sou astrólogo e conduzo a Via Simbólica. Estudo e ensino a astrologia tradicional: os sete planetas, as doze casas, o temperamento. Leio mapas de nascimento e os entrego em livro, com o nome de quem nasceu na capa.</p>
+        <p>As cartas são o lugar em que penso em voz alta. Se, lendo, você quiser ver o seu próprio céu lido desse jeito, o caminho é o Mapa Natal.</p>
+        <a class="botao-linha" href="/mapa-natal?origem=correspondencias">Conhecer o Mapa Natal</a>
       </div>
-    </section>
+    </div>
+  </section>
 
-  </main>
-</div>
+  <!-- 5. Inscricao -->
+  <section class="carta inscricao revelar" id="inscricao" aria-labelledby="inscricao-titulo">
+    <div class="cabeca">
+      <svg class="estrela" viewBox="0 0 66 38" aria-hidden="true"><path d="M18 28 C30 22, 44 13, 60 3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" opacity=".6"/><path d="M20 35 C33 29, 47 20, 62 10" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity=".35"/><path d="M11 17 L13.3 26 L11 35 L8.7 26 Z" fill="currentColor"/><path d="M2 26 L11 23.9 L20 26 L11 28.1 Z" fill="currentColor"/></svg>
+      <p class="rotulo">Gratuito</p>
+    </div>
+
+    <h2 id="inscricao-titulo">Receber as cartas</h2>
+    <p class="chamada">Deixe o seu nome e o e-mail em que a carta deve chegar.</p>
+
+    <form novalidate>
+      <label class="campo"><span>Seu nome</span>
+        <input name="nome" type="text" autocomplete="name" required minlength="2" maxlength="80">
+      </label>
+      <label class="campo"><span>Seu e-mail</span>
+        <input name="email" type="email" inputmode="email" autocomplete="email" required maxlength="120" placeholder="voce@exemplo.com">
+      </label>
+      <label class="isca" aria-hidden="true">Não preencha<input name="site" type="text" tabindex="-1" autocomplete="off"></label>
+
+      <label class="promessa">
+        <input name="promessa" type="checkbox" required>
+        <span>Tenho a disposição de ler as cartas todos os dias.</span>
+      </label>
+
+      <button type="submit" class="enviar">Quero receber as cartas</button>
+      <p class="erro" role="alert"></p>
+      <p class="aviso">Gratuito. Uso o seu e-mail para mandar as cartas e, de vez em quando, contar de um serviço da Via Simbólica. Para sair, responda a qualquer carta com a palavra “sair”.</p>
+    </form>
+
+    <div class="selado" aria-live="polite">
+      <div class="selo" aria-hidden="true"><svg class="estrela" viewBox="0 0 66 38" aria-hidden="true"><path d="M18 28 C30 22, 44 13, 60 3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" opacity=".6"/><path d="M20 35 C33 29, 47 20, 62 10" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity=".35"/><path d="M11 17 L13.3 26 L11 35 L8.7 26 Z" fill="currentColor"/><path d="M2 26 L11 23.9 L20 26 L11 28.1 Z" fill="currentColor"/></svg></div>
+      <h2>Inscrição recebida</h2>
+      <p>Pronto, <span data-nome></span>. As cartas vão para <b data-email></b>, com o remetente <b>Via Simbólica</b>. A sua primeira chega em até um dia.</p>
+      <p>Se não a encontrar, procure na aba Promoções ou no spam e marque o remetente como contato; assim as seguintes chegam direto na caixa de entrada.</p>
+      <p>Enquanto isso, se quiser, <a href="#amostra" style="color:var(--roxo)">leia a carta nº 5</a>.</p>
+    </div>
+  </section>
+
+</main>
 
 <footer>
   <p>Ao fundo: Jan van Eyck e oficina, <i>São Jerônimo em seu estúdio</i>, c. 1442. Detroit Institute of Arts.<br>
@@ -360,20 +547,7 @@
   <img src="/assets/marcas/assinatura-claro.svg" alt="via simbólica" width="160" height="98">
 </footer>
 
-<script>
-/* A frase da estreia troca sozinha: até as 18h de 15/11/2026 (Brasília), diz que a
-   primeira carta sai hoje; depois, diz que as cartas chegam todos os dias às 18h. */
-(function () {
-  var el = document.getElementById('estreia');
-  if (!el) return;
-  function acertar() {
-    var antes = Date.now() < new Date(el.getAttribute('data-ate')).getTime();
-    el.textContent = el.getAttribute(antes ? 'data-antes' : 'data-depois');
-    if (antes) setTimeout(acertar, Math.min(60000, new Date(el.getAttribute('data-ate')).getTime() - Date.now() + 500));
-  }
-  acertar();
-})();
-</script>
+
 <script>
 (function () {
   var calmo = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -461,20 +635,51 @@
   }
   setTimeout(bando, 1600);
 })();
-
-/* ---- Formulário ---- */
+</script>
+<script>
+/* ---- Formulário ----
+   Grava na planilha "Contatos do site" (Apps Script). So mostra "Inscricao
+   recebida" depois que o pedido chega ao servidor; se a rede falhar, avisa e
+   deixa tentar de novo. Nao grava telefone. A origem do inscrito vai no campo
+   "origem": utm_source/utm_medium/utm_campaign, ou ?origem=, ou o site de onde
+   a pessoa veio, ou "direto". */
 (function () {
   var PLANILHA = 'https://script.google.com/macros/s/AKfycbzlSehDlHXqCe-Wgx02_WAEtPvBhAuPBYfOpXM03Th8-OWeOS0ZXRS2SvNGPxpQSDgd/exec';
   var caixa = document.getElementById('inscricao');
   var form = caixa.querySelector('form');
   var erro = form.querySelector('.erro');
   var botao = form.querySelector('.enviar');
+  var TEXTO_BOTAO = botao.textContent;
   var EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
   function lembrar(k, v) {
     try { if (v === undefined) return localStorage.getItem(k) || ''; localStorage.setItem(k, v); } catch (e) { return ''; }
   }
+
+  function origem() {
+    var q = new URLSearchParams(location.search), partes = [];
+    ['utm_source', 'utm_medium', 'utm_campaign'].forEach(function (k) { if (q.get(k)) partes.push(q.get(k)); });
+    if (partes.length) return partes.join(' / ');
+    if (q.get('origem')) return q.get('origem');
+    try {
+      if (document.referrer) {
+        var h = new URL(document.referrer).hostname.replace(/^www\./, '');
+        if (h && h !== location.hostname.replace(/^www\./, '')) return h;
+      }
+    } catch (e) {}
+    return 'direto';
+  }
+  // Guarda a origem da primeira visita, para nao perde-la se a pessoa navegar pela pagina.
+  var ORIGEM = lembrar('vs-origem-corr') || origem();
+  lembrar('vs-origem-corr', ORIGEM);
+
   if (!form.elements.nome.value) form.elements.nome.value = lembrar('vs-nome');
+
+  function falhou() {
+    botao.disabled = false;
+    botao.textContent = TEXTO_BOTAO;
+    erro.textContent = 'Não consegui registrar agora. Confira a sua conexão e tente de novo.';
+  }
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -482,29 +687,31 @@
     var email = form.elements.email.value.trim().toLowerCase();
     if (nome.length < 2) { erro.textContent = 'Escreva o seu nome.'; form.elements.nome.focus(); return; }
     if (!EMAIL.test(email)) { erro.textContent = 'Confira o e-mail.'; form.elements.email.focus(); return; }
-    if (!form.elements.promessa.checked) { erro.textContent = 'As cartas são diárias. Marque o compromisso para seguir.'; return; }
+    if (!form.elements.promessa.checked) { erro.textContent = 'As cartas são diárias. Marque a caixa para seguir.'; return; }
     erro.textContent = '';
     botao.disabled = true;
     botao.textContent = 'Enviando…';
     lembrar('vs-nome', nome);
-    lembrar('vs-email', email);
 
-    var local = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
-    if (!form.elements.site.value && !local) {
-      var dados = new URLSearchParams({
-        nome: nome, email: email, telefone: lembrar('vs-telefone'),
-        produto: 'Correspondências', origem: 'e-mail: ' + email, pagina: location.pathname
-      });
-      try { fetch(PLANILHA, { method: 'POST', mode: 'no-cors', body: dados, keepalive: true }); } catch (err) {}
-    }
-    try { if (window.fbq) window.fbq('track', 'Lead', { content_name: 'Correspondências' }); } catch (err) {}
-
-    setTimeout(function () {
+    function pronto() {
+      try { if (window.fbq) window.fbq('track', 'Lead', { content_name: 'Correspondências' }); } catch (err) {}
       caixa.querySelector('[data-nome]').textContent = nome.split(' ')[0];
       caixa.querySelector('[data-email]').textContent = email;
       caixa.classList.add('feito');
       caixa.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }, 500);
+    }
+
+    var local = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
+    if (form.elements.site.value || local) { setTimeout(pronto, 400); return; }
+
+    var dados = new URLSearchParams({
+      nome: nome, email: email,
+      produto: 'Correspondências', origem: 'e-mail: ' + email + ' · origem: ' + ORIGEM, pagina: location.pathname
+    });
+    // no-cors: a resposta e opaca, mas a promessa so se cumpre quando o pedido chegou ao servidor.
+    var limite = new Promise(function (_, rej) { setTimeout(function () { rej(new Error('tempo')); }, 15000); });
+    Promise.race([fetch(PLANILHA, { method: 'POST', mode: 'no-cors', body: dados }), limite])
+      .then(pronto, falhou);
   });
 })();
 </script>
